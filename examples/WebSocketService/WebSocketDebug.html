@@ -1,0 +1,122 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WebSocketDebug</title>
+    <script language="javascript" type="text/javascript">
+        var output;
+        function init() {
+            testWebSocket();
+            output = document.getElementById('output');
+        }
+        function testWebSocket() {
+            websocket = new WebSocket("ws://127.0.0.1:3350");
+            websocket.onopen = function (evt) {
+                writeToScreen("CONNECTED");
+            };
+            websocket.onclose = function (evt) {
+                writeToScreen("DISCONNECTED");
+            };
+            websocket.onmessage = function (evt) {
+                writeToScreen('RESPONSE:' + evt.data);
+            };
+            websocket.onerror = function (evt) {
+                writeToScreen('ERROR:' + evt.data);
+            };
+        }
+
+        function doSend(message) {
+            writeToScreen("SENT: " + message);
+            websocket.send(message);
+        }
+        function writeToScreen(message) {
+            output.value = output.value + '\r\n' + message;
+            output.scrollTop = output.scrollHeight;
+        }
+        //----------functions----------
+        function ClientInvoke() {
+            doSend(JSON.stringify({
+                method: 'ClientInvoke',
+                param: {
+                    Data: txtCode.value
+                }
+            }));
+        }
+        function Heartbeat() {
+            doSend(JSON.stringify({
+                method: 'Heartbeat'
+            }));
+        }
+
+    </script>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            empty-cells: show;
+            border: 1px solid #cbcbcb;
+        }
+
+            table td, table th {
+                border-left: 1px solid #cbcbcb;
+                border-bottom: 1px solid #cbcbcb;
+                border-width: 0 0 1px 1px;
+                font-size: inherit;
+                margin: 0;
+                overflow: visible;
+                padding: .5em 1em;
+            }
+
+            table thead {
+                background-color: #e0e0e0;
+                color: #000;
+                text-align: left;
+                vertical-align: bottom;
+            }
+    </style>
+</head>
+<body onload="init()">
+    <h2>WebSocketDebug</h2>
+    <div style="height: 90%; display: flex; justify-content: space-between;">
+        <!--Invoke-->
+        <div style="overflow-y: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Method</th>
+                        <th>Parameter</th>
+                        <th>Invoke</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>ClientInvoke</td>
+                        <td><nobr><input id="txtCode" type="text" /></nobr></td>
+                        <td><input type="button" value="客户端调用" onclick="ClientInvoke()" /></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Heartbeat</td>
+                        <td>N/A</td>
+                        <td><input type="button" value="心跳包" onclick="Heartbeat()" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--Output-->
+        <table style="flex:1;height: 100%">
+            <thead>
+                <tr><td>Output</td></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        <textarea rows="1" cols="1" id="output" style="width:100%; height: 100%; border: none"></textarea>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
