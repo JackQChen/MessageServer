@@ -1,0 +1,12 @@
+D:\Share\QueryDesigner\FormsDesigner\bin\Debug\FormsDesigner.dll
+D:\Share\QueryDesigner\FormsDesigner\bin\Debug\FormsDesigner.pdb
+D:\Share\QueryDesigner\FormsDesigner\bin\Debug\log4net.dll
+D:\Share\QueryDesigner\FormsDesigner\obj\Debug\ResolveAssemblyReference.cache
+D:\Share\QueryDesigner\FormsDesigner\obj\Debug\FormsDesigner.dll
+D:\Share\QueryDesigner\FormsDesigner\obj\Debug\FormsDesigner.pdb
+E:\QueryDesigner\FormsDesigner\bin\Debug\FormsDesigner.dll
+E:\QueryDesigner\FormsDesigner\bin\Debug\FormsDesigner.pdb
+E:\QueryDesigner\FormsDesigner\bin\Debug\log4net.dll
+E:\QueryDesigner\FormsDesigner\obj\Debug\ResolveAssemblyReference.cache
+E:\QueryDesigner\FormsDesigner\obj\Debug\FormsDesigner.dll
+E:\QueryDesigner\FormsDesigner\obj\Debug\FormsDesigner.pdb

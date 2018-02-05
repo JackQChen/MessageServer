@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.3077</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DB4EF479-E2DC-44FD-9B8A-A421BD57B949}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>SnControl</AssemblyName>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/SnControl/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <RootNamespace>SnControl</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>false</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugSymbols>false</DebugSymbols>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>true</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DEV\DevExpress.Printing.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DEV\DevExpress.Data.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.1">
+      <Name>DevExpress.Utils.v11.1</Name>
+      <HintPath>DEV\DevExpress.Utils.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.1">
+      <Name>DevExpress.XtraEditors.v11.1</Name>
+      <HintPath>DEV\DevExpress.XtraEditors.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DEV\DevExpress.XtraGrid.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Search\Column.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Search\Columns.cs" />
+    <Compile Include="Search\Search.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SnControl\ChangedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\ChangedType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\ChangeType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\ConChangedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\DataSetType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\FieldItem.cs" />
+    <Compile Include="SnControl\FieldsCollections.cs" />
+    <Compile Include="SnControl\FrmParamProp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SnControl\FrmSelectField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SnControl\FrmSelectFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SnControl\ICommonAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\ParamComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SnControl\ParamDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SnControl\ParamEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\ParamItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\ParamRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SnControl\ParamsCollections.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\ParamTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SnControl\Resize.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\SnDataSet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\SnPage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\Solution.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\SolutionInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\SQLParamCollections.cs" />
+    <Compile Include="SnControl\SQLParamItem.cs" />
+    <Compile Include="SnControl\StatTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SnControl\StatType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\StyleFormat.cs" />
+    <Compile Include="SnControl\TitlePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SnControl\XmlSolutionGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SnControl\XmlSolutionReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SnControl.dll.licenses" />
+    <EmbeddedResource Include="SnControl\FrmParamProp.resx">
+      <DependentUpon>FrmParamProp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SnControl\FrmSelectField.resx">
+      <DependentUpon>FrmSelectField.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QueryDataAccess\QueryDataAccess.csproj">
+      <Project>{4DCE6A8B-7FF8-49BD-9BE4-D02376B07913}</Project>
+      <Name>QueryDataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Delete.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

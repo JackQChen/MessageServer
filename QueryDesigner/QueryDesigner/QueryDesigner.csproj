@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8818A2A4-59FC-4309-A887-9A1D525C430D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QueryDesigner</RootNamespace>
+    <AssemblyName>QueryDesigner</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ApplicationIcon>QueryDesigner.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>http://localhost/QueryDesigner/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\..\DEV\DevExpress.Printing.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\..\DEV\DevExpress.Data.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\DEV\DevExpress.Utils.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\..\DEV\DevExpress.XtraEditors.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+      <HintPath>..\..\DEV\DevExpress.XtraGrid.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+      <HintPath>..\..\DEV\DevExpress.XtraNavBar.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+      <HintPath>..\..\DEV\DevExpress.XtraPrinting.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms.DataVisualization">
+      <HintPath>bin\Debug\System.Windows.Forms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAllFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAllFunction.Designer.cs">
+      <DependentUpon>FormAllFunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormContent.Designer.cs">
+      <DependentUpon>FormContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDataSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDataSource.Designer.cs">
+      <DependentUpon>FormDataSource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditField.Designer.cs">
+      <DependentUpon>FormEditField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFields.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFields.Designer.cs">
+      <DependentUpon>FormFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFunction.Designer.cs">
+      <DependentUpon>FormFunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewProject.Designer.cs">
+      <DependentUpon>FormNewProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewStyle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewStyle.Designer.cs">
+      <DependentUpon>FormNewStyle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProperties.Designer.cs">
+      <DependentUpon>FormProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQueryData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQueryData.Designer.cs">
+      <DependentUpon>FormQueryData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQueryResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQueryResult.Designer.cs">
+      <DependentUpon>FormQueryResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectFiled.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectFiled.Designer.cs">
+      <DependentUpon>FormSelectFiled.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectTable.Designer.cs">
+      <DependentUpon>FormSelectTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetAliasName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetAliasName.Designer.cs">
+      <DependentUpon>FormSetAliasName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStyle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStyle.Designer.cs">
+      <DependentUpon>FormStyle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormToolBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormToolBox.Designer.cs">
+      <DependentUpon>FormToolBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Method.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main.ico" />
+    <None Include="Resources\Design.png" />
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAllFunction.resx">
+      <DependentUpon>FormAllFunction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormContent.resx">
+      <DependentUpon>FormContent.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDataSource.resx">
+      <DependentUpon>FormDataSource.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditField.resx">
+      <DependentUpon>FormEditField.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFields.resx">
+      <DependentUpon>FormFields.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFunction.resx">
+      <DependentUpon>FormFunction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewProject.resx">
+      <DependentUpon>FormNewProject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewStyle.resx">
+      <DependentUpon>FormNewStyle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProperties.resx">
+      <DependentUpon>FormProperties.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQueryData.resx">
+      <DependentUpon>FormQueryData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQueryResult.resx">
+      <DependentUpon>FormQueryResult.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectFiled.resx">
+      <DependentUpon>FormSelectFiled.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectTable.resx">
+      <DependentUpon>FormSelectTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetAliasName.resx">
+      <DependentUpon>FormSetAliasName.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStyle.resx">
+      <DependentUpon>FormStyle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormToolBox.resx">
+      <DependentUpon>FormToolBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\1.bmp" />
+    <EmbeddedResource Include="Images\10.bmp" />
+    <EmbeddedResource Include="Images\11.bmp" />
+    <EmbeddedResource Include="Images\12.bmp" />
+    <EmbeddedResource Include="Images\13.bmp" />
+    <EmbeddedResource Include="Images\14.bmp" />
+    <EmbeddedResource Include="Images\15.bmp" />
+    <EmbeddedResource Include="Images\16.bmp" />
+    <EmbeddedResource Include="Images\17.bmp" />
+    <EmbeddedResource Include="Images\18.bmp" />
+    <EmbeddedResource Include="Images\19.bmp" />
+    <EmbeddedResource Include="Images\2.bmp" />
+    <EmbeddedResource Include="Images\20.bmp" />
+    <EmbeddedResource Include="Images\21.bmp" />
+    <EmbeddedResource Include="Images\22.bmp" />
+    <EmbeddedResource Include="Images\23.bmp" />
+    <EmbeddedResource Include="Images\24.bmp" />
+    <EmbeddedResource Include="Images\25.bmp" />
+    <EmbeddedResource Include="Images\26.bmp" />
+    <EmbeddedResource Include="Images\27.bmp" />
+    <EmbeddedResource Include="Images\28.bmp" />
+    <EmbeddedResource Include="Images\29.bmp" />
+    <EmbeddedResource Include="Images\3.bmp" />
+    <EmbeddedResource Include="Images\30.bmp" />
+    <EmbeddedResource Include="Images\31.bmp" />
+    <EmbeddedResource Include="Images\32.bmp" />
+    <EmbeddedResource Include="Images\33.bmp" />
+    <EmbeddedResource Include="Images\34.bmp" />
+    <EmbeddedResource Include="Images\35.bmp" />
+    <EmbeddedResource Include="Images\36.bmp" />
+    <EmbeddedResource Include="Images\37.bmp" />
+    <EmbeddedResource Include="Images\38.bmp" />
+    <EmbeddedResource Include="Images\39.bmp" />
+    <EmbeddedResource Include="Images\4.bmp" />
+    <EmbeddedResource Include="Images\40.bmp" />
+    <EmbeddedResource Include="Images\41.bmp" />
+    <EmbeddedResource Include="Images\42.bmp" />
+    <EmbeddedResource Include="Images\43.bmp" />
+    <EmbeddedResource Include="Images\44.bmp" />
+    <EmbeddedResource Include="Images\45.bmp" />
+    <EmbeddedResource Include="Images\46.bmp" />
+    <EmbeddedResource Include="Images\47.bmp" />
+    <EmbeddedResource Include="Images\48.bmp" />
+    <EmbeddedResource Include="Images\49.bmp" />
+    <EmbeddedResource Include="Images\5.bmp" />
+    <EmbeddedResource Include="Images\50.bmp" />
+    <EmbeddedResource Include="Images\51.bmp" />
+    <EmbeddedResource Include="Images\52.bmp" />
+    <EmbeddedResource Include="Images\53.bmp" />
+    <EmbeddedResource Include="Images\54.bmp" />
+    <EmbeddedResource Include="Images\55.bmp" />
+    <EmbeddedResource Include="Images\56.bmp" />
+    <EmbeddedResource Include="Images\57.bmp" />
+    <EmbeddedResource Include="Images\6.bmp" />
+    <EmbeddedResource Include="Images\7.bmp" />
+    <EmbeddedResource Include="Images\8.bmp" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Images\58.bmp" />
+    <EmbeddedResource Include="Images\59.bmp" />
+    <EmbeddedResource Include="Images\60.bmp" />
+    <EmbeddedResource Include="Images\61.bmp" />
+    <EmbeddedResource Include="Images\62.bmp" />
+    <EmbeddedResource Include="Images\63.bmp" />
+    <EmbeddedResource Include="Images\64.bmp" />
+    <EmbeddedResource Include="Images\65.bmp" />
+    <EmbeddedResource Include="Images\66.bmp" />
+    <EmbeddedResource Include="Images\67.bmp" />
+    <EmbeddedResource Include="Images\68.bmp" />
+    <EmbeddedResource Include="Images\69.bmp" />
+    <EmbeddedResource Include="Images\70.bmp" />
+    <EmbeddedResource Include="Images\71.bmp" />
+    <EmbeddedResource Include="Images\72.bmp" />
+    <EmbeddedResource Include="Images\73.bmp" />
+    <EmbeddedResource Include="Images\74.bmp" />
+    <EmbeddedResource Include="Images\75.bmp" />
+    <EmbeddedResource Include="Images\76.bmp" />
+    <EmbeddedResource Include="Images\77.bmp" />
+    <EmbeddedResource Include="Images\0.bmp" />
+    <EmbeddedResource Include="Images\9.bmp" />
+    <EmbeddedResource Include="Images\ICON\Tool.ico" />
+    <EmbeddedResource Include="Images\ICON\Property.ico" />
+    <EmbeddedResource Include="Images\ICON\Main.ico" />
+    <Content Include="QueryDesigner.ico" />
+    <Content Include="Reference\log4net.dll">
+    </Content>
+    <Content Include="Reference\ShapePanel.dll">
+    </Content>
+    <None Include="Resources\Search.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileRegister\FileRegister.csproj">
+      <Project>{5CCAE91D-E7A1-4A00-BF5F-689E26FFE00D}</Project>
+      <Name>FileRegister</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormsDesigner\FormsDesigner.csproj">
+      <Project>{4A9C0CF2-2601-4C06-9500-F261E7EE9C8D}</Project>
+      <Name>FormsDesigner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryDataAccess\QueryDataAccess.csproj">
+      <Project>{4DCE6A8B-7FF8-49BD-9BE4-D02376B07913}</Project>
+      <Name>QueryDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryException\QueryException.csproj">
+      <Project>{773225E5-5A7E-4FB4-900D-4C19D66200AF}</Project>
+      <Name>QueryException</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnControl\SnControl.csproj">
+      <Project>{DB4EF479-E2DC-44FD-9B8A-A421BD57B949}</Project>
+      <Name>SnControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI\WinFormsUI.csproj">
+      <Project>{C75532C4-765B-418E-B09B-46D36B2ABDB1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,12 @@
+D:\Share\QueryDesigner\QueryDataAccess\bin\Debug\QueryDataAccess.dll
+D:\Share\QueryDesigner\QueryDataAccess\bin\Debug\QueryDataAccess.pdb
+D:\Share\QueryDesigner\QueryDataAccess\bin\Debug\DataAccess.dll
+D:\Share\QueryDesigner\QueryDataAccess\bin\Debug\log4net.dll
+D:\Share\QueryDesigner\QueryDataAccess\obj\Debug\ResolveAssemblyReference.cache
+D:\Share\QueryDesigner\QueryDataAccess\obj\Debug\QueryDataAccess.dll
+D:\Share\QueryDesigner\QueryDataAccess\obj\Debug\QueryDataAccess.pdb
+E:\QueryDesigner\QueryDataAccess\bin\Debug\QueryDataAccess.dll
+E:\QueryDesigner\QueryDataAccess\bin\Debug\QueryDataAccess.pdb
+E:\QueryDesigner\QueryDataAccess\obj\Debug\ResolveAssemblyReference.cache
+E:\QueryDesigner\QueryDataAccess\obj\Debug\QueryDataAccess.dll
+E:\QueryDesigner\QueryDataAccess\obj\Debug\QueryDataAccess.pdb

@@ -1,0 +1,53 @@
+﻿2017-09-01 09:42:43
+select a.* ,b.Name from T_User a
+left join T_Operator b on a.Operator = b.Id
+where dbo.IsEqual(a.Id, @Id) = 1
+and a.Code like '%'+ @Code +'%'
+and dbo.IsEqual(a.Operator,@Opr) = 1
+and dbo.IsEqual(a.Sex,@Sex) = 1
+and a.RegisteDate < @RegTime
+String:@Opr->
+String:@Id->
+String:@Code->
+String:@Sex->
+DateTime:@RegTime->2017/9/1 星期五 9:42:42
+
+2017-09-01 09:42:44
+select a.* ,b.Name from T_User a
+left join T_Operator b on a.Operator = b.Id
+where dbo.IsEqual(a.Id, @Id) = 1
+and a.Code like '%'+ @Code +'%'
+and dbo.IsEqual(a.Operator,@Opr) = 1
+and dbo.IsEqual(a.Sex,@Sex) = 1
+and a.RegisteDate < @RegTime
+String:@Opr->
+String:@Id->
+String:@Code->
+String:@Sex->
+DateTime:@RegTime->2017/9/1 星期五 9:42:42
+
+2017-09-06 18:41:25
+select * from T_user a
+where a.Name like '%' + @Name + '%'
+String:@Name->
+
+2017-09-06 18:41:30
+select * from T_user a
+where a.Name like '%' + @Name + '%'
+String:@Name->张
+
+2017-09-06 18:41:33
+select * from T_user a
+where a.Name like '%' + @Name + '%'
+String:@Name->李
+
+2017-09-06 18:41:49
+select * from T_user a
+where a.Name like '%' + @Name + '%'
+String:@Name->
+
+2017-09-06 18:42:31
+select * from T_user a
+where a.Name like '%' + @Name + '%'
+String:@Name->
+
