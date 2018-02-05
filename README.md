@@ -1,7 +1,7 @@
 # CommonLibrary
 这是一些公用组件库
 
-CustomSkin - 自定义皮肤组件
+CustomSkin - 自定义皮肤组件(支持图片半透明背景)
 ![](https://github.com/chen365409389/CommonLibrary/blob/master/Img/CS.png)
 MessageServer - 基于IOCP的消息服务器（可自定义扩展消息服务）
 ![](https://github.com/chen365409389/CommonLibrary/blob/master/Img/MS.png)
