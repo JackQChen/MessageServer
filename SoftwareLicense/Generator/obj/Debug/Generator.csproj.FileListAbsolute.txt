@@ -1,0 +1,64 @@
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\Generator.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\Generator.FrmGenerate.resources
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\bin\Debug\Generator.exe
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\bin\Debug\Generator.pdb
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\Generator.Properties.Resources.resources
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\Generator.exe
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\Generator.pdb
+F:\完整功能集\SoftwareAuthorization\Generator\bin\Debug\Generator.exe
+F:\完整功能集\SoftwareAuthorization\Generator\bin\Debug\Generator.pdb
+F:\完整功能集\SoftwareAuthorization\Generator\obj\Debug\ResolveAssemblyReference.cache
+F:\完整功能集\SoftwareAuthorization\Generator\obj\Debug\Generator.FrmGenerate.resources
+F:\完整功能集\SoftwareAuthorization\Generator\obj\Debug\Generator.Properties.Resources.resources
+F:\完整功能集\SoftwareAuthorization\Generator\obj\Debug\Generator.csproj.GenerateResource.Cache
+F:\完整功能集\SoftwareAuthorization\Generator\obj\Debug\Generator.exe
+F:\完整功能集\SoftwareAuthorization\Generator\obj\Debug\Generator.pdb
+F:\商品管理系统\商品管理系统\SoftAuthor\Generator\bin\Debug\Generator.exe
+F:\商品管理系统\商品管理系统\SoftAuthor\Generator\bin\Debug\Generator.pdb
+F:\商品管理系统\商品管理系统\SoftAuthor\Generator\obj\Debug\ResolveAssemblyReference.cache
+F:\商品管理系统\商品管理系统\SoftAuthor\Generator\obj\Debug\Generator.FrmGenerate.resources
+F:\商品管理系统\商品管理系统\SoftAuthor\Generator\obj\Debug\Generator.Properties.Resources.resources
+F:\商品管理系统\商品管理系统\SoftAuthor\Generator\obj\Debug\Generator.csproj.GenerateResource.Cache
+F:\商品管理系统\商品管理系统\SoftAuthor\Generator\obj\Debug\Generator.exe
+F:\商品管理系统\商品管理系统\SoftAuthor\Generator\obj\Debug\Generator.pdb
+E:\项目文件\商品管理系统\SoftAuthor\Generator\obj\Debug\Generator.exe
+E:\项目文件\商品管理系统\SoftAuthor\Generator\obj\Debug\Generator.pdb
+E:\项目文件\商品管理系统\SoftAuthor\Generator\bin\Debug\Generator.exe
+E:\项目文件\商品管理系统\SoftAuthor\Generator\bin\Debug\Generator.pdb
+E:\项目文件\商品管理系统\SoftAuthor\Generator\obj\Debug\ResolveAssemblyReference.cache
+E:\项目文件\商品管理系统\SoftAuthor\Generator\obj\Debug\Generator.FrmGenerate.resources
+E:\项目文件\商品管理系统\SoftAuthor\Generator\obj\Debug\Generator.Properties.Resources.resources
+E:\项目文件\商品管理系统\SoftAuthor\Generator\obj\Debug\Generator.csproj.GenerateResource.Cache
+F:\公用模块\SoftAuthor\Generator\obj\Debug\Generator.exe
+F:\公用模块\SoftAuthor\Generator\obj\Debug\Generator.pdb
+F:\公用模块\SoftAuthor\Generator\bin\Debug\Generator.exe
+F:\公用模块\SoftAuthor\Generator\bin\Debug\Generator.pdb
+F:\公用模块\SoftAuthor\Generator\obj\Debug\ResolveAssemblyReference.cache
+F:\公用模块\SoftAuthor\Generator\obj\Debug\Generator.FrmGenerate.resources
+F:\公用模块\SoftAuthor\Generator\obj\Debug\Generator.Properties.Resources.resources
+F:\公用模块\SoftAuthor\Generator\obj\Debug\Generator.csproj.GenerateResource.Cache
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Generator\obj\Debug\Generator.exe
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Generator\obj\Debug\Generator.pdb
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Generator\bin\Debug\Generator.exe
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Generator\bin\Debug\Generator.pdb
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Generator\obj\Debug\ResolveAssemblyReference.cache
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Generator\obj\Debug\Generator.FrmGenerate.resources
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Generator\obj\Debug\Generator.Properties.Resources.resources
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Generator\obj\Debug\Generator.csproj.GenerateResource.Cache
+D:\SourceCode\公共库代码\SoftAuthor\Generator\bin\Debug\Generator.exe
+D:\SourceCode\公共库代码\SoftAuthor\Generator\bin\Debug\Generator.pdb
+D:\SourceCode\公共库代码\SoftAuthor\Generator\obj\Debug\ResolveAssemblyReference.cache
+D:\SourceCode\公共库代码\SoftAuthor\Generator\obj\Debug\Generator.FrmGenerate.resources
+D:\SourceCode\公共库代码\SoftAuthor\Generator\obj\Debug\Generator.Properties.Resources.resources
+D:\SourceCode\公共库代码\SoftAuthor\Generator\obj\Debug\Generator.csproj.GenerateResource.Cache
+D:\SourceCode\公共库代码\SoftAuthor\Generator\obj\Debug\Generator.exe
+D:\SourceCode\公共库代码\SoftAuthor\Generator\obj\Debug\Generator.pdb
+D:\SourceCode\CommonLibrary\SoftwareLicense\Generator\bin\Debug\Generator.exe
+D:\SourceCode\CommonLibrary\SoftwareLicense\Generator\bin\Debug\Generator.pdb
+D:\SourceCode\CommonLibrary\SoftwareLicense\Generator\obj\Debug\Generator.FrmGenerate.resources
+D:\SourceCode\CommonLibrary\SoftwareLicense\Generator\obj\Debug\Generator.Properties.Resources.resources
+D:\SourceCode\CommonLibrary\SoftwareLicense\Generator\obj\Debug\Generator.csproj.GenerateResource.Cache
+D:\SourceCode\CommonLibrary\SoftwareLicense\Generator\obj\Debug\Generator.exe
+D:\SourceCode\CommonLibrary\SoftwareLicense\Generator\obj\Debug\Generator.pdb
+D:\SourceCode\CommonLibrary\SoftwareLicense\Generator\bin\Debug\CustomSkin.dll

@@ -1,0 +1,1 @@
+D:\SourceCode\CommonLibrary\SystemFramework\DataAccessOracle\obj\Debug\DataAccessOracle.csprojResolveAssemblyReference.cache

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{D8D5EDF7-DC62-4E63-8F7E-3004468CE463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSkin", "CustomSkin\CustomSkin.csproj", "{1FFB64BC-5D56-44F6-905B-4B1078EB15DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8D5EDF7-DC62-4E63-8F7E-3004468CE463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D5EDF7-DC62-4E63-8F7E-3004468CE463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D5EDF7-DC62-4E63-8F7E-3004468CE463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D5EDF7-DC62-4E63-8F7E-3004468CE463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FFB64BC-5D56-44F6-905B-4B1078EB15DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FFB64BC-5D56-44F6-905B-4B1078EB15DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FFB64BC-5D56-44F6-905B-4B1078EB15DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FFB64BC-5D56-44F6-905B-4B1078EB15DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

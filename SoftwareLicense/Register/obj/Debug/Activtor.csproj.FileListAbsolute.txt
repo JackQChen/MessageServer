@@ -1,0 +1,10 @@
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\obj\Debug\Activtor.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\bin\Debug\Activtor.exe
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\bin\Debug\Activtor.pdb
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\obj\Debug\SoftwareAuthorization.FrmActive.resources
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\obj\Debug\Activtor.Properties.Resources.resources
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\obj\Debug\Activtor.exe
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\obj\Debug\Activtor.pdb
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Client\obj\Debug\Activtor.exe
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Client\obj\Debug\Activtor.pdb

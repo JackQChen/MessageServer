@@ -1,0 +1,11 @@
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form2.resources
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\bin\Debug\CustomSkin.dll
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\bin\Debug\CustomSkin.pdb
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\SourceCode\CommonLibrary\CustomSkin\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb

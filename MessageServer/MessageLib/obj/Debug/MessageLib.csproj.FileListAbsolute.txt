@@ -1,0 +1,9 @@
+D:\SourceCode\CommonLibrary\MessageServer\MessageLib\bin\Debug\MessageLib.dll
+D:\SourceCode\CommonLibrary\MessageServer\MessageLib\bin\Debug\MessageLib.pdb
+D:\SourceCode\CommonLibrary\MessageServer\Bin\MessageLib.dll
+D:\SourceCode\CommonLibrary\MessageServer\Bin\MessageLib.pdb
+D:\SourceCode\CommonLibrary\MessageServer\MessageLib\obj\Debug\MessageLib.Properties.Resources.resources
+D:\SourceCode\CommonLibrary\MessageServer\MessageLib\obj\Debug\MessageLib.csproj.GenerateResource.Cache
+D:\SourceCode\CommonLibrary\MessageServer\MessageLib\obj\Debug\MessageLib.dll
+D:\SourceCode\CommonLibrary\MessageServer\MessageLib\obj\Debug\MessageLib.pdb
+D:\SourceCode\CommonLibrary\MessageServer\MessageLib\obj\Debug\MessageLib.csprojResolveAssemblyReference.cache

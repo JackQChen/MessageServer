@@ -1,0 +1,12 @@
+D:\SourceCode\CommonLibrary\MessageServer\MessageServer\bin\Debug\CommonService.dll
+D:\SourceCode\CommonLibrary\MessageServer\MessageServer\bin\Debug\CommonService.pdb
+D:\SourceCode\CommonLibrary\MessageServer\CommonService\obj\Debug\CommonService.csprojResolveAssemblyReference.cache
+D:\SourceCode\CommonLibrary\MessageServer\CommonService\obj\Debug\CommonService.dll
+D:\SourceCode\CommonLibrary\MessageServer\CommonService\obj\Debug\CommonService.pdb
+D:\SourceCode\CommonLibrary\MessageServer\Service\MessageServer\bin\Debug\CommonService.dll
+D:\SourceCode\CommonLibrary\MessageServer\Service\MessageServer\bin\Debug\CommonService.pdb
+D:\SourceCode\CommonLibrary\MessageServer\Bin\CommonService.dll
+D:\SourceCode\CommonLibrary\MessageServer\Bin\CommonService.pdb
+D:\SourceCode\CommonLibrary\MessageServer\Service\CommonService\obj\Debug\CommonService.csprojResolveAssemblyReference.cache
+D:\SourceCode\CommonLibrary\MessageServer\Service\CommonService\obj\Debug\CommonService.dll
+D:\SourceCode\CommonLibrary\MessageServer\Service\CommonService\obj\Debug\CommonService.pdb

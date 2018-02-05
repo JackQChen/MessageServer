@@ -1,0 +1,71 @@
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Client\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Client\obj\Debug\SoftwareAuthorization.FrmActive.resources
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Client\obj\Debug\Register.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Client\bin\Debug\Register.exe
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Client\bin\Debug\Register.pdb
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Client\obj\Debug\Register.Properties.Resources.resources
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Client\obj\Debug\Register.exe
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Client\obj\Debug\Register.pdb
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Register\bin\Debug\Register.pdb
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Register\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Register\obj\Debug\Register.Properties.Resources.resources
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Register\obj\Debug\Register.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Register\obj\Debug\Register.pdb
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Register\bin\Debug\Register.dll
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Register\obj\Debug\Register.dll
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Register\obj\Debug\Register.FrmRegister.resources
+F:\完整功能集\SoftwareAuthorization\Register\bin\Debug\Register.dll
+F:\完整功能集\SoftwareAuthorization\Register\bin\Debug\Register.pdb
+F:\完整功能集\SoftwareAuthorization\Register\obj\Debug\ResolveAssemblyReference.cache
+F:\完整功能集\SoftwareAuthorization\Register\obj\Debug\Register.FrmRegister.resources
+F:\完整功能集\SoftwareAuthorization\Register\obj\Debug\Register.Properties.Resources.resources
+F:\完整功能集\SoftwareAuthorization\Register\obj\Debug\Register.csproj.GenerateResource.Cache
+F:\完整功能集\SoftwareAuthorization\Register\obj\Debug\Register.dll
+F:\完整功能集\SoftwareAuthorization\Register\obj\Debug\Register.pdb
+F:\商品管理系统\商品管理系统\SoftAuthor\Register\bin\Debug\Register.dll
+F:\商品管理系统\商品管理系统\SoftAuthor\Register\bin\Debug\Register.pdb
+F:\商品管理系统\商品管理系统\SoftAuthor\Register\obj\Debug\ResolveAssemblyReference.cache
+F:\商品管理系统\商品管理系统\SoftAuthor\Register\obj\Debug\Register.FrmRegister.resources
+F:\商品管理系统\商品管理系统\SoftAuthor\Register\obj\Debug\Register.Properties.Resources.resources
+F:\商品管理系统\商品管理系统\SoftAuthor\Register\obj\Debug\Register.csproj.GenerateResource.Cache
+F:\商品管理系统\商品管理系统\SoftAuthor\Register\obj\Debug\Register.dll
+F:\商品管理系统\商品管理系统\SoftAuthor\Register\obj\Debug\Register.pdb
+E:\项目文件\商品管理系统\SoftAuthor\Register\bin\Debug\Register.dll
+E:\项目文件\商品管理系统\SoftAuthor\Register\bin\Debug\Register.pdb
+E:\项目文件\商品管理系统\SoftAuthor\Register\obj\Debug\ResolveAssemblyReference.cache
+E:\项目文件\商品管理系统\SoftAuthor\Register\obj\Debug\Register.FrmRegister.resources
+E:\项目文件\商品管理系统\SoftAuthor\Register\obj\Debug\Register.Properties.Resources.resources
+E:\项目文件\商品管理系统\SoftAuthor\Register\obj\Debug\Register.csproj.GenerateResource.Cache
+E:\项目文件\商品管理系统\SoftAuthor\Register\obj\Debug\Register.dll
+E:\项目文件\商品管理系统\SoftAuthor\Register\obj\Debug\Register.pdb
+F:\公用模块\SoftAuthor\Register\bin\Debug\Register.dll
+F:\公用模块\SoftAuthor\Register\bin\Debug\Register.pdb
+F:\公用模块\SoftAuthor\Register\obj\Debug\ResolveAssemblyReference.cache
+F:\公用模块\SoftAuthor\Register\obj\Debug\Register.FrmRegister.resources
+F:\公用模块\SoftAuthor\Register\obj\Debug\Register.Properties.Resources.resources
+F:\公用模块\SoftAuthor\Register\obj\Debug\Register.csproj.GenerateResource.Cache
+F:\公用模块\SoftAuthor\Register\obj\Debug\Register.dll
+F:\公用模块\SoftAuthor\Register\obj\Debug\Register.pdb
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Register\bin\Debug\Register.dll
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Register\bin\Debug\Register.pdb
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Register\obj\Debug\ResolveAssemblyReference.cache
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Register\obj\Debug\Register.FrmRegister.resources
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Register\obj\Debug\Register.Properties.Resources.resources
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Register\obj\Debug\Register.csproj.GenerateResource.Cache
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Register\obj\Debug\Register.dll
+G:\CourseSelectingSystem\公共模块\SoftAuthor\Register\obj\Debug\Register.pdb
+D:\SourceCode\公共库代码\SoftAuthor\Register\bin\Debug\Register.dll
+D:\SourceCode\公共库代码\SoftAuthor\Register\bin\Debug\Register.pdb
+D:\SourceCode\公共库代码\SoftAuthor\Register\obj\Debug\ResolveAssemblyReference.cache
+D:\SourceCode\公共库代码\SoftAuthor\Register\obj\Debug\Register.FrmRegister.resources
+D:\SourceCode\公共库代码\SoftAuthor\Register\obj\Debug\Register.Properties.Resources.resources
+D:\SourceCode\公共库代码\SoftAuthor\Register\obj\Debug\Register.csproj.GenerateResource.Cache
+D:\SourceCode\公共库代码\SoftAuthor\Register\obj\Debug\Register.dll
+D:\SourceCode\公共库代码\SoftAuthor\Register\obj\Debug\Register.pdb
+D:\SourceCode\CommonLibrary\SoftwareLicense\Register\bin\Debug\Register.dll
+D:\SourceCode\CommonLibrary\SoftwareLicense\Register\bin\Debug\Register.pdb
+D:\SourceCode\CommonLibrary\SoftwareLicense\Register\obj\Debug\Register.FrmRegister.resources
+D:\SourceCode\CommonLibrary\SoftwareLicense\Register\obj\Debug\Register.Properties.Resources.resources
+D:\SourceCode\CommonLibrary\SoftwareLicense\Register\obj\Debug\Register.csproj.GenerateResource.Cache
+D:\SourceCode\CommonLibrary\SoftwareLicense\Register\obj\Debug\Register.dll
+D:\SourceCode\CommonLibrary\SoftwareLicense\Register\obj\Debug\Register.pdb

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FFB64BC-5D56-44F6-905B-4B1078EB15DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CustomSkin</RootNamespace>
+    <AssemblyName>CustomSkin</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Drawing\Graphics.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Res.cs" />
+    <Compile Include="Win32\AnimateWindowFlags.cs" />
+    <Compile Include="Win32\GDI32.cs" />
+    <Compile Include="Win32\User32.cs" />
+    <Compile Include="Windows\Forms\Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\CheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\ComboBox.cs" />
+    <Compile Include="Windows\Forms\ControlBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\FrmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\FrmMessage.Designer.cs">
+      <DependentUpon>FrmMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Forms\MessageBox.cs" />
+    <Compile Include="Windows\Forms\MouseState.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\Panel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\ProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\RadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\SkinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\SkinForm.Designer.cs">
+      <DependentUpon>SkinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Forms\SysButtons.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\TabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\ToolStripRenderers.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\WindowsMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\WM_NCHITTEST.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Form\btn_close_down.png" />
+    <EmbeddedResource Include="Resources\Form\btn_close_highlight.png" />
+    <EmbeddedResource Include="Resources\Form\btn_close_normal.png" />
+    <EmbeddedResource Include="Resources\Form\btn_max_down.png" />
+    <EmbeddedResource Include="Resources\Form\btn_max_highlight.png" />
+    <EmbeddedResource Include="Resources\Form\btn_max_normal.png" />
+    <EmbeddedResource Include="Resources\Form\btn_mini_down.png" />
+    <EmbeddedResource Include="Resources\Form\btn_mini_highlight.png" />
+    <EmbeddedResource Include="Resources\Form\btn_mini_normal.png" />
+    <EmbeddedResource Include="Resources\Form\btn_restore_down.png" />
+    <EmbeddedResource Include="Resources\Form\btn_restore_highlight.png" />
+    <EmbeddedResource Include="Resources\Form\btn_restore_normal.png" />
+    <EmbeddedResource Include="Resources\Form\btn_Skin_down.png" />
+    <EmbeddedResource Include="Resources\Form\btn_Skin_highlight.png" />
+    <EmbeddedResource Include="Resources\Form\btn_Skin_normal.png" />
+    <EmbeddedResource Include="Resources\Form\WindowsBorderImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Form\MessageBorderImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Form\fringe_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\TextBox\TextBox_move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CheckBox\hightlight.png" />
+    <EmbeddedResource Include="Resources\CheckBox\normal.png" />
+    <EmbeddedResource Include="Resources\CheckBox\tick_highlight.png" />
+    <EmbeddedResource Include="Resources\CheckBox\tick_normal.png" />
+    <EmbeddedResource Include="Resources\CheckBox\_tick_highlight.png" />
+    <EmbeddedResource Include="Resources\CheckBox\_tick_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\RadioButton\highlight.png" />
+    <EmbeddedResource Include="Resources\RadioButton\normal.png" />
+    <EmbeddedResource Include="Resources\RadioButton\tick_highlight.png" />
+    <EmbeddedResource Include="Resources\RadioButton\tick_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ContextMenu\menu_arrow.png" />
+    <EmbeddedResource Include="Resources\ContextMenu\menu_bkg.png" />
+    <EmbeddedResource Include="Resources\ContextMenu\menu_bkg_board.png" />
+    <EmbeddedResource Include="Resources\ContextMenu\menu_check.png" />
+    <EmbeddedResource Include="Resources\ContextMenu\menu_cutling.png" />
+    <EmbeddedResource Include="Resources\ContextMenu\menu_highlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Button\down.png" />
+    <EmbeddedResource Include="Resources\Button\focus.png" />
+    <EmbeddedResource Include="Resources\Button\gray.png" />
+    <EmbeddedResource Include="Resources\Button\highlight.png" />
+    <EmbeddedResource Include="Resources\Button\Light.png" />
+    <EmbeddedResource Include="Resources\Button\normal.png" />
+    <EmbeddedResource Include="Resources\Button\White-side.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\TabControl\main_tab_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\TabControl\main_tab_check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\TabControl\main_tab_highlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\TabControl\aio_png_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ProgressBar\AFStaticProgress_Background.png" />
+    <EmbeddedResource Include="Resources\ProgressBar\AFStaticProgress_Green.png" />
+    <EmbeddedResource Include="Windows\Forms\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Forms\SkinForm.resx">
+      <DependentUpon>SkinForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ContextMenu\menu_downarrow.png" />
+    <EmbeddedResource Include="Windows\Forms\FrmMessage.resx">
+      <DependentUpon>FrmMessage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

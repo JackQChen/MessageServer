@@ -1,0 +1,5 @@
+D:\SourceCode\CommonLibrary\WebFramework\WebFramework\bin\Debug\WebFramework.dll
+D:\SourceCode\CommonLibrary\WebFramework\WebFramework\bin\Debug\WebFramework.pdb
+D:\SourceCode\CommonLibrary\WebFramework\WebFramework\obj\Debug\WebFramework.dll
+D:\SourceCode\CommonLibrary\WebFramework\WebFramework\obj\Debug\WebFramework.pdb
+D:\SourceCode\CommonLibrary\WebFramework\WebFramework\obj\Debug\WebFramework.csprojResolveAssemblyReference.cache

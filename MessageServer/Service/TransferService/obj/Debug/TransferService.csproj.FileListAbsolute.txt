@@ -1,0 +1,6 @@
+D:\SourceCode\CommonLibrary\MessageServer\Bin\TransferService.dll.config
+D:\SourceCode\CommonLibrary\MessageServer\Bin\TransferService.dll
+D:\SourceCode\CommonLibrary\MessageServer\Bin\TransferService.pdb
+D:\SourceCode\CommonLibrary\MessageServer\Service\TransferService\obj\Debug\TransferService.csprojResolveAssemblyReference.cache
+D:\SourceCode\CommonLibrary\MessageServer\Service\TransferService\obj\Debug\TransferService.dll
+D:\SourceCode\CommonLibrary\MessageServer\Service\TransferService\obj\Debug\TransferService.pdb

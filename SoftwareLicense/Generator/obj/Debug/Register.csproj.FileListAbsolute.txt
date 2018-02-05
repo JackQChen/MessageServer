@@ -1,0 +1,16 @@
+C:\Documents and Settings\Administrator\桌面\Generater\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\Generater\obj\Debug\Register.Properties.Resources.resources
+C:\Documents and Settings\Administrator\桌面\Generater\obj\Debug\Register.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\桌面\Generater\bin\Debug\Register.exe
+C:\Documents and Settings\Administrator\桌面\Generater\bin\Debug\Register.pdb
+C:\Documents and Settings\Administrator\桌面\Generater\obj\Debug\Register.exe
+C:\Documents and Settings\Administrator\桌面\Generater\obj\Debug\Register.pdb
+C:\Documents and Settings\Administrator\桌面\Generater\obj\Debug\Register.FrmGenerate.resources
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\bin\Debug\Register.exe
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\bin\Debug\Register.pdb
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\Register.FrmGenerate.resources
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\Register.Properties.Resources.resources
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\Register.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\Register.exe
+C:\Documents and Settings\Administrator\桌面\SoftwareAuthorization\Generator\obj\Debug\Register.pdb
