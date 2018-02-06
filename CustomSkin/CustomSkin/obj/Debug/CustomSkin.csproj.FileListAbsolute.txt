@@ -1,9 +1,0 @@
-D:\SourceCode\CommonLibrary\CustomSkin\CustomSkin\bin\Debug\CustomSkin.dll
-D:\SourceCode\CommonLibrary\CustomSkin\CustomSkin\bin\Debug\CustomSkin.pdb
-D:\SourceCode\CommonLibrary\CustomSkin\CustomSkin\obj\Debug\CustomSkin.Properties.Resources.resources
-D:\SourceCode\CommonLibrary\CustomSkin\CustomSkin\obj\Debug\CustomSkin.Windows.Forms.FormBase.resources
-D:\SourceCode\CommonLibrary\CustomSkin\CustomSkin\obj\Debug\CustomSkin.Windows.Forms.SkinForm.resources
-D:\SourceCode\CommonLibrary\CustomSkin\CustomSkin\obj\Debug\CustomSkin.Windows.Forms.FrmMessage.resources
-D:\SourceCode\CommonLibrary\CustomSkin\CustomSkin\obj\Debug\CustomSkin.csproj.GenerateResource.Cache
-D:\SourceCode\CommonLibrary\CustomSkin\CustomSkin\obj\Debug\CustomSkin.dll
-D:\SourceCode\CommonLibrary\CustomSkin\CustomSkin\obj\Debug\CustomSkin.pdb
