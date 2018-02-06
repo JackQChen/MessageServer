@@ -114,8 +114,7 @@ namespace AutoUpdate
                         MD5 = fileNew.MD5
                     }
                     select fileNew.ID;
-            foreach (var id in q)
-                info.FileList.Remove(info.FileList.Find(m => m.ID == id));
+            info.FileList.RemoveAll(m => q.Contains(m.ID));
             foreach (var fileItem in info.FileList)
             {
                 var item = this.lvUpdate.Items.Add(fileItem.ID, fileItem.Name, -1);

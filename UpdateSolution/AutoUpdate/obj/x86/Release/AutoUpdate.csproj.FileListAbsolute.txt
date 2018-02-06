@@ -1,0 +1,8 @@
+D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\bin\Release\AutoUpdate.exe.config
+D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\bin\Release\AutoUpdate.exe
+D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\bin\Release\AutoUpdate.pdb
+D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\obj\x86\Release\AutoUpdate.FrmMain.resources
+D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\obj\x86\Release\AutoUpdate.Properties.Resources.resources
+D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\obj\x86\Release\AutoUpdate.csproj.GenerateResource.Cache
+D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\obj\x86\Release\AutoUpdate.exe
+D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\obj\x86\Release\AutoUpdate.pdb
