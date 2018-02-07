@@ -50,16 +50,16 @@ namespace WindowsFormsApplication1
         {
             //foreach (string str in Directory.GetFiles(Application.StartupPath + "\\Image", "*.*", SearchOption.AllDirectories))
             //    Res.Current.ImageList.Add(Image.FromFile(str));
-            Res.Current.ImageList.AddRange(new Image[] { 
-            Resources._0435032,
-            Resources._11,
-            Resources._201111,
-            Resources._2014052116301447990,
-            Resources._353321,
-            Resources._503b6b1f7ce33,
-            Resources.d2fdsf3,
-            Resources.dfgfdg
-            });
+            //Res.Current.ImageList.AddRange(new Image[] { 
+            //Resources._0435032,
+            //Resources._11,
+            //Resources._201111,
+            //Resources._2014052116301447990,
+            //Resources._353321,
+            //Resources._503b6b1f7ce33,
+            //Resources.d2fdsf3,
+            //Resources.dfgfdg
+            //});
             unitWidth = this.pictureBox1.Width / 17;
         }
 
