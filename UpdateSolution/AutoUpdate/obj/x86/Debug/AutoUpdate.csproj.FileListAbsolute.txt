@@ -14,3 +14,4 @@ D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\obj\x86\Debug\AutoUpdate.P
 D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\obj\x86\Debug\AutoUpdate.csproj.GenerateResource.Cache
 D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\obj\x86\Debug\AutoUpdate.exe
 D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\obj\x86\Debug\AutoUpdate.pdb
+D:\SourceCode\CommonLibrary\UpdateSolution\AutoUpdate\obj\x86\Debug\AutoUpdate.csprojResolveAssemblyReference.cache
