@@ -1,5 +1,0 @@
-D:\SourceCode\CommonLibrary\MessageServer\Bin\AccessService.dll
-D:\SourceCode\CommonLibrary\MessageServer\Bin\AccessService.pdb
-D:\SourceCode\CommonLibrary\MessageServer\Service\AccessService\obj\Debug\AccessService.dll
-D:\SourceCode\CommonLibrary\MessageServer\Service\AccessService\obj\Debug\AccessService.pdb
-D:\SourceCode\CommonLibrary\MessageServer\Service\AccessService\obj\Debug\AccessService.csprojResolveAssemblyReference.cache
