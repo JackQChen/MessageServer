@@ -75,6 +75,7 @@ namespace AccessService
                             + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                             + "成功授权！\r\n");
                         this.Send(connId, data, data.Length);
+                        this.SetExtra(connId, strData);
                     }
                     else
                         this.Disconnect(connId);
