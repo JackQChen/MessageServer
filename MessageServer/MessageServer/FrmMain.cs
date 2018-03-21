@@ -160,9 +160,10 @@ namespace MessageServer
 
         private void tsSetting_Click(object sender, System.EventArgs e)
         {
-            //new FrmSetting().ShowDialog();
-            var frm = Activator.CreateInstance(Type.GetType("SystemConfig.FrmMain,SystemConfig")) as Form;
-            frm.ShowDialog(this);
+            using (var frm = new FrmSetting())
+            {
+                frm.ShowDialog(this);
+            }
         }
 
         void Exit()

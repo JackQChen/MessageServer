@@ -8,7 +8,7 @@ namespace AccessService
 {
     public class INIOperation
     {
-        private static readonly string filePath = AppDomain.CurrentDomain.BaseDirectory + "IPInfo.ini";
+        private static readonly string filePath = AppDomain.CurrentDomain.BaseDirectory + "Access.ini";
         [DllImport("kernel32")]
         private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
 
