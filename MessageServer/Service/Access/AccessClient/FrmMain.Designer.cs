@@ -35,6 +35,8 @@ namespace AccessClient
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnExit = new System.Windows.Forms.ToolStripMenuItem();
             this.txtMsg = new System.Windows.Forms.TextBox();
+            this.btnAccess = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,15 +52,17 @@ namespace AccessClient
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAccess,
+            this.toolStripMenuItem1,
             this.btnExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 76);
             // 
             // btnExit
             // 
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(124, 22);
-            this.btnExit.Text = "退出系统";
+            this.btnExit.Size = new System.Drawing.Size(152, 22);
+            this.btnExit.Text = "退出";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // txtMsg
@@ -70,6 +74,18 @@ namespace AccessClient
             this.txtMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMsg.Size = new System.Drawing.Size(284, 162);
             this.txtMsg.TabIndex = 0;
+            // 
+            // btnAccess
+            // 
+            this.btnAccess.Name = "btnAccess";
+            this.btnAccess.Size = new System.Drawing.Size(152, 22);
+            this.btnAccess.Text = "授权";
+            this.btnAccess.Click += new System.EventHandler(this.btnAccess_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // FrmMain
             // 
@@ -97,5 +113,7 @@ namespace AccessClient
         private System.Windows.Forms.TextBox txtMsg;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnExit;
+        private System.Windows.Forms.ToolStripMenuItem btnAccess;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }
