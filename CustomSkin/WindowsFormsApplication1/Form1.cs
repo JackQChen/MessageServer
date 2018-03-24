@@ -6,7 +6,7 @@ using CustomSkin.Windows.Forms;
 using WindowsFormsApplication1.Properties;
 
 namespace WindowsFormsApplication1
-{  
+{
     public partial class Form1 : FormBase
     {
         public Form1()
@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
             if (this.TitleColor == Color.Black)
                 this.TitleColor = Color.White;
             else
-                this.TitleColor = Color.Black; 
+                this.TitleColor = Color.Black;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,14 +51,14 @@ namespace WindowsFormsApplication1
             //foreach (string str in Directory.GetFiles(Application.StartupPath + "\\Image", "*.*", SearchOption.AllDirectories))
             //    Res.Current.ImageList.Add(Image.FromFile(str));
             Res.Current.ImageList.AddRange(new Image[] { 
-            Resources._0435032,
-            Resources._11,
-            Resources._201111,
-            Resources._2014052116301447990,
-            Resources._353321,
-            Resources._503b6b1f7ce33,
-            Resources.d2fdsf3,
-            Resources.dfgfdg
+            Resources._1,
+            Resources._2,
+            Resources._3,
+            Resources._4,
+            Resources._5,
+            Resources._6,
+            Resources._7,
+            Resources._8
             });
             unitWidth = this.pictureBox1.Width / 17;
         }
@@ -109,6 +109,6 @@ namespace WindowsFormsApplication1
         private void button8_Click(object sender, EventArgs e)
         {
             this.Text = CustomSkin.Windows.Forms.MessageBox.Show("123", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information).ToString();
-        } 
+        }
     }
 }
