@@ -29,7 +29,10 @@ namespace AccessService
         {
             isAccess = INIOperation.ReadString("Info", "AccessKey") == this.Name;
             if (isAccess)
+            {
                 strPwd = INIOperation.ReadString("Info", "Password");
+                INIOperation.WriteString("Info", "Access", "false");
+            }
             else
             {
                 forwardIp = ConfigurationManager.AppSettings[this.Name + "_ForwardIP"];
