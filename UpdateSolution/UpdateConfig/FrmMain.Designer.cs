@@ -59,6 +59,8 @@
             // 
             // txtLocalPath
             // 
+            this.txtLocalPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLocalPath.Location = new System.Drawing.Point(71, 26);
             this.txtLocalPath.Name = "txtLocalPath";
             this.txtLocalPath.ReadOnly = true;
@@ -77,6 +79,8 @@
             // 
             // txtWebPath
             // 
+            this.txtWebPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtWebPath.Location = new System.Drawing.Point(71, 53);
             this.txtWebPath.Name = "txtWebPath";
             this.txtWebPath.Size = new System.Drawing.Size(201, 21);
