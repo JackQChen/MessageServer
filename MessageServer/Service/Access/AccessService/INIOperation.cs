@@ -14,10 +14,16 @@ namespace AccessService
 
         [DllImport("kernel32")]
         private static extern int GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, int nSize, string lpFileName);
+
         public static string ReadString(string section, string key)
         {
+            return ReadString(section, key, "");
+        }
+
+        public static string ReadString(string section, string key, string defaultString)
+        {
             StringBuilder temp = new StringBuilder(1024);
-            GetPrivateProfileString(section, key, "", temp, 1024, filePath);
+            GetPrivateProfileString(section, key, defaultString, temp, 1024, filePath);
             return temp.ToString();
         }
 

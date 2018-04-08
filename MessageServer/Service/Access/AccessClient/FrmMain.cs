@@ -33,34 +33,52 @@ namespace AccessClient
                   ConfigurationManager.AppSettings["IP"],
                   ushort.Parse(ConfigurationManager.AppSettings["Port"]),
                   async: false);
-            var data = Encoding.Default.GetBytes(ConfigurationManager.AppSettings["Key"] + "\r\n");
-            client.Send(data, data.Length);
         }
 
         HandleResult client_OnClose(TcpClient sender, SocketOperation enOperation, int errorCode)
         {
-            if (!this.txtMsg.IsHandleCreated)
-                return HandleResult.Ignore;
-            this.txtMsg.Invoke(new Action(() =>
-            {
-                this.txtMsg.AppendText("授权信息已失效，请重新授权\r\n");
-            }));
+            if (this.txtMsg.IsHandleCreated)
+                this.txtMsg.Invoke(new Action(() =>
+                {
+                    this.txtMsg.AppendText("授权信息已失效，请重新授权\r\n");
+                }));
+            this.isAccess = false;
             return HandleResult.Ignore;
         }
 
+        bool isAccess = false;
         string strResult = "";
         HandleResult client_OnReceive(TcpClient sender, byte[] bytes)
         {
-            if (!this.txtMsg.IsHandleCreated)
-                return HandleResult.Ignore;
-            var str = Encoding.Default.GetString(bytes);
-            strResult += str;
+            strResult += Encoding.Default.GetString(bytes);
             if (strResult.IndexOf('\n') > 0)
             {
-                this.txtMsg.Invoke(new Action(() =>
+                if (isAccess)
                 {
-                    this.txtMsg.AppendText(strResult);
-                }));
+                    if (this.txtMsg.IsHandleCreated)
+                        this.txtMsg.Invoke(new Action(() =>
+                        {
+                            this.txtMsg.AppendText(strResult);
+                        }));
+                }
+                else
+                {
+                    isAccess = true;
+                    var key = ConfigurationManager.AppSettings["Key"];
+                    try
+                    {
+                        var data = Encoding.Default.GetBytes(Encrypt.AESDecrypt(strResult.Trim(), key) + "\r\n");
+                        this.client.Send(data, data.Length);
+                    }
+                    catch
+                    {
+                        if (this.txtMsg.IsHandleCreated)
+                            this.txtMsg.Invoke(new Action(() =>
+                            {
+                                this.txtMsg.AppendText("授权信息不正确，请核对\r\n");
+                            }));
+                    }
+                }
                 strResult = "";
             }
             return HandleResult.Ignore;

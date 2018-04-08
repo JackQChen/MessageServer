@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.IO;
 using System.Text;
 using MessageLib;
 
@@ -9,7 +10,7 @@ namespace AccessService
     {
         TcpAgent agent;
         bool isAccess = false;
-        string strPwd = "";
+        string strKey = "";
         string forwardIp = "";
         ushort forwardPort = 0;
 
@@ -27,11 +28,11 @@ namespace AccessService
 
         HandleResult Service_OnPrepareListen(TcpServer sender, IntPtr soListen)
         {
-            isAccess = INIOperation.ReadString("Info", "AccessKey") == this.Name;
+            isAccess = INIOperation.ReadString("Info", "ServiceName") == this.Name;
             if (isAccess)
             {
-                strPwd = INIOperation.ReadString("Info", "Password");
-                INIOperation.WriteString("Info", "Access", "false");
+                strKey = INIOperation.ReadString("Info", "AccessKey");
+                INIOperation.WriteString("IPList", null, null);
             }
             else
             {
@@ -43,11 +44,21 @@ namespace AccessService
 
         HandleResult Service_OnAccept(TcpServer sender, IntPtr connId, IntPtr pClient)
         {
+            string ip = "";
+            ushort port = 0;
+            this.GetRemoteAddress(connId, ref ip, ref port);
             if (isAccess)
+            {
+                var key = Guid.NewGuid().ToString();
+                var keyData = Encoding.Default.GetBytes(Encrypt.AESEncrypt(key, strKey) + "\r\n");
+                this.Send(connId, keyData, keyData.Length);
+                this.SetExtra(connId, new ExtraData() { Key = key, IP = ip });
                 return HandleResult.Ignore;
-            if (!bool.Parse(INIOperation.ReadString("Info", "Access")))
+            }
+            if (!bool.Parse(INIOperation.ReadString("IPList", ip, "false")))
             {
                 this.Disconnect(connId);
+                this.Log(string.Format("[{0}]连接失败:IP={1}", this.Name, ip));
                 return HandleResult.Ignore;
             }
             var aId = IntPtr.Zero;
@@ -65,27 +76,28 @@ namespace AccessService
         {
             if (isAccess)
             {
-                var strData = this.GetExtra<string>(connId);
-                strData += Encoding.Default.GetString(bytes);
-                if (strData.Length > 24)
+                var extraData = this.GetExtra<ExtraData>(connId);
+                extraData.Data += Encoding.Default.GetString(bytes);
+                if (extraData.Data.Length > 128)
                     this.Disconnect(connId);
-                else if (strData.IndexOf('\n') > 0)
+                else if (extraData.Data.IndexOf('\n') > 0)
                 {
-                    if (strData.Trim() == strPwd)
+                    if (extraData.Data.Trim() == extraData.Key)
                     {
-                        INIOperation.WriteString("Info", "Access", "true");
                         var data = Encoding.Default.GetBytes("已于"
                             + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                             + "成功授权！\r\n");
                         this.Send(connId, data, data.Length);
-                        this.SetExtra(connId, strData);
+                        INIOperation.WriteString("IPList", extraData.IP, "true");
+                        extraData.Access = true;
                     }
                     else
+                    {
                         this.Disconnect(connId);
+                        this.Log(string.Format("[{0}]验证失败:IP={1}", this.Name, extraData.IP));
+                    }
                     return HandleResult.Ignore;
                 }
-                else
-                    this.SetExtra(connId, strData);
             }
             else
             {
@@ -99,22 +111,23 @@ namespace AccessService
         {
             if (isAccess)
             {
+                string ip = "";
+                ushort port = 0;
+                this.GetRemoteAddress(connId, ref ip, ref port);
                 var result = false;
-                foreach (var cId in this.GetAllConnectionIDs())
+                foreach (var cid in this.GetAllConnectionIDs())
                 {
-                    if (cId == connId)
+                    if (cid == connId)
                         continue;
-                    var data = this.GetExtra<string>(cId);
-                    if (string.IsNullOrEmpty(data))
-                        continue;
-                    if (data.Trim() == strPwd)
+                    var data = this.GetExtra<ExtraData>(cid);
+                    if (data.IP == ip && data.Access)
                     {
                         result = true;
                         break;
                     }
                 }
                 if (!result)
-                    INIOperation.WriteString("Info", "Access", "false");
+                    INIOperation.WriteString("IPList", ip, "false");
             }
             else
                 this.agent.Disconnect(this.GetExtra<IntPtr>(connId));
@@ -132,6 +145,15 @@ namespace AccessService
         {
             this.Disconnect(this.agent.GetExtra<IntPtr>(connId));
             return HandleResult.Ignore;
+        }
+
+        void Log(string strLog)
+        {
+            var dir = AppDomain.CurrentDomain.BaseDirectory + "Log\\";
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+            File.AppendAllText(dir + DateTime.Now.ToString("yyyyMMdd") + ".log",
+                     string.Format("{0}\r\n{1}\r\n", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), strLog));
         }
     }
 }
