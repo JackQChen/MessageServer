@@ -79,7 +79,9 @@ namespace AccessService
                 var extraData = this.GetExtra<ExtraData>(connId);
                 extraData.Data += Encoding.Default.GetString(bytes);
                 if (extraData.Data.Length > 128)
+                {
                     this.Disconnect(connId);
+                }
                 else if (extraData.Data.IndexOf('\n') > 0)
                 {
                     if (extraData.Data.Trim() == extraData.Key)
@@ -96,7 +98,6 @@ namespace AccessService
                         this.Disconnect(connId);
                         this.Log(string.Format("[{0}]验证失败:IP={1}", this.Name, extraData.IP));
                     }
-                    return HandleResult.Ignore;
                 }
             }
             else
