@@ -1,10 +1,20 @@
-### 调用示例
+### 项目信息
 
-#### 服务端
+用于进行软件授权
 
-直接运行配置生成器，设置路径生成配置即可
+验证流程如下<br>
+1.客户端从本地key.lic文件中读取授权信息<br>
+2.使用RSA公钥对授权信息进行签名验证<br>
+3.判断机器码是否与授权机器码一致<br>
+4.判断授权时间与本机时间是否过期<br>
+5.完成验证进入程序，未完成验证显示机器码提示注册<br>
+授权流程如下<br>
+1.通过客户端机器码、授权时间等生成字串<br>
+2.使用密钥对字串进行签名<br>
+3.将签名信息和授权信息合并后整体转Base64<br>
+4.将Base64字串发送给客户端<br><br>
 
-#### 客户端
+#### 客户端调用示例
 
 ```C#
 
@@ -14,41 +24,10 @@
         /// 应用程序的主入口点。
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
-            var updatePath = AppDomain.CurrentDomain.BaseDirectory + "AutoUpdate.exe";
-            //程序默认为无参数启动
-            if (args.Length == 0)
-            {
-                //如果有自动更新程序，则进行自动更新
-                if (File.Exists(updatePath))
-                {
-                    //第二个参数是更新完要运行的程序名
-                    System.Diagnostics.Process.Start(updatePath, "Application.exe");
-                    //当前程序退出
-                    return;
-                }
-            }
-            //自动更新启动程序时第一个参数为AutoUpdate
-            else if (args[1] == "AutoUpdate")
-            {
-                var newUpdatePath = AppDomain.CurrentDomain.BaseDirectory + "AutoUpdate.exe.tmp";
-                //判断自动更新程序自身是否需要更新
-                if (File.Exists(newUpdatePath))
-                {
-                    File.Delete(updatePath);
-                    File.Move(newUpdatePath, updatePath);
-                }
-                //var remotingConfigPath = AppDomain.CurrentDomain.BaseDirectory + "RemotingConfig.xml";
-                //第二个参数是本次是否发生过更新
-                //有新的更新内容
-                //if (bool.Parse(args[2]))
-                //{
-                //    var config = File.ReadAllText(remotingConfigPath).Replace("0.0.0.0:0000", ConfigurationManager.AppSettings["RemotingConfig"]);
-                //    File.WriteAllText(remotingConfigPath, config);
-                //}
-                //RemotingConfiguration.Configure(remotingConfigPath, false);
-            }
+            if (!Validate.Check())
+                return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());
