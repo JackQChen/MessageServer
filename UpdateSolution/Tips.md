@@ -1,11 +1,42 @@
-# CommonLibrary
-这是一些公用组件库
+# 调用示例
 
-#### CustomSkin - 自定义皮肤组件(支持图片半透明背景)<br><br>![](https://github.com/chen365409389/CommonLibrary/blob/master/Img/CS.png)<br><br>
-#### MessageServer - 基于IOCP的消息服务器（可自定义扩展消息服务）<br><br>![](https://github.com/chen365409389/CommonLibrary/blob/master/Img/MS.png)<br><br>
-#### SoftwareLicense - 软件授权工具<br><br>![](https://github.com/chen365409389/CommonLibrary/blob/master/Img/REG.png)<br><br>
-#### SystemFramework - 封装了一些常用组件（包含部分数据库访问类）<br><br>
-#### UpdateSolution - 独立的基于FTP的自动更新程序<br><br>![](https://github.com/chen365409389/CommonLibrary/blob/master/Img/AU.png)<br><br>
-#### WebFramework - 简单应用于WebPage操作的系统组件<br>
+#### 
+    static class Program
+    {
+        /// <summary>
+        /// 应用程序的主入口点。
+        /// </summary>
+        [STAThread]
+        static void Main(string[] args)
+        {
+            var updatePath = AppDomain.CurrentDomain.BaseDirectory + "AutoUpdate.exe";
+            if (args.Length == 0)
+            {
+                if (File.Exists(updatePath))
+                {
+                    System.Diagnostics.Process.Start(updatePath, "LEDDisplay.exe");
+                    return;
+                }
+            }
+            else if (args[1] == "AutoUpdate")
+            {
+                var newUpdatePath = AppDomain.CurrentDomain.BaseDirectory + "AutoUpdate.exe.tmp";
+                if (File.Exists(newUpdatePath))
+                {
+                    File.Delete(updatePath);
+                    File.Move(newUpdatePath, updatePath);
+                }
+                //var remotingConfigPath = AppDomain.CurrentDomain.BaseDirectory + "RemotingConfig.xml";
+                //有新的更新内容
+                //if (bool.Parse(args[2]))
+                //{
+                //    var config = File.ReadAllText(remotingConfigPath).Replace("0.0.0.0:0000", ConfigurationManager.AppSettings["RemotingConfig"]);
+                //    File.WriteAllText(remotingConfigPath, config);
+                //}
+                //RemotingConfiguration.Configure(remotingConfigPath, false);
+            }
+        }
+    }
+    
 JackChen<br>
 2018-02-05
