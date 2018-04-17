@@ -23,8 +23,8 @@
                 //如果有自动更新程序，则进行自动更新
                 if (File.Exists(updatePath))
                 {
-                    //启动自动更新程序并将更新完后启动的程序名以参数形式进行传递
-                    System.Diagnostics.Process.Start(updatePath, "LEDDisplay.exe");
+                    //第二个参数是更新完要运行的程序名
+                    System.Diagnostics.Process.Start(updatePath, "Application.exe");
                     //当前程序退出
                     return;
                 }
