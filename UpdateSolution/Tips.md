@@ -1,5 +1,7 @@
 #### 调用示例
 
+```C#
+
     static class Program
     {
         /// <summary>
@@ -36,6 +38,6 @@
             }
         }
     }
-    
+```
 JackChen<br>
 2018-02-05
