@@ -20,6 +20,10 @@ AccessClient是对应的客户端授权程序，用于和服务端进行授权�
 在此流程下解决了两个问题：<br>
 1.仅对授权客户端进行消息中转<br>
 2.防止了授权过程中Key信息泄露<br>
-<br><br>
+<br>
+自定义服务面板请参照另一个项目QueueSystem中MessageService相关内容<br>
+效果如下<br>
+![](https://github.com/chen365409389/CommonLibrary/blob/master/Img/MS.png)
+<br>
 JackChen<br>
 2018-04-17
