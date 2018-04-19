@@ -52,6 +52,7 @@ namespace TransferService
         HandleResult Service_OnClose(TcpServer sender, IntPtr connId, SocketOperation enOperation, int errorCode)
         {
             this.agent.Disconnect(this.GetExtra<IntPtr>(connId));
+            this.RemoveExtra(connId);
             return HandleResult.Ignore;
         }
 
@@ -65,6 +66,7 @@ namespace TransferService
         HandleResult agent_OnClose(IntPtr connId, SocketOperation enOperation, int errorCode)
         {
             this.Disconnect(this.agent.GetExtra<IntPtr>(connId));
+            this.agent.RemoveExtra(connId);
             return HandleResult.Ignore;
         }
     }

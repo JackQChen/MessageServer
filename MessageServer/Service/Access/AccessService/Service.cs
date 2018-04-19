@@ -132,6 +132,7 @@ namespace AccessService
             }
             else
                 this.agent.Disconnect(this.GetExtra<IntPtr>(connId));
+            this.RemoveExtra(connId);
             return HandleResult.Ignore;
         }
 
@@ -145,6 +146,7 @@ namespace AccessService
         HandleResult agent_OnClose(IntPtr connId, SocketOperation enOperation, int errorCode)
         {
             this.Disconnect(this.agent.GetExtra<IntPtr>(connId));
+            this.agent.RemoveExtra(connId);
             return HandleResult.Ignore;
         }
 
