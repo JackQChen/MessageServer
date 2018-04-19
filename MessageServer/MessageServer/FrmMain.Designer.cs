@@ -41,29 +41,6 @@
             this.tsExit = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labState = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lvClient = new System.Windows.Forms.ListView();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvService = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pgService = new System.Windows.Forms.PropertyGrid();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnServicePanel = new System.Windows.Forms.Button();
-            this.btnDisConn = new System.Windows.Forms.Button();
-            this.tabControl1 = new MessageServer.TabControlEx();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.tabLog = new System.Windows.Forms.TabPage();
-            this.txtLog = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.timerClient = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -71,23 +48,46 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerServerStatus = new System.Windows.Forms.Timer(this.components);
+            this.tabControl1 = new MessageServer.TabControlEx();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lvService = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lvClient = new System.Windows.Forms.ListView();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnServicePanel = new System.Windows.Forms.Button();
+            this.btnDisConn = new System.Windows.Forms.Button();
+            this.pgService = new System.Windows.Forms.PropertyGrid();
+            this.tabLog = new System.Windows.Forms.TabPage();
+            this.txtLog = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.contextMenuStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabLog.SuspendLayout();
-            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -194,231 +194,6 @@
             this.labState.Size = new System.Drawing.Size(32, 17);
             this.labState.Text = "就绪";
             // 
-            // lvClient
-            // 
-            this.lvClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lvClient.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8});
-            this.lvClient.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvClient.FullRowSelect = true;
-            this.lvClient.Location = new System.Drawing.Point(3, 17);
-            this.lvClient.Name = "lvClient";
-            this.lvClient.Size = new System.Drawing.Size(212, 403);
-            this.lvClient.TabIndex = 3;
-            this.lvClient.UseCompatibleStateImageBehavior = false;
-            this.lvClient.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "ID";
-            this.columnHeader6.Width = 30;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "IP";
-            this.columnHeader7.Width = 130;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "状态";
-            this.columnHeader8.Width = 50;
-            // 
-            // lvService
-            // 
-            this.lvService.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lvService.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
-            this.lvService.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvService.FullRowSelect = true;
-            this.lvService.Location = new System.Drawing.Point(3, 17);
-            this.lvService.MultiSelect = false;
-            this.lvService.Name = "lvService";
-            this.lvService.Size = new System.Drawing.Size(326, 451);
-            this.lvService.TabIndex = 0;
-            this.lvService.UseCompatibleStateImageBehavior = false;
-            this.lvService.View = System.Windows.Forms.View.Details;
-            this.lvService.SelectedIndexChanged += new System.EventHandler(this.lvService_SelectedIndexChanged);
-            this.lvService.DoubleClick += new System.EventHandler(this.lvService_DoubleClick);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "";
-            this.columnHeader1.Width = 20;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "连接类型";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "端口";
-            this.columnHeader3.Width = 45;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "服务名称";
-            this.columnHeader4.Width = 140;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "运行状态";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lvService);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(332, 471);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "服务状态";
-            // 
-            // pgService
-            // 
-            this.pgService.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pgService.Location = new System.Drawing.Point(0, 0);
-            this.pgService.Name = "pgService";
-            this.pgService.Size = new System.Drawing.Size(220, 471);
-            this.pgService.TabIndex = 5;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lvClient);
-            this.groupBox2.Controls.Add(this.panel1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(218, 471);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "客户端状态";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnServicePanel);
-            this.panel1.Controls.Add(this.btnDisConn);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 420);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(212, 48);
-            this.panel1.TabIndex = 4;
-            // 
-            // btnServicePanel
-            // 
-            this.btnServicePanel.Enabled = false;
-            this.btnServicePanel.Location = new System.Drawing.Point(19, 13);
-            this.btnServicePanel.Name = "btnServicePanel";
-            this.btnServicePanel.Size = new System.Drawing.Size(75, 23);
-            this.btnServicePanel.TabIndex = 5;
-            this.btnServicePanel.Text = "服务面板";
-            this.btnServicePanel.UseVisualStyleBackColor = true;
-            this.btnServicePanel.Click += new System.EventHandler(this.btnServicePanel_Click);
-            // 
-            // btnDisConn
-            // 
-            this.btnDisConn.Location = new System.Drawing.Point(120, 13);
-            this.btnDisConn.Name = "btnDisConn";
-            this.btnDisConn.Size = new System.Drawing.Size(75, 23);
-            this.btnDisConn.TabIndex = 4;
-            this.btnDisConn.Text = "断开连接";
-            this.btnDisConn.UseVisualStyleBackColor = true;
-            this.btnDisConn.Click += new System.EventHandler(this.btnDisConn_Click);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabLog);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 48);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(792, 503);
-            this.tabControl1.TabIndex = 6;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.splitContainer1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(784, 477);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "服务";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(778, 471);
-            this.splitContainer1.SplitterDistance = 332;
-            this.splitContainer1.TabIndex = 6;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.groupBox2);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.pgService);
-            this.splitContainer2.Size = new System.Drawing.Size(442, 471);
-            this.splitContainer2.SplitterDistance = 218;
-            this.splitContainer2.TabIndex = 7;
-            // 
-            // tabLog
-            // 
-            this.tabLog.Controls.Add(this.txtLog);
-            this.tabLog.Location = new System.Drawing.Point(4, 22);
-            this.tabLog.Name = "tabLog";
-            this.tabLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLog.Size = new System.Drawing.Size(784, 477);
-            this.tabLog.TabIndex = 1;
-            this.tabLog.Text = "日志";
-            this.tabLog.UseVisualStyleBackColor = true;
-            // 
-            // txtLog
-            // 
-            this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLog.Location = new System.Drawing.Point(3, 3);
-            this.txtLog.Multiline = true;
-            this.txtLog.Name = "txtLog";
-            this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(778, 471);
-            this.txtLog.TabIndex = 0;
-            this.txtLog.DoubleClick += new System.EventHandler(this.txtLog_DoubleClick);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(784, 477);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "性能";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // timerClient
             // 
             this.timerClient.Enabled = true;
@@ -467,6 +242,231 @@
             this.timerServerStatus.Interval = 1000;
             this.timerServerStatus.Tick += new System.EventHandler(this.timerServerStatus_Tick);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabLog);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 48);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(792, 503);
+            this.tabControl1.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.splitContainer1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(784, 477);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "服务";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Size = new System.Drawing.Size(778, 471);
+            this.splitContainer1.SplitterDistance = 311;
+            this.splitContainer1.TabIndex = 6;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lvService);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(311, 471);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "服务状态";
+            // 
+            // lvService
+            // 
+            this.lvService.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvService.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.lvService.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvService.FullRowSelect = true;
+            this.lvService.Location = new System.Drawing.Point(3, 17);
+            this.lvService.MultiSelect = false;
+            this.lvService.Name = "lvService";
+            this.lvService.Size = new System.Drawing.Size(305, 451);
+            this.lvService.TabIndex = 0;
+            this.lvService.UseCompatibleStateImageBehavior = false;
+            this.lvService.View = System.Windows.Forms.View.Details;
+            this.lvService.SelectedIndexChanged += new System.EventHandler(this.lvService_SelectedIndexChanged);
+            this.lvService.DoubleClick += new System.EventHandler(this.lvService_DoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "";
+            this.columnHeader1.Width = 20;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "连接类型";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "端口";
+            this.columnHeader3.Width = 45;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "服务名称";
+            this.columnHeader4.Width = 110;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "运行状态";
+            this.columnHeader5.Width = 70;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox2);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.pgService);
+            this.splitContainer2.Size = new System.Drawing.Size(463, 471);
+            this.splitContainer2.SplitterDistance = 250;
+            this.splitContainer2.TabIndex = 7;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lvClient);
+            this.groupBox2.Controls.Add(this.panel1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(250, 471);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "客户端状态";
+            // 
+            // lvClient
+            // 
+            this.lvClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvClient.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.lvClient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvClient.FullRowSelect = true;
+            this.lvClient.Location = new System.Drawing.Point(3, 17);
+            this.lvClient.Name = "lvClient";
+            this.lvClient.Size = new System.Drawing.Size(244, 403);
+            this.lvClient.TabIndex = 3;
+            this.lvClient.UseCompatibleStateImageBehavior = false;
+            this.lvClient.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "ID";
+            this.columnHeader6.Width = 44;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "IP";
+            this.columnHeader7.Width = 140;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "状态";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnServicePanel);
+            this.panel1.Controls.Add(this.btnDisConn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 420);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(244, 48);
+            this.panel1.TabIndex = 4;
+            // 
+            // btnServicePanel
+            // 
+            this.btnServicePanel.Enabled = false;
+            this.btnServicePanel.Location = new System.Drawing.Point(34, 13);
+            this.btnServicePanel.Name = "btnServicePanel";
+            this.btnServicePanel.Size = new System.Drawing.Size(75, 23);
+            this.btnServicePanel.TabIndex = 5;
+            this.btnServicePanel.Text = "服务面板";
+            this.btnServicePanel.UseVisualStyleBackColor = true;
+            this.btnServicePanel.Click += new System.EventHandler(this.btnServicePanel_Click);
+            // 
+            // btnDisConn
+            // 
+            this.btnDisConn.Location = new System.Drawing.Point(135, 13);
+            this.btnDisConn.Name = "btnDisConn";
+            this.btnDisConn.Size = new System.Drawing.Size(75, 23);
+            this.btnDisConn.TabIndex = 4;
+            this.btnDisConn.Text = "断开连接";
+            this.btnDisConn.UseVisualStyleBackColor = true;
+            this.btnDisConn.Click += new System.EventHandler(this.btnDisConn_Click);
+            // 
+            // pgService
+            // 
+            this.pgService.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pgService.Location = new System.Drawing.Point(0, 0);
+            this.pgService.Name = "pgService";
+            this.pgService.Size = new System.Drawing.Size(209, 471);
+            this.pgService.TabIndex = 5;
+            // 
+            // tabLog
+            // 
+            this.tabLog.Controls.Add(this.txtLog);
+            this.tabLog.Location = new System.Drawing.Point(4, 22);
+            this.tabLog.Name = "tabLog";
+            this.tabLog.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLog.Size = new System.Drawing.Size(784, 477);
+            this.tabLog.TabIndex = 1;
+            this.tabLog.Text = "日志";
+            this.tabLog.UseVisualStyleBackColor = true;
+            // 
+            // txtLog
+            // 
+            this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLog.Location = new System.Drawing.Point(3, 3);
+            this.txtLog.Multiline = true;
+            this.txtLog.Name = "txtLog";
+            this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLog.Size = new System.Drawing.Size(778, 471);
+            this.txtLog.TabIndex = 0;
+            this.txtLog.DoubleClick += new System.EventHandler(this.txtLog_DoubleClick);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(784, 477);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "性能";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -486,22 +486,22 @@
             this.toolStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.contextMenuStrip.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.tabLog.ResumeLayout(false);
             this.tabLog.PerformLayout();
-            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
