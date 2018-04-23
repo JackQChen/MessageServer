@@ -150,13 +150,18 @@ namespace AccessService
             return HandleResult.Ignore;
         }
 
+        object asyncObj = new object();
+
         void Log(string strLog)
         {
-            var dir = AppDomain.CurrentDomain.BaseDirectory + "Log\\";
-            if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
-            File.AppendAllText(dir + DateTime.Now.ToString("yyyyMMdd") + ".log",
-                     string.Format("{0}\r\n{1}\r\n", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), strLog));
+            lock (asyncObj)
+            {
+                var dir = AppDomain.CurrentDomain.BaseDirectory + "Log\\";
+                if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
+                File.AppendAllText(dir + DateTime.Now.ToString("yyyyMMdd") + ".log",
+                         string.Format("{0}\r\n{1}\r\n", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), strLog));
+            }
         }
     }
 }
