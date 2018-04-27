@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.IO;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,6 +12,15 @@ namespace AutoUpdate
     {
         string ftpUserName, ftpPassword;
         string configPath, updateTimeName = "UpdateTime.dat";
+
+        [DllImport("user32.dll")]
+        static extern int MessageBoxTimeoutA(IntPtr hWnd, string msg, string Caption, int type, int DWORD, int time);
+
+        public DialogResult MessageBoxTimeout(IntPtr handle, string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defaultButton, int time)
+        {
+            return (System.Windows.Forms.DialogResult)MessageBoxTimeoutA(handle, text, caption, buttons.GetHashCode() | icon.GetHashCode() | defaultButton.GetHashCode(), 0, time);
+        }
+
         public UpdateCheck()
         {
             this.ftpUserName = ConfigurationManager.AppSettings["UserName"];
@@ -53,7 +63,7 @@ namespace AutoUpdate
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "自动更新失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxTimeout(IntPtr.Zero, ex.Message, "自动更新失败", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, 3000);
             }
             return dtUpdate;
         }

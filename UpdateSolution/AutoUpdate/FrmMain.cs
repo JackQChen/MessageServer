@@ -126,21 +126,26 @@ namespace AutoUpdate
             new Thread(obj =>
             {
                 UpdateInfo tInfo = obj as UpdateInfo;
+                var result = true;
                 foreach (var fileItem in info.FileList)
                 {
                     this.lvUpdate.Invoke(this.actFocus, fileItem.ID);
                     currentFileID = fileItem.ID;
                     currentCount = 0;
-                    var result = false;
+                    var fileResult = false;
                     if (fileItem.Name == "AutoUpdate.exe")
-                        result = this.Download(tInfo.UpdatePath + fileItem.Path, fileItem.Name, fileItem.Path, "AutoUpdate.exe.tmp");
+                        fileResult = this.Download(tInfo.UpdatePath + fileItem.Path, fileItem.Name, fileItem.Path, "AutoUpdate.exe.tmp");
                     else
-                        result = this.Download(tInfo.UpdatePath + fileItem.Path, fileItem.Name, fileItem.Path, fileItem.Name);
-                    this.lvUpdate.Invoke(this.actUpdate, fileItem.ID, result);
+                        fileResult = this.Download(tInfo.UpdatePath + fileItem.Path, fileItem.Name, fileItem.Path, fileItem.Name);
+                    this.lvUpdate.Invoke(this.actUpdate, fileItem.ID, fileResult);
+                    result = result && fileResult;
                 }
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                config.AppSettings.Settings["UpdateTime"].Value = this.dtLastUpdateTime.ToString("yyyy-MM-dd HH:mm:ss");
-                config.Save(ConfigurationSaveMode.Modified);
+                if (result)
+                {
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    config.AppSettings.Settings["UpdateTime"].Value = this.dtLastUpdateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                    config.Save(ConfigurationSaveMode.Modified);
+                }
                 this.Invoke(new Action(() => { this.Close(); }));
             }) { IsBackground = true }.Start(info);
         }
