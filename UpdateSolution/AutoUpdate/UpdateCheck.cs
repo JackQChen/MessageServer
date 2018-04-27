@@ -63,7 +63,7 @@ namespace AutoUpdate
             }
             catch (Exception ex)
             {
-                MessageBoxTimeout(IntPtr.Zero, ex.Message, "自动更新失败", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, 3000);
+                MessageBoxTimeout(IntPtr.Zero, ex.Message, "自动更新失败", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, 5000);
             }
             return dtUpdate;
         }
