@@ -11,12 +11,12 @@ namespace CommonService
         {
         }
 
-        public event Action<Message> ReceiveMessage;
+        public event Action<IntPtr, Message> ReceiveMessage;
 
-        void OnReceiveMessage(Message msg)
+        void OnReceiveMessage(IntPtr connId, Message msg)
         {
             if (this.ReceiveMessage != null)
-                this.ReceiveMessage(msg);
+                this.ReceiveMessage(connId, msg);
         }
 
         int ArrayCopy(Array sourceArray, int sourceIndex, Array destinationArray, int destinationIndex)
@@ -27,7 +27,7 @@ namespace CommonService
             return length;
         }
 
-        public void RecvData(ExtraData msg, byte[] bytes)
+        public void RecvData(IntPtr connId, ExtraData msg, byte[] bytes)
         {
             int position = 0, length = 0;
             while (position < bytes.Length)
@@ -48,7 +48,7 @@ namespace CommonService
                     msg.Position += length;
                     if (msg.Position == msg.Data.Length)
                     {
-                        this.OnReceiveMessage(FormatterByteObject(msg.Data) as Message);
+                        this.OnReceiveMessage(connId, FormatterByteObject(msg.Data) as Message);
                         msg.Data = null;
                         msg.Position = 0;
                     }

@@ -30,16 +30,16 @@ namespace CommonClient
                 this.textBox1.AppendText(log + "\r\n");
             };
             client.OnReceive += new TcpClientEvent.OnReceiveEventHandler(client_OnReceive);
-            process.ReceiveMessage += new Action<CommonService.Message>(process_ReceiveMessage);
+            process.ReceiveMessage += new Action<IntPtr, CommonService.Message>(process_ReceiveMessage);
         }
 
         HandleResult client_OnReceive(TcpClient sender, byte[] bytes)
         {
-            process.RecvData(data, bytes);
+            process.RecvData(client.ConnectionId, data, bytes);
             return HandleResult.Ok;
         }
 
-        void process_ReceiveMessage(CommonService.Message obj)
+        void process_ReceiveMessage(IntPtr connId, CommonService.Message obj)
         {
             this.textBox1.Invoke(actlog, obj.Content);
         }

@@ -10,7 +10,7 @@ namespace CommonService
         public Service()
         {
             process = new Process();
-            process.ReceiveMessage += new Action<Message>(process_ReceiveMessage);
+            process.ReceiveMessage += new Action<IntPtr, Message>(process_ReceiveMessage);
             this.OnAccept += new TcpServerEvent.OnAcceptEventHandler(Service_OnAccept);
             this.OnClose += new TcpServerEvent.OnCloseEventHandler(Service_OnClose);
             this.OnReceive += new TcpServerEvent.OnReceiveEventHandler(Service_OnReceive);
@@ -34,7 +34,7 @@ namespace CommonService
             try
             {
                 msg = this.GetExtra(connId);
-                this.process.RecvData(msg, bytes);
+                this.process.RecvData(connId, msg, bytes);
             }
             catch (Exception ex)
             {
@@ -45,7 +45,7 @@ namespace CommonService
             return HandleResult.Ok;
         }
 
-        void process_ReceiveMessage(Message message)
+        void process_ReceiveMessage(IntPtr connId, Message message)
         {
             if (this.ConnectionCount > 0)
                 foreach (var cId in this.GetAllConnectionIDs())
