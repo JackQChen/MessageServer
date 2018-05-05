@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Configuration;
 using System.Windows.Forms;
@@ -29,6 +30,7 @@ namespace MessageServer
                 this.txtLog.AppendText(log);
                 this.tabControl1.SelectedTab = this.tabLog;
             };
+            this.lvClient.ListViewItemSorter = new ListViewItemComparer<int>(0);
             this.InitService();
             this.tsStart.PerformClick();
             this.Close();
@@ -208,11 +210,10 @@ namespace MessageServer
 
         void UpdateClientList()
         {
-            if (this.lastSelectedIndex == -1)
-                return;
             var cList = this.clientList.Get(this.lvService.Items[this.lastSelectedIndex].Name);
             if (!cList.isChanged)
                 return;
+            cList.isChanged = false;
             this.lvClient.Items.Clear();
             foreach (var key in cList.dict.Keys)
             {
@@ -220,7 +221,6 @@ namespace MessageServer
                 item.SubItems.Add(cList.Get(key));
                 item.SubItems.Add("连接");
             }
-            cList.isChanged = false;
         }
 
         private void btnServicePanel_Click(object sender, EventArgs e)
@@ -248,15 +248,34 @@ namespace MessageServer
                 this.serverList.Get(srvName).Disconnect(new IntPtr(Convert.ToInt32(item.Name)));
         }
 
-        private void timerClient_Tick(object sender, EventArgs e)
+        internal class ListViewItemComparer<T> : IComparer
         {
-            UpdateClientList();
+            private int col;
+
+            public ListViewItemComparer(int col)
+            {
+                this.col = col;
+            }
+
+            public int Compare(object x, object y)
+            {
+                int returnVal = -1;
+                string str1 = ((ListViewItem)x).SubItems[col].Text, str2 = ((ListViewItem)y).SubItems[col].Text;
+                switch (Type.GetTypeCode(typeof(T)))
+                {
+                    case TypeCode.Int32: returnVal = Convert.ToInt32(str1).CompareTo(Convert.ToInt32(str2)); break;
+                    case TypeCode.String:
+                    default: returnVal = string.Compare(str1, str2); break;
+                }
+                return returnVal;
+            }
         }
 
-        private void timerServerStatus_Tick(object sender, EventArgs e)
+        private void timerServerState_Tick(object sender, EventArgs e)
         {
             if (this.lastSelectedIndex == -1)
                 return;
+            UpdateClientList();
             var si = this.lvService.Items[lastSelectedIndex].Tag as ServiceInfo;
             si.接收速率 = FormatFileSize(si.totalRecv - si.lastRecv) + "/s";
             si.发送速率 = FormatFileSize(si.totalSend - si.lastSend) + "/s";

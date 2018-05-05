@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MessageLib;
 using CommonService;
+using System.Threading;
 
 namespace CommonClient
 {
@@ -63,6 +64,22 @@ namespace CommonClient
         private void button3_Click(object sender, EventArgs e)
         {
             this.client.Stop();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                new Thread(() =>
+                {
+                    for (int j = 0; j < 100; j++)
+                    {
+                        var client = new TcpClient();
+                        client.Connect("127.0.0.1", 3347);
+                        //client.Stop();
+                    }
+                }) { IsBackground = true }.Start();
+            }
         }
     }
 }

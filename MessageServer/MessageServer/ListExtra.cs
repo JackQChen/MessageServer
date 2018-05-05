@@ -7,6 +7,7 @@ namespace MessageServer
     {
         internal ConcurrentDictionary<string, T> dict = new ConcurrentDictionary<string, T>();
         internal bool isChanged;
+
         /// <summary>
         /// 获取附加数据
         /// </summary>
@@ -31,10 +32,10 @@ namespace MessageServer
         /// <returns></returns>
         public bool Set(string key, T newValue)
         {
-            isChanged = true;
             try
             {
                 dict.AddOrUpdate(key, newValue, (tKey, existingVal) => { return newValue; });
+                this.isChanged = true;
                 return true;
             }
             catch (OverflowException)
