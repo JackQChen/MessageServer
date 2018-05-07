@@ -66,8 +66,11 @@ namespace CommonClient
             this.client.Stop();
         }
 
+        List<TcpClient> clientList = new List<TcpClient>();
+
         private void button4_Click(object sender, EventArgs e)
         {
+            clientList.Clear();
             for (int i = 0; i < 10; i++)
             {
                 new Thread(() =>
@@ -76,9 +79,11 @@ namespace CommonClient
                     {
                         var client = new TcpClient();
                         client.Connect("127.0.0.1", 3347);
+                        clientList.Add(client);
                         //client.Stop();
                     }
-                }) { IsBackground = true }.Start();
+                })
+                { IsBackground = true }.Start();
             }
         }
     }

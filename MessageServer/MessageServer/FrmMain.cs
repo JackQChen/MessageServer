@@ -2,6 +2,7 @@
 using System.Collections;
 using System.ComponentModel;
 using System.Configuration;
+using System.Linq;
 using System.Windows.Forms;
 using MessageLib;
 
@@ -197,6 +198,7 @@ namespace MessageServer
             var curIndex = this.lvService.SelectedItems[0].Index;
             if (lastSelectedIndex != curIndex)
             {
+                this.lvClient.Items.Clear();
                 var srvName = this.lvService.Items[curIndex].Name;
                 var cList = this.clientList.Get(srvName);
                 cList.isChanged = true;
@@ -214,8 +216,11 @@ namespace MessageServer
             if (!cList.isChanged)
                 return;
             cList.isChanged = false;
-            this.lvClient.Items.Clear();
-            foreach (var key in cList.dict.Keys)
+            var keys = this.lvClient.Items.Cast<ListViewItem>().Select(s => s.Name);
+            var ids = cList.dict.Keys;
+            foreach (var key in keys.Except(ids))
+                this.lvClient.Items.RemoveByKey(key);
+            foreach (var key in ids.Except(keys))
             {
                 ListViewItem item = this.lvClient.Items.Add(key, key, -1);
                 item.SubItems.Add(cList.Get(key));

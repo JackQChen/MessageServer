@@ -267,7 +267,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(778, 471);
-            this.splitContainer1.SplitterDistance = 301;
+            this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.TabIndex = 6;
             // 
             // groupBox1
@@ -276,10 +276,10 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 471);
+            this.groupBox1.Size = new System.Drawing.Size(300, 471);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "服务状态";
+            this.groupBox1.Text = "服务列表";
             // 
             // lvService
             // 
@@ -295,7 +295,7 @@
             this.lvService.Location = new System.Drawing.Point(3, 17);
             this.lvService.MultiSelect = false;
             this.lvService.Name = "lvService";
-            this.lvService.Size = new System.Drawing.Size(295, 451);
+            this.lvService.Size = new System.Drawing.Size(294, 451);
             this.lvService.TabIndex = 0;
             this.lvService.UseCompatibleStateImageBehavior = false;
             this.lvService.View = System.Windows.Forms.View.Details;
@@ -319,7 +319,7 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "服务名称";
-            this.columnHeader4.Width = 106;
+            this.columnHeader4.Width = 105;
             // 
             // columnHeader5
             // 
@@ -339,7 +339,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.pgService);
-            this.splitContainer2.Size = new System.Drawing.Size(473, 471);
+            this.splitContainer2.Size = new System.Drawing.Size(474, 471);
             this.splitContainer2.SplitterDistance = 255;
             this.splitContainer2.TabIndex = 7;
             // 
@@ -353,7 +353,7 @@
             this.groupBox2.Size = new System.Drawing.Size(255, 471);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "客户端状态";
+            this.groupBox2.Text = "客户端列表";
             // 
             // lvClient
             // 
@@ -399,7 +399,7 @@
             // btnServicePanel
             // 
             this.btnServicePanel.Enabled = false;
-            this.btnServicePanel.Location = new System.Drawing.Point(34, 13);
+            this.btnServicePanel.Location = new System.Drawing.Point(36, 13);
             this.btnServicePanel.Name = "btnServicePanel";
             this.btnServicePanel.Size = new System.Drawing.Size(75, 23);
             this.btnServicePanel.TabIndex = 5;
@@ -409,7 +409,7 @@
             // 
             // btnDisConn
             // 
-            this.btnDisConn.Location = new System.Drawing.Point(135, 13);
+            this.btnDisConn.Location = new System.Drawing.Point(137, 13);
             this.btnDisConn.Name = "btnDisConn";
             this.btnDisConn.Size = new System.Drawing.Size(75, 23);
             this.btnDisConn.TabIndex = 4;
@@ -420,9 +420,10 @@
             // pgService
             // 
             this.pgService.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pgService.LineColor = System.Drawing.SystemColors.Control;
             this.pgService.Location = new System.Drawing.Point(0, 0);
             this.pgService.Name = "pgService";
-            this.pgService.Size = new System.Drawing.Size(214, 471);
+            this.pgService.Size = new System.Drawing.Size(215, 471);
             this.pgService.TabIndex = 5;
             // 
             // tabLog
