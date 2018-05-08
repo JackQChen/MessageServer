@@ -619,7 +619,7 @@ namespace MessageLib
         }
 
         /// <summary>
-        /// 获取所有连接,未获取到连接返回null
+        /// 获取所有连接
         /// </summary>
         /// <returns></returns>
         public IntPtr[] GetAllConnectionIDs()
