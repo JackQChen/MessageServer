@@ -220,12 +220,11 @@ namespace MessageServer
             var ids = cList.dict.Keys;
             foreach (var key in keys.Except(ids))
                 this.lvClient.Items.RemoveByKey(key);
-            foreach (var key in ids.Except(keys))
-            {
-                ListViewItem item = this.lvClient.Items.Add(key, key, -1);
-                item.SubItems.Add(cList.Get(key));
-                item.SubItems.Add("连接");
-            }
+            this.lvClient.Items.AddRange(ids.Except(keys).Select(
+                key => new ListViewItem(new string[] { key, cList.Get(key), "连接" })
+                {
+                    Name = key
+                }).ToArray());
         }
 
         private void btnServicePanel_Click(object sender, EventArgs e)
