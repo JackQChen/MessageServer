@@ -47,12 +47,11 @@ namespace CommonService
 
         void process_ReceiveMessage(IntPtr connId, Message message)
         {
-            if (this.ConnectionCount > 0)
-                foreach (var cId in this.GetAllConnectionIDs())
-                {
-                    var bytes = this.process.FormatterMessageBytes(message);
-                    this.Send(cId, bytes, bytes.Length);
-                }
+            foreach (var cId in this.GetAllConnectionIDs())
+            {
+                var bytes = this.process.FormatterMessageBytes(message);
+                this.Send(cId, bytes, bytes.Length);
+            }
         }
 
     }

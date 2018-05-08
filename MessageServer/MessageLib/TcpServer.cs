@@ -638,11 +638,11 @@ namespace MessageLib
             do
             {
                 uint count = ConnectionCount;
+                arr = new IntPtr[count];
                 if (count == 0)
                 {
                     break;
                 }
-                arr = new IntPtr[count];
                 if (Sdk.HP_Server_GetAllConnectionIDs(pServer, arr, ref count))
                 {
                     if (arr.Length > count)

@@ -628,11 +628,11 @@ namespace MessageLib
             do
             {
                 uint count = ConnectionCount;
+                arr = new IntPtr[count];
                 if (count == 0)
                 {
                     break;
                 }
-                arr = new IntPtr[count];
                 if (Sdk.HP_Agent_GetAllConnectionIDs(pAgent, arr, ref count))
                 {
                     if (arr.Length > count)
