@@ -37,7 +37,6 @@
             this.clmSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmMD5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmProgress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmCurrent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // imageList1
@@ -58,8 +57,7 @@
             this.clmName,
             this.clmSize,
             this.clmMD5,
-            this.clmProgress,
-            this.clmCurrent});
+            this.clmProgress});
             this.lvUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvUpdate.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lvUpdate.FullRowSelect = true;
@@ -67,7 +65,7 @@
             this.lvUpdate.Name = "lvUpdate";
             this.lvUpdate.OwnerDraw = true;
             this.lvUpdate.ProgressColumIndex = 3;
-            this.lvUpdate.Size = new System.Drawing.Size(584, 362);
+            this.lvUpdate.Size = new System.Drawing.Size(594, 372);
             this.lvUpdate.SmallImageList = this.imageList1;
             this.lvUpdate.TabIndex = 1;
             this.lvUpdate.UseCompatibleStateImageBehavior = false;
@@ -76,7 +74,7 @@
             // clmName
             // 
             this.clmName.Text = "文件名";
-            this.clmName.Width = 180;
+            this.clmName.Width = 200;
             // 
             // clmSize
             // 
@@ -86,23 +84,18 @@
             // clmMD5
             // 
             this.clmMD5.Text = "MD5";
-            this.clmMD5.Width = 120;
+            this.clmMD5.Width = 140;
             // 
             // clmProgress
             // 
             this.clmProgress.Text = "进度";
             this.clmProgress.Width = 150;
             // 
-            // clmCurrent
-            // 
-            this.clmCurrent.Text = "";
-            this.clmCurrent.Width = 0;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 362);
+            this.ClientSize = new System.Drawing.Size(594, 372);
             this.ControlBox = false;
             this.Controls.Add(this.lvUpdate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -125,7 +118,6 @@
         private System.Windows.Forms.ColumnHeader clmMD5;
         private System.Windows.Forms.ColumnHeader clmProgress;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ColumnHeader clmCurrent;
         private System.Windows.Forms.Timer timer1;
     }
 }

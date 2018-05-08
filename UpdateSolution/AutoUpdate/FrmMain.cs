@@ -32,8 +32,8 @@ namespace AutoUpdate
             this.actUpdate = (key, result) =>
             {
                 var item = this.lvUpdate.Items[key];
+                item.Tag = null;
                 item.SubItems[3].Text = result ? "100" : "0";
-                item.SubItems[4].Tag = null;
                 var index = item.Index + 1;
                 if (index >= this.lvUpdate.Items.Count - 1)
                     index = this.lvUpdate.Items.Count - 1;
@@ -115,14 +115,18 @@ namespace AutoUpdate
                     }
                     select fileNew.ID;
             info.FileList.RemoveAll(m => q.Contains(m.ID));
-            foreach (var fileItem in info.FileList)
-            {
-                var item = this.lvUpdate.Items.Add(fileItem.ID, fileItem.Name, -1);
-                item.SubItems.Add(FormatFileSize(fileItem.Size));
-                item.SubItems.Add(fileItem.MD5);
-                item.SubItems.Add("0");
-                item.SubItems.Add("").Tag = fileItem.Size;
-            }
+            this.lvUpdate.Items.AddRange(info.FileList.Select(
+                fileItem => new ListViewItem(new string[] 
+                { 
+                    fileItem.Name,
+                    FormatFileSize(fileItem.Size), 
+                    fileItem.MD5,
+                    "0"
+                })
+                {
+                    Name = fileItem.ID,
+                    Tag = fileItem.Size
+                }).ToArray());
             new Thread(obj =>
             {
                 UpdateInfo tInfo = obj as UpdateInfo;
@@ -155,7 +159,7 @@ namespace AutoUpdate
             var item = this.lvUpdate.Items[this.currentFileID];
             if (item == null)
                 return;
-            var tag = item.SubItems[4].Tag;
+            var tag = item.Tag;
             if (tag == null)
                 return;
             var totalCount = Convert.ToDecimal(tag);
