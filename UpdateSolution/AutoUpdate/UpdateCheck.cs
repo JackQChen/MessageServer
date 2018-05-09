@@ -30,7 +30,27 @@ namespace AutoUpdate
 
         public DateTime GetUpdateTime()
         {
-            return this.GetUpdateTime(this.configPath, updateTimeName);
+            ////从FTP取更新时间
+            //return this.GetUpdateTime(this.configPath, updateTimeName);
+            ////////////////////////////使用FTP获取则可删除////////////////////////////
+            //从GitHub取更新时间
+            DateTime dtUpdate = DateTime.MinValue;
+            try
+            {
+                var request = (HttpWebRequest)HttpWebRequest.Create("https://raw.githubusercontent.com/chen365409389/QueueSystem/master/Update/UpdateTime.dat");
+                Stream stream = request.GetResponse().GetResponseStream();
+                StreamReader streamReader = new StreamReader(stream, Encoding.UTF8);
+                dtUpdate = Convert.ToDateTime(streamReader.ReadToEnd());
+                streamReader.Close();
+                stream.Close();
+            }
+            catch
+            {
+                //GitHub获取失败则从FTP取更新时间
+                dtUpdate = this.GetUpdateTime(this.configPath, updateTimeName);
+            }
+            return dtUpdate;
+            ///////////////////////////////////////////////////////////////////////////
         }
 
         public DateTime GetUpdateTime(string remoteFilePath, string remoteFileName)
@@ -39,26 +59,16 @@ namespace AutoUpdate
             DateTime dtUpdate = DateTime.MinValue;
             try
             {
-                MemoryStream outputStream = new MemoryStream();
                 reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(string.Format("{0}//{1}", remoteFilePath, remoteFileName)));
                 reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
                 reqFTP.UseBinary = true;
                 reqFTP.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
                 FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
                 Stream ftpStream = response.GetResponseStream();
-                long cl = response.ContentLength;
-                int bufferSize = 2048;
-                int readCount;
-                byte[] buffer = new byte[bufferSize];
-                readCount = ftpStream.Read(buffer, 0, bufferSize);
-                while (readCount > 0)
-                {
-                    outputStream.Write(buffer, 0, readCount);
-                    readCount = ftpStream.Read(buffer, 0, bufferSize);
-                }
-                dtUpdate = Convert.ToDateTime(Encoding.Default.GetString(outputStream.ToArray()));
+                StreamReader streamReader = new StreamReader(ftpStream, Encoding.UTF8);
+                dtUpdate = Convert.ToDateTime(streamReader.ReadToEnd());
+                streamReader.Close();
                 ftpStream.Close();
-                outputStream.Close();
                 response.Close();
             }
             catch (Exception ex)
