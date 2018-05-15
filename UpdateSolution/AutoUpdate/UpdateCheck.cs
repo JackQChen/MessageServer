@@ -37,7 +37,7 @@ namespace AutoUpdate
             DateTime dtUpdate = DateTime.MinValue;
             try
             {
-                var request = (HttpWebRequest)HttpWebRequest.Create("https://raw.githubusercontent.com/chen365409389/QueueSystem/master/Update/UpdateTime.dat");
+                var request = (HttpWebRequest)HttpWebRequest.Create("https://raw.githubusercontent.com/chen365409389/QueueSystem/master/Update/UpdateTime.dat?v=" + DateTime.Now.ToString("yyyyMMddHHmmss"));
                 Stream stream = request.GetResponse().GetResponseStream();
                 StreamReader streamReader = new StreamReader(stream, Encoding.UTF8);
                 dtUpdate = Convert.ToDateTime(streamReader.ReadToEnd());
