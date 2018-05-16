@@ -77,14 +77,14 @@ namespace AutoUpdate
 
         private void DrawProgress(Graphics g, Rectangle rect, float percent)
         {
-            g.RendererBackground(rect, 5, Resources.Progress_Background);
+            g.RendererBackground(Resources.Progress_Background, rect, 5);
             if (percent > 0)
             {
                 var width = (int)(rect.Width * percent);
                 if (width < 8)
                     width = 8;
                 var rectProgress = new Rectangle(rect.X, rect.Y, width, rect.Height);
-                g.RendererBackground(rectProgress, 5, Resources.Progress_Progress);
+                g.RendererBackground(Resources.Progress_Progress, rectProgress, 5);
             }
             StringFormat sf = new StringFormat();
             sf.Alignment = StringAlignment.Center;

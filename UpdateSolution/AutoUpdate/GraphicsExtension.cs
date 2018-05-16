@@ -9,10 +9,10 @@ namespace AutoUpdate
         /// 渲染背景图片,使背景图片不失真
         /// </summary>
         /// <param name="g"></param>
+        /// <param name="backgroundImage"></param>
         /// <param name="rect"></param>
         /// <param name="cut"></param>
-        /// <param name="backgroundImage"></param>
-        public static void RendererBackground(this Graphics g, Rectangle rect, int cut, Image backgroundImage)
+        public static void RendererBackground(this Graphics g, Image backgroundImage, Rectangle rect, int cut)
         {
             //左上角 
             g.DrawImage(backgroundImage, new Rectangle(rect.X, rect.Y, cut, cut), 0, 0, cut, cut, GraphicsUnit.Pixel);
