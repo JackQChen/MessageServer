@@ -39,7 +39,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 46);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "切换";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -67,6 +67,7 @@
             this.Controls.Add(this.vcc1);
             this.Controls.Add(this.button1);
             this.Name = "FrmCompare";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCompare";
             this.Load += new System.EventHandler(this.FrmCompare_Load);
             this.ResumeLayout(false);
