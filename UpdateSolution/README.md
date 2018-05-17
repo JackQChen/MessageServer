@@ -30,7 +30,7 @@
                 }
             }
             //自动更新启动程序时第一个参数为AutoUpdate
-            else if (args[1] == "AutoUpdate")
+            else if (args[0] == "AutoUpdate")
             {
                 var newUpdatePath = AppDomain.CurrentDomain.BaseDirectory + "AutoUpdate.exe.tmp";
                 //判断自动更新程序自身是否需要更新
@@ -42,7 +42,7 @@
                 //var remotingConfigPath = AppDomain.CurrentDomain.BaseDirectory + "RemotingConfig.xml";
                 //第二个参数是本次是否发生过更新
                 //有新的更新内容
-                //if (bool.Parse(args[2]))
+                //if (bool.Parse(args[1]))
                 //{
                 //    var config = File.ReadAllText(remotingConfigPath).Replace("0.0.0.0:0000", ConfigurationManager.AppSettings["RemotingConfig"]);
                 //    File.WriteAllText(remotingConfigPath, config);
