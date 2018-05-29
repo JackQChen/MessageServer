@@ -27,7 +27,7 @@ namespace AutoUpdate
             InitializeComponent();
         }
 
-        private void FrmMain_Load(object sender, EventArgs e)
+        private void FrmMain_Shown(object sender, EventArgs e)
         {
             this.actUpdate = (key, result) =>
             {
@@ -54,14 +54,14 @@ namespace AutoUpdate
 
         public bool Download(string remoteFilePath, string remoteFileName, string localFilePath, string localFileName)
         {
-            FtpWebRequest reqFTP;
+            FileStream outputStream = null;
             try
             {
                 var localDir = AppDomain.CurrentDomain.BaseDirectory + localFilePath;
                 if (!Directory.Exists(localDir))
                     Directory.CreateDirectory(localDir);
-                FileStream outputStream = new FileStream(string.Format("{0}\\{1}", localDir, localFileName), FileMode.Create);
-                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(string.Format("{0}//{1}", remoteFilePath, remoteFileName)));
+                outputStream = new FileStream(string.Format("{0}\\{1}", localDir, localFileName), FileMode.Create);
+                FtpWebRequest reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(string.Format("{0}//{1}", remoteFilePath, remoteFileName)));
                 reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
                 reqFTP.UseBinary = true;
                 reqFTP.Credentials = new NetworkCredential(ftpUserName, ftpPassword);
@@ -79,7 +79,6 @@ namespace AutoUpdate
                     readCount = ftpStream.Read(buffer, 0, bufferSize);
                 }
                 ftpStream.Close();
-                outputStream.Close();
                 response.Close();
                 return true;
             }
@@ -87,18 +86,23 @@ namespace AutoUpdate
             {
                 return false;
             }
+            finally
+            {
+                outputStream.Close();
+            }
         }
 
         public void UpdateFileList()
         {
             var configPath = AppDomain.CurrentDomain.BaseDirectory + configName;
-            if (!File.Exists(configPath))
-            {
-                MessageBox.Show("获取更新配置失败", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             var info = convert.Deserialize<UpdateInfo>(File.ReadAllText(configPath));
             File.Delete(configPath);
+            if (info == null)
+            {
+                MessageBoxEx.Show("获取更新配置失败!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
             var localPath = Application.StartupPath;
             var q = from file in Directory.GetFiles(localPath, "*.*", SearchOption.AllDirectories)
                     join fileNew in info.FileList
@@ -150,7 +154,10 @@ namespace AutoUpdate
                     config.AppSettings.Settings["UpdateTime"].Value = this.dtLastUpdateTime.ToString("yyyy-MM-dd HH:mm:ss");
                     config.Save(ConfigurationSaveMode.Modified);
                 }
-                this.Invoke(new Action(() => { this.Close(); }));
+                this.Invoke(new Action(() =>
+                {
+                    this.Close();
+                }));
             }) { IsBackground = true }.Start(info);
         }
 

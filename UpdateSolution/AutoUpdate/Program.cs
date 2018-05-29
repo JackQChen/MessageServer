@@ -15,6 +15,7 @@ namespace AutoUpdate
         [STAThread]
         static void Main(string[] args)
         {
+            MessageBoxEx.time = args.Length == 0 ? 0 : 5000;
             bool createdNew;
             Mutex instance = new Mutex(true, Convert.ToBase64String(Encoding.UTF8.GetBytes(AppDomain.CurrentDomain.BaseDirectory)), out createdNew);
             if (createdNew)
@@ -31,13 +32,13 @@ namespace AutoUpdate
                     Application.Run(frm);
                 }
                 if (args.Length == 0)
-                    MessageBox.Show("自动更新完成!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxEx.Show("自动更新完成!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     Process.Start(AppDomain.CurrentDomain.BaseDirectory + args[0], "AutoUpdate " + needUpdate.ToString());
             }
             else
             {
-                MessageBox.Show("自动更新正在运行中!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBoxEx.Show("自动更新正在运行中!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

@@ -58,6 +58,7 @@
     <Compile Include="ListViewEx.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MessageBoxEx.cs" />
     <Compile Include="UpdateCheck.cs" />
     <Compile Include="UpdateInfo.cs" />
     <Compile Include="FrmMain.cs">
