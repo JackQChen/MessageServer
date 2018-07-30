@@ -16,10 +16,7 @@ namespace Register
         private string machineCode;
 
         private readonly string publicKey = @"
-<RSAKeyValue>
-<Modulus>+NGG0qmzMxaA9mZKRkCwL/HfBJV0S3l30Cki1SENnn5wbmlfheD019v7JNHnrkm4mqcl2zdcAodrvo9bIuJXc8cWkUPat4B0jDNhBnqwd3wwiKxC9sBeOJd+uHXgJkqPa0Qf3N+IxGR0xEIHQYKpyGrBmd/7Xe6JmLUyJTcMS+c=</Modulus>
-<Exponent>AQAB</Exponent>
-</RSAKeyValue>
+此处公钥需要通过rsa.RSAKey()来进行生成，与Generator项目中私钥是一对
 ";
 
         public Validate()
@@ -140,7 +137,7 @@ namespace Register
             return DateTime.Now < Convert.ToDateTime(validity);
         }
 
-        internal bool CheckReg(string regString)
+        internal bool CheckReg(string regString, bool showMsg)
         {
             try
             {
@@ -150,12 +147,14 @@ namespace Register
                 {
                     if (!IsCurrentMachine(reg.RegBase.MachineCode))
                     {
-                        MessageBox.Show("非当前机器授权信息，请核对！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (showMsg)
+                            MessageBox.Show("非当前机器授权信息，请核对！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                     else if (!IsValidity(reg.RegBase.ExpiryDate))
                     {
-                        MessageBox.Show("授权时间已过期，请重新注册！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (showMsg)
+                            MessageBox.Show("授权时间已过期，请重新注册！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                     else
@@ -163,13 +162,15 @@ namespace Register
                 }
                 else
                 {
-                    MessageBox.Show("授权信息验证失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (showMsg)
+                        MessageBox.Show("授权信息验证失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
             catch
             {
-                MessageBox.Show("授权信息不正确！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (showMsg)
+                    MessageBox.Show("授权信息不正确！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -178,19 +179,27 @@ namespace Register
 
         public static bool Check()
         {
+            return Check(true);
+        }
+
+        public static bool Check(bool showRegister)
+        {
             string strPath = AppDomain.CurrentDomain.BaseDirectory + "key.lic", strReg = "";
             if (File.Exists(strPath))
                 strReg = File.ReadAllText(strPath, Encoding.Default);
-            if (validate.CheckReg(strReg))
+            if (validate.CheckReg(strReg, showRegister))
             {
                 return true;
             }
             else
             {
-                using (var frm = new FrmRegister())
+                if (showRegister)
                 {
-                    if (frm.ShowDialog() == DialogResult.OK)
-                        return true;
+                    using (var frm = new FrmRegister())
+                    {
+                        if (frm.ShowDialog() == DialogResult.OK)
+                            return true;
+                    }
                 }
                 return false;
             }

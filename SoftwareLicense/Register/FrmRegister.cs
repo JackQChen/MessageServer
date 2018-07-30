@@ -29,7 +29,7 @@ namespace Register
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 var strReg = File.ReadAllText(openFileDialog1.FileName, Encoding.Default);
-                if (reg.CheckReg(strReg))
+                if (reg.CheckReg(strReg, true))
                 {
                     File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "key.lic", strReg, Encoding.Default);
                     MessageBox.Show("注册成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
