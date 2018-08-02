@@ -12,7 +12,7 @@
     <AssemblyName>Generator</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationIcon>Checked.ico</ApplicationIcon>
+    <ApplicationIcon>ico.ico</ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -112,8 +112,8 @@
     <Compile Include="RSACryption.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Checked.ico" />
     <Content Include="CustomSkin.dll" />
+    <Content Include="ico.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
