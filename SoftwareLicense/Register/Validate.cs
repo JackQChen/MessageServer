@@ -21,29 +21,25 @@ namespace Register
 
         public Validate()
         {
-            machineCode = MD5Crytion.Encrypt(GetCpuID() + GetMacAddr()).ToUpper();
+            var strID = string.Format("{0},{1},{2}", GetCpuID(), GetBoardID(), GetDiskID());
+            machineCode = MD5Crytion.Encrypt(strID).ToUpper();
         }
 
-        #region 如果为单用户通过机器码获取注册码
+        #region 获取机器相关信息
 
-        /// <summary>
-        /// 获取CPUID
-        /// </summary>
-        /// <returns></returns>
         private string GetCpuID()
         {
             try
             {
-                string cpuInfo = "";//cpu序列号   
                 ManagementClass mc = new ManagementClass("Win32_Processor");
                 ManagementObjectCollection moc = mc.GetInstances();
+                string strID = null;
                 foreach (ManagementObject mo in moc)
                 {
-                    cpuInfo = mo.Properties["ProcessorId"].Value.ToString();
+                    strID = mo.Properties["ProcessorId"].Value.ToString();
+                    break;
                 }
-                moc = null;
-                mc = null;
-                return cpuInfo;
+                return strID;
             }
             catch
             {
@@ -51,59 +47,43 @@ namespace Register
             }
         }
 
-        #region 未处理移动盘
-
-        ///// <summary>
-        ///// 获取硬盘ID
-        ///// </summary>
-        ///// <returns></returns>
-        //private string GetDiskID()
-        //{
-        //    try
-        //    {
-        //        String HDid = "";
-        //        ManagementClass mc = new ManagementClass("Win32_DiskDrive");
-        //        ManagementObjectCollection moc = mc.GetInstances();
-        //        foreach (ManagementObject mo in moc)
-        //        {
-        //            HDid = (string)mo.Properties["Model"].Value;
-        //        }
-        //        moc = null;
-        //        mc = null;
-        //        return HDid;
-        //    }
-        //    catch
-        //    {
-        //        return "unknow";
-        //    }
-        //}
-
-        #endregion
-
-        /// <summary> 
-        /// 获取网卡物理地址 
-        /// </summary> 
-        /// <returns></returns> 
-        private string GetMacAddr()
+        private string GetBoardID()
         {
             try
             {
-                string madAddr = null;
-                ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
-                ManagementObjectCollection moc2 = mc.GetInstances();
-                foreach (ManagementObject mo in moc2)
+                ManagementClass mc = new ManagementClass("Win32_BaseBoard");
+                ManagementObjectCollection moc = mc.GetInstances();
+                string strID = null;
+                foreach (ManagementObject mo in moc)
                 {
-                    if (Convert.ToBoolean(mo["IPEnabled"]) == true)
-                    {
-                        madAddr = mo["MacAddress"].ToString();
-                    }
-                    mo.Dispose();
+                    strID = mo.Properties["SerialNumber"].Value.ToString();
+                    break;
                 }
-                return madAddr;
+                return strID;
             }
             catch
             {
-                return null;
+                return "unknow";
+            }
+        }
+
+        private string GetDiskID()
+        {
+            try
+            {
+                ManagementClass mc = new ManagementClass("Win32_PhysicalMedia");
+                ManagementObjectCollection moc = mc.GetInstances();
+                string strID = null;
+                foreach (ManagementObject mo in moc)
+                {
+                    strID = mo.Properties["SerialNumber"].Value.ToString();
+                    break;
+                }
+                return strID;
+            }
+            catch
+            {
+                return "unknow";
             }
         }
 
