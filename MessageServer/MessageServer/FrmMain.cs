@@ -206,6 +206,7 @@ namespace MessageServer
                 if (this.lastSelectedIndex != -1)
                     this.lvService.Items[lastSelectedIndex].SubItems[0].Text = "";
                 lastSelectedIndex = curIndex;
+                UpdateClientList();
                 this.btnServicePanel.Enabled = this.serverList.Get(srvName) as IServiceUI != null;
             }
         }
