@@ -15,7 +15,7 @@
 4.将Base64字串发送给客户端<br><br>
 
 #### 客户端调用示例
-客户端请进行签名，防止程序替换
+请对Register进行签名，防止程序替换
 ```C#
 
     static class Program
@@ -29,6 +29,9 @@
             //进行授权验证
             if (!Validate.Check())
                 return;
+            //进行授权验证(无弹框模式)
+            //if (!Validate.Check(false))
+            //    return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());
