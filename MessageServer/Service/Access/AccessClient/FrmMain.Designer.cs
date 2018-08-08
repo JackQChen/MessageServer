@@ -33,10 +33,10 @@ namespace AccessClient
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtMsg = new System.Windows.Forms.TextBox();
             this.btnAccess = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtMsg = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,12 +56,24 @@ namespace AccessClient
             this.toolStripMenuItem1,
             this.btnExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 54);
+            // 
+            // btnAccess
+            // 
+            this.btnAccess.Name = "btnAccess";
+            this.btnAccess.Size = new System.Drawing.Size(100, 22);
+            this.btnAccess.Text = "授权";
+            this.btnAccess.Click += new System.EventHandler(this.btnAccess_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(97, 6);
             // 
             // btnExit
             // 
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(152, 22);
+            this.btnExit.Size = new System.Drawing.Size(100, 22);
             this.btnExit.Text = "退出";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -74,18 +86,6 @@ namespace AccessClient
             this.txtMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMsg.Size = new System.Drawing.Size(284, 162);
             this.txtMsg.TabIndex = 0;
-            // 
-            // btnAccess
-            // 
-            this.btnAccess.Name = "btnAccess";
-            this.btnAccess.Size = new System.Drawing.Size(152, 22);
-            this.btnAccess.Text = "授权";
-            this.btnAccess.Click += new System.EventHandler(this.btnAccess_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // FrmMain
             // 
@@ -100,7 +100,7 @@ namespace AccessClient
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "授权客户端";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
-            this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.Shown += new System.EventHandler(this.FrmMain_Shown);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

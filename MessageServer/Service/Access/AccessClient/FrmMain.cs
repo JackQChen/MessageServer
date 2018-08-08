@@ -15,33 +15,45 @@ namespace AccessClient
             InitializeComponent();
         }
 
-        private void FrmMain_Load(object sender, EventArgs e)
+        private void FrmMain_Shown(object sender, EventArgs e)
         {
+            var caption = this.Text;
+            this.Text = caption + "(正在授权...)";
             client = new TcpClient();
             client.OnReceive += new TcpClientEvent.OnReceiveEventHandler(client_OnReceive);
             client.OnClose += new TcpClientEvent.OnCloseEventHandler(client_OnClose);
             this.Access();
+            this.Text = caption;
             this.Close();
             this.notifyIcon1.ShowBalloonTip(3000);
+        }
+
+        void WriteLog(string log)
+        {
+            if (this.txtMsg.IsHandleCreated)
+                this.txtMsg.Invoke(new Action(() =>
+                {
+                    this.txtMsg.AppendText(string.Format("{0}\r\n{1}\r\n",
+                        DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), log));
+                }));
         }
 
         void Access()
         {
             if (client.IsStarted)
                 return;
-            client.Connect(
+            if (!client.Connect(
                   ConfigurationManager.AppSettings["IP"],
                   ushort.Parse(ConfigurationManager.AppSettings["Port"]),
-                  async: false);
+                  async: false))
+            {
+                WriteLog("授权服务器连接失败!");
+            }
         }
 
         HandleResult client_OnClose(TcpClient sender, SocketOperation enOperation, int errorCode)
         {
-            if (this.txtMsg.IsHandleCreated)
-                this.txtMsg.Invoke(new Action(() =>
-                {
-                    this.txtMsg.AppendText("授权信息已失效，请重新授权\r\n");
-                }));
+            WriteLog("授权信息已失效，请重新授权!");
             this.isAccess = false;
             return HandleResult.Ignore;
         }
@@ -55,11 +67,7 @@ namespace AccessClient
             {
                 if (isAccess)
                 {
-                    if (this.txtMsg.IsHandleCreated)
-                        this.txtMsg.Invoke(new Action(() =>
-                        {
-                            this.txtMsg.AppendText(strResult);
-                        }));
+                    WriteLog(strResult.Trim());
                 }
                 else
                 {
@@ -72,11 +80,7 @@ namespace AccessClient
                     }
                     catch
                     {
-                        if (this.txtMsg.IsHandleCreated)
-                            this.txtMsg.Invoke(new Action(() =>
-                            {
-                                this.txtMsg.AppendText("授权信息不正确，请核对\r\n");
-                            }));
+                        WriteLog("授权信息不正确，请核对!");
                     }
                 }
                 strResult = "";
@@ -98,7 +102,8 @@ namespace AccessClient
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.ExitThread();
+            this.FormClosing -= this.FrmMain_FormClosing;
+            Application.Exit();
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)

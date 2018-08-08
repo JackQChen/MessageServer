@@ -86,9 +86,7 @@ namespace AccessService
                 {
                     if (extraData.Data.Trim() == extraData.Key)
                     {
-                        var data = Encoding.Default.GetBytes("已于"
-                            + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                            + "成功授权！\r\n");
+                        var data = Encoding.Default.GetBytes("授权成功！\r\n");
                         this.Send(connId, data, data.Length);
                         INIOperation.WriteString("IPList", extraData.IP, "true");
                         extraData.Access = true;
