@@ -15,8 +15,8 @@ namespace MessageServer
             InitializeComponent();
         }
 
-        ListExtra<TcpServer> serverList = new ListExtra<TcpServer>();
-        ListExtra<ListExtra<string>> clientList = new ListExtra<ListExtra<string>>();
+        Extra<string, TcpServer> serverList = new Extra<string, TcpServer>();
+        Extra<string, Extra<string, string>> clientList = new Extra<string, Extra<string, string>>();
         int lastSelectedIndex = -1;
         Action<string, string> actServiceState, actLog;
 
@@ -88,7 +88,7 @@ namespace MessageServer
                 serviceItem.SubItems.Add(cfg.Name);
                 serviceItem.SubItems.Add("准备就绪");
                 serviceItem.Tag = new ServiceInfo(service);
-                this.clientList.Set(cfg.Name, new ListExtra<string>());
+                this.clientList.Set(cfg.Name, new Extra<string, string>());
                 service.OnError += (srv, connId, ex) =>
                 {
                     if (this.tabControl1.IsHandleCreated)
@@ -134,7 +134,7 @@ namespace MessageServer
 
         private void StartService()
         {
-            foreach (var key in this.serverList.dict.Keys)
+            foreach (var key in this.serverList.Dictionary.Keys)
             {
                 var server = this.serverList.Get(key);
                 if (!server.Start())
@@ -147,7 +147,7 @@ namespace MessageServer
 
         private void StopService()
         {
-            foreach (var service in this.serverList.dict.Values)
+            foreach (var service in this.serverList.Dictionary.Values)
                 service.Stop();
         }
 
@@ -201,7 +201,7 @@ namespace MessageServer
                 this.lvClient.Items.Clear();
                 var srvName = this.lvService.Items[curIndex].Name;
                 var cList = this.clientList.Get(srvName);
-                cList.isChanged = true;
+                cList.Changed = true;
                 this.lvService.Items[curIndex].SubItems[0].Text = "●";
                 if (this.lastSelectedIndex != -1)
                     this.lvService.Items[lastSelectedIndex].SubItems[0].Text = "";
@@ -214,11 +214,11 @@ namespace MessageServer
         void UpdateClientList()
         {
             var cList = this.clientList.Get(this.lvService.Items[this.lastSelectedIndex].Name);
-            if (!cList.isChanged)
+            if (!cList.Changed)
                 return;
-            cList.isChanged = false;
+            cList.Changed = false;
             var keys = this.lvClient.Items.Cast<ListViewItem>().Select(s => s.Name);
-            var ids = cList.dict.Keys;
+            var ids = cList.Dictionary.Keys;
             foreach (var key in keys.Except(ids))
                 this.lvClient.Items.RemoveByKey(key);
             this.lvClient.Items.AddRange(ids.Except(keys).Select(

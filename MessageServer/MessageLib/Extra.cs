@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Collections.Concurrent;
 
 namespace MessageLib
 {
-    public class Extra<T>
+    public class Extra<TKey, TValue>
     {
-        public ConcurrentDictionary<IntPtr, T> Dictionary
+        public bool Changed { get; set; }
+        public ConcurrentDictionary<TKey, TValue> Dictionary
         {
             get
             {
@@ -16,21 +14,21 @@ namespace MessageLib
             }
         }
 
-        ConcurrentDictionary<IntPtr, T> dict = new ConcurrentDictionary<IntPtr, T>();
+        ConcurrentDictionary<TKey, TValue> dict = new ConcurrentDictionary<TKey, TValue>();
 
         /// <summary>
         /// 获取附加数据
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public T Get(IntPtr key)
+        public TValue Get(TKey key)
         {
-            T value;
+            TValue value;
             if (dict.TryGetValue(key, out value))
             {
                 return value;
             }
-            return default(T);
+            return default(TValue);
         }
 
         /// <summary>
@@ -40,22 +38,13 @@ namespace MessageLib
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public bool Set(IntPtr key, T newValue)
+        public bool Set(TKey key, TValue newValue)
         {
             try
             {
                 dict.AddOrUpdate(key, newValue, (tKey, existingVal) => { return newValue; });
+                this.Changed = true;
                 return true;
-            }
-            catch (OverflowException)
-            {
-                // 字典数目超过int.max
-                return false;
-            }
-            catch (ArgumentNullException)
-            {
-                // 参数为空
-                return false;
             }
             catch (Exception)
             {
@@ -68,17 +57,17 @@ namespace MessageLib
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public bool Remove(IntPtr key)
+        public bool Remove(TKey key)
         {
-            T value;
-            return dict.TryRemove(key, out value);
+            TValue value;
+            bool result = dict.TryRemove(key, out value);
+            this.Changed = true;
+            return result;
         }
     }
 
-
-    public class ConnectionExtra
+    public class ConnectionExtra : Extra<IntPtr, object>
     {
-        ConcurrentDictionary<IntPtr, object> dict = new ConcurrentDictionary<IntPtr, object>();
 
         /// <summary>
         /// 获取附加数据
@@ -87,12 +76,7 @@ namespace MessageLib
         /// <returns></returns>
         public object GetExtra(IntPtr key)
         {
-            object value;
-            if (dict.TryGetValue(key, out value))
-            {
-                return value;
-            }
-            return null;
+            return this.Get(key);
         }
 
         /// <summary>
@@ -102,12 +86,11 @@ namespace MessageLib
         /// <returns></returns>
         public T GetExtra<T>(IntPtr key)
         {
-            object value;
-            if (dict.TryGetValue(key, out value))
-            {
+            object value = this.Get(key);
+            if (value == null)
+                return default(T);
+            else
                 return (T)value;
-            }
-            return default(T);
         }
 
         /// <summary>
@@ -119,25 +102,7 @@ namespace MessageLib
         /// <returns></returns>
         public bool SetExtra(IntPtr key, object newValue)
         {
-            try
-            {
-                dict.AddOrUpdate(key, newValue, (tKey, existingVal) => { return newValue; });
-                return true;
-            }
-            catch (OverflowException)
-            {
-                // 字典数目超过int.max
-                return false;
-            }
-            catch (ArgumentNullException)
-            {
-                // 参数为空
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return this.Set(key, newValue);
         }
 
         /// <summary>
@@ -147,8 +112,7 @@ namespace MessageLib
         /// <returns></returns>
         public bool RemoveExtra(IntPtr key)
         {
-            object value;
-            return dict.TryRemove(key, out value);
+            return this.Remove(key);
         }
     }
 }

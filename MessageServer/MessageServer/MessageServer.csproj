@@ -62,7 +62,6 @@
     <Compile Include="ServiceConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ListExtra.cs" />
     <Compile Include="TabControlEx.cs">
       <SubType>Component</SubType>
     </Compile>
