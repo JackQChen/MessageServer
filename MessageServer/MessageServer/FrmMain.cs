@@ -94,7 +94,7 @@ namespace MessageServer
                     if (this.tabControl1.IsHandleCreated)
                         this.tabControl1.Invoke(actLog,
                             srv.Name,
-                            string.Format("\r\n{0} - {1}\r\n{2}:{3}",
+                            string.Format("{0} - {1}\r\n{2}:{3}\r\n",
                             DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
                             srv.Name,
                             this.clientList.Get(srv.Name).Get(connId.ToString()),
