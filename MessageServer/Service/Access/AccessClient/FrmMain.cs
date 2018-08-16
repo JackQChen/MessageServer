@@ -41,7 +41,7 @@ namespace AccessClient
         void Access()
         {
             if (client.IsStarted)
-                return;
+                client.Stop();
             if (!client.Connect(
                   ConfigurationManager.AppSettings["IP"],
                   ushort.Parse(ConfigurationManager.AppSettings["Port"]),
