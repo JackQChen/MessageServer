@@ -119,10 +119,18 @@ namespace Register
 
         internal bool CheckReg(string regString, bool showMsg)
         {
+            RegInfo reg = null;
+            return CheckReg(regString, showMsg, out reg);
+        }
+
+        internal bool CheckReg(string regString, bool showMsg, out RegInfo regInfo)
+        {
+            RegInfo reg = null;
             try
             {
                 var infoString = Encoding.Default.GetString(Convert.FromBase64String(regString));
-                var reg = convert.Deserialize<RegInfo>(infoString);
+                reg = convert.Deserialize<RegInfo>(infoString);
+                regInfo = reg;
                 if (rsa.SignatureDeformatter(publicKey, rsa.GetHash(convert.Serialize(reg.RegBase)), reg.Signature))
                 {
                     if (!IsCurrentMachine(reg.RegBase.MachineCode))
@@ -151,8 +159,9 @@ namespace Register
             {
                 if (showMsg)
                     MessageBox.Show("授权信息不正确！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
             }
+            regInfo = reg;
+            return false;
         }
 
         static Validate validate = new Validate();
@@ -164,10 +173,16 @@ namespace Register
 
         public static bool Check(bool showRegister)
         {
+            RegInfo reg = null;
+            return Check(showRegister, out reg);
+        }
+
+        public static bool Check(bool showRegister, out RegInfo reg)
+        {
             string strPath = AppDomain.CurrentDomain.BaseDirectory + "key.lic", strReg = "";
             if (File.Exists(strPath))
                 strReg = File.ReadAllText(strPath, Encoding.Default);
-            if (validate.CheckReg(strReg, showRegister))
+            if (validate.CheckReg(strReg, showRegister, out reg))
             {
                 return true;
             }
@@ -178,7 +193,10 @@ namespace Register
                     using (var frm = new FrmRegister())
                     {
                         if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            reg = frm.regInfo;
                             return true;
+                        }
                     }
                 }
                 return false;

@@ -108,7 +108,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="RegInfo.cs" />
     <Compile Include="RSACryption.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +130,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Register\Register.csproj">
+      <Project>{32DB9AAE-8539-4FF5-B047-D8F19964FC3A}</Project>
+      <Name>Register</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

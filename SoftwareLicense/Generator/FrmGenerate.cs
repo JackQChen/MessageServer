@@ -4,6 +4,7 @@ using System.Text;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
 using CustomSkin.Windows.Forms;
+using Register;
 
 namespace Generator
 {
@@ -33,7 +34,8 @@ namespace Generator
                 RegInfo regInfo = new RegInfo();
                 RegBaseInfo baseInfo = new RegBaseInfo();
                 baseInfo.MachineCode = this.txtMachineCode.Text;
-                baseInfo.Organization = this.txtOrganization.Text;
+                baseInfo.OrganizationCode = this.txtOrgCode.Text;
+                baseInfo.OrganizationName = this.txtOrganization.Text;
                 baseInfo.ExpiryDate = this.dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss");
                 regInfo.RegBase = baseInfo;
                 regInfo.Signature = rsa.SignatureFormatter(privateKey, rsa.GetHash(convert.Serialize(baseInfo)));

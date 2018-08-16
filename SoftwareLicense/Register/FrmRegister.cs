@@ -8,6 +8,7 @@ namespace Register
     public partial class FrmRegister : Form
     {
         private Validate reg = new Validate();
+        internal RegInfo regInfo;
         public FrmRegister()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Register
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 var strReg = File.ReadAllText(openFileDialog1.FileName, Encoding.Default);
-                if (reg.CheckReg(strReg, true))
+                if (reg.CheckReg(strReg, true, out regInfo))
                 {
                     File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "key.lic", strReg, Encoding.Default);
                     MessageBox.Show("注册成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
