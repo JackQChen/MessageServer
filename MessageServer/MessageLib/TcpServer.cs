@@ -9,6 +9,7 @@ namespace MessageLib
 {
     public class TcpServerEvent
     {
+        public delegate HandleResult OnLogEventHandler(TcpServer sender, string log);
         public delegate HandleResult OnErrorEventHandler(TcpServer sender, IntPtr connId, Exception ex);
         public delegate HandleResult OnSendEventHandler(IntPtr connId, byte[] bytes);
         public delegate HandleResult OnReceiveEventHandler(IntPtr connId, byte[] bytes);
@@ -79,6 +80,10 @@ namespace MessageLib
         /// </summary>
         public ushort Port { get; set; }
 
+        /// <summary>
+        /// 调用日志事件
+        /// </summary>
+        public event TcpServerEvent.OnLogEventHandler OnLog;
         /// <summary>
         /// 出现异常事件
         /// </summary>
@@ -214,6 +219,12 @@ namespace MessageLib
             }
 
             return Sdk.HP_Server_Stop(pServer);
+        }
+
+        public virtual void Log(string log)
+        {
+            if (this.OnLog != null)
+                this.OnLog(this, log);
         }
 
         /// <summary>

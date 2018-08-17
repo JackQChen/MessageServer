@@ -150,7 +150,7 @@ namespace AccessService
 
         object asyncObj = new object();
 
-        void Log(string strLog)
+        public override void Log(string strLog)
         {
             var dir = AppDomain.CurrentDomain.BaseDirectory + "Log\\";
             if (!Directory.Exists(dir))
