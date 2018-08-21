@@ -152,6 +152,7 @@ namespace AccessService
 
         public override void Log(string strLog)
         {
+            base.Log(strLog);
             var dir = AppDomain.CurrentDomain.BaseDirectory + "Log\\";
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
