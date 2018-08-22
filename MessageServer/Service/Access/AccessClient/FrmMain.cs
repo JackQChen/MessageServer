@@ -106,6 +106,11 @@ namespace AccessClient
             Application.Exit();
         }
 
+        private void txtMsg_DoubleClick(object sender, EventArgs e)
+        {
+            this.txtMsg.Clear();
+        }
+
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.ShowInTaskbar = true;

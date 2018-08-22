@@ -86,6 +86,7 @@ namespace AccessClient
             this.txtMsg.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMsg.Size = new System.Drawing.Size(284, 162);
             this.txtMsg.TabIndex = 0;
+            this.txtMsg.DoubleClick += new System.EventHandler(this.txtMsg_DoubleClick);
             // 
             // FrmMain
             // 
