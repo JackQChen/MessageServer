@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Threading;
 
 namespace MessageLib
 {
@@ -1048,7 +1049,7 @@ namespace MessageLib
         {
             try
             {
-                this._totalSendCount += length;
+                Interlocked.Add(ref this._totalSendCount, length);
                 if (OnSend != null)
                 {
                     byte[] bytes = new byte[length];
@@ -1067,7 +1068,7 @@ namespace MessageLib
         {
             try
             {
-                this._totalRecvCount += length;
+                Interlocked.Add(ref this._totalRecvCount, length);
                 if (OnPointerDataReceive != null)
                 {
                     return OnPointerDataReceive(connId, pData, length);
