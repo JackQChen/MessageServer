@@ -66,7 +66,12 @@ namespace FlowViewer
                 var strText = Marshal.PtrToStringUni(m.LParam);
                 switch ((int)m.WParam)
                 {
-                    case 0:
+                    case 1:
+                        {
+                            this.serverProc = Process.GetProcessById(Convert.ToInt32(strText));
+                        }
+                        break;
+                    case 2:
                         {
                             if (this.wbPerformance.Document != null)
                             {
@@ -75,14 +80,10 @@ namespace FlowViewer
                             }
                         }
                         break;
-                    case 1:
-                        {
-                            this.serverProc = Process.GetProcessById(Convert.ToInt32(strText));
-                        }
-                        break;
                 }
             }
-            base.DefWndProc(ref m);
+            else
+                base.DefWndProc(ref m);
         }
     }
 }

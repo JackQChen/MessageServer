@@ -42,7 +42,7 @@ namespace MessageServer
             this.viewerHost.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
             this.Controls.Add(this.viewerHost);
             this.viewerHost.BringToFront();
-            this.viewerHost.InitAction = () =>
+            this.viewerHost.OnEmbed += () =>
             {
                 this.viewerHost.SendMessage(1, System.Diagnostics.Process.GetCurrentProcess().Id.ToString());
             };
@@ -309,7 +309,7 @@ namespace MessageServer
             si.lastRecv = si.totalRecv;
             si.lastSend = si.totalSend;
             this.pgService.SelectedObject = si;
-            this.viewerHost.SendMessage(recvRate + "," + sendRate);
+            this.viewerHost.SendMessage(2, recvRate + "," + sendRate);
         }
 
         internal class ServiceInfo
