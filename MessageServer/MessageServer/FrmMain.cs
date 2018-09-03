@@ -223,6 +223,7 @@ namespace MessageServer
                 var cList = this.clientList.Get(srvName);
                 cList.Changed = true;
                 this.lvService.Items[curIndex].SubItems[0].Text = "●";
+                (this.lvService.Items[curIndex].Tag as ServiceInfo).Refresh();
                 if (this.lastSelectedIndex != -1)
                     this.lvService.Items[lastSelectedIndex].SubItems[0].Text = "";
                 lastSelectedIndex = curIndex;
@@ -323,6 +324,14 @@ namespace MessageServer
                 this.server = srv;
             }
 
+            public void Refresh()
+            {
+                this.totalRecv = this.server.TotalRecvCount;
+                this.totalSend = this.server.TotalSendCount;
+                this.lastRecv = this.totalRecv;
+                this.lastSend = this.totalSend;
+            }
+
             [Category("服务状态")]
             public string 当前连接数 { get { return this.server.ConnectionCount.ToString(); } set { } }
             [Category("服务状态")]
@@ -331,7 +340,7 @@ namespace MessageServer
                 get
                 {
                     this.totalSend = this.server.TotalSendCount;
-                    return FormatFileSize(this.server.TotalSendCount);
+                    return FormatFileSize(this.totalSend);
                 }
                 set { }
             }
@@ -341,7 +350,7 @@ namespace MessageServer
                 get
                 {
                     this.totalRecv = this.server.TotalRecvCount;
-                    return FormatFileSize(this.server.TotalRecvCount);
+                    return FormatFileSize(this.totalRecv);
                 }
                 set { }
             }
