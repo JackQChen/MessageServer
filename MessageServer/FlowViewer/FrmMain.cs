@@ -64,7 +64,8 @@ namespace FlowViewer
                 Separator = new Separator
                 {
                     Step = TimeSpan.FromSeconds(5).Ticks,
-                    Stroke = System.Windows.Media.Brushes.LightGray
+                    Stroke = System.Windows.Media.Brushes.Silver,
+                    StrokeThickness = 1.5f
                 }
             });
             chartFlow.AxisY.Add(new Axis
@@ -74,7 +75,8 @@ namespace FlowViewer
                 MinValue = 0,
                 Separator = new Separator
                 {
-                    Stroke = System.Windows.Media.Brushes.Transparent
+                    Stroke = System.Windows.Media.Brushes.LightGray,
+                    StrokeThickness = 0.5f
                 }
             });
             chartFlow.AxisY.Add(new Axis
