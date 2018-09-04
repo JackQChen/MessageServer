@@ -310,7 +310,7 @@ namespace MessageServer
             si.lastRecv = si.totalRecv;
             si.lastSend = si.totalSend;
             this.pgService.SelectedObject = si;
-            this.viewerHost.SendMessage(2, recvRate + "," + sendRate);
+            this.viewerHost.SendMessage(2, si.connCount + "," + recvRate + "," + sendRate);
         }
 
         internal class ServiceInfo
@@ -318,6 +318,7 @@ namespace MessageServer
             private TcpServer server;
             internal long lastRecv, lastSend;
             internal long totalRecv, totalSend;
+            internal uint connCount;
 
             public ServiceInfo(TcpServer srv)
             {
@@ -333,7 +334,16 @@ namespace MessageServer
             }
 
             [Category("服务状态")]
-            public string 当前连接数 { get { return this.server.ConnectionCount.ToString(); } set { } }
+            public string 当前连接数
+            {
+                get
+                {
+                    this.connCount = this.server.ConnectionCount;
+                    return this.connCount.ToString();
+                }
+                set { }
+            }
+
             [Category("服务状态")]
             public string 累计发送
             {
@@ -373,11 +383,11 @@ namespace MessageServer
             if (fileSize < 0)
                 return "ErrorSize";
             else if (fileSize >= 1024 * 1024 * 1024)
-                return string.Format("{0:########0.00} GB", ((Double)fileSize) / (1024 * 1024 * 1024));
+                return string.Format("{0:########0.00} GB", fileSize / (1024 * 1024 * 1024));
             else if (fileSize >= 1024 * 1024)
-                return string.Format("{0:####0.00} MB", ((Double)fileSize) / (1024 * 1024));
+                return string.Format("{0:####0.00} MB", fileSize / (1024 * 1024));
             else if (fileSize >= 1024)
-                return string.Format("{0:####0.00} KB", ((Double)fileSize) / 1024);
+                return string.Format("{0:####0.00} KB", fileSize / 1024);
             else
                 return string.Format("{0} Bytes", fileSize);
         }

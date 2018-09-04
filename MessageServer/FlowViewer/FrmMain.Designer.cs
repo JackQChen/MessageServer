@@ -28,37 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.wbPerformance = new System.Windows.Forms.WebBrowser();
+            this.chartFlow = new LiveCharts.WinForms.CartesianChart();
             this.SuspendLayout();
             // 
-            // wbPerformance
+            // chartFlow
             // 
-            this.wbPerformance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wbPerformance.Location = new System.Drawing.Point(0, 0);
-            this.wbPerformance.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbPerformance.Name = "wbPerformance";
-            this.wbPerformance.ScriptErrorsSuppressed = true;
-            this.wbPerformance.Size = new System.Drawing.Size(284, 262);
-            this.wbPerformance.TabIndex = 0;
-            this.wbPerformance.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.wbPerformance_DocumentCompleted);
-            this.wbPerformance.SizeChanged += new System.EventHandler(this.wbPerformance_SizeChanged);
+            this.chartFlow.BackColor = System.Drawing.Color.White;
+            this.chartFlow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartFlow.Location = new System.Drawing.Point(0, 0);
+            this.chartFlow.Name = "chartFlow";
+            this.chartFlow.Size = new System.Drawing.Size(284, 262);
+            this.chartFlow.TabIndex = 0;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.wbPerformance);
+            this.Controls.Add(this.chartFlow);
             this.Name = "FrmMain";
             this.Text = "流量查看器";
-            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.WebBrowser wbPerformance;
+        private LiveCharts.WinForms.CartesianChart chartFlow;
+
     }
 }
 

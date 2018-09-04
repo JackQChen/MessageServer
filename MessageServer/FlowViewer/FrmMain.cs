@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LiveCharts;
+using LiveCharts.Configurations;
+using LiveCharts.Wpf;
 
 namespace FlowViewer
 {
@@ -12,51 +15,103 @@ namespace FlowViewer
         public FrmMain()
         {
             InitializeComponent();
+            InitChart();
         }
+
+        ChartValues<MeasureModel> sendValues;
+        ChartValues<MeasureModel> recvValues;
+        ChartValues<MeasureModel> connValues;
 
         Process serverProc;
 
-        private void FrmMain_Load(object sender, System.EventArgs e)
+        private void InitChart()
         {
-            this.wbPerformance.Navigate(AppDomain.CurrentDomain.BaseDirectory + "index.html");
+            this.sendValues = new ChartValues<MeasureModel>();
+            this.recvValues = new ChartValues<MeasureModel>();
+            this.connValues = new ChartValues<MeasureModel>();
+            Charting.For<MeasureModel>(Mappers.Xy<MeasureModel>()
+                .X(model => model.DateTime.Ticks)
+                .Y(model => model.Value));
+            chartFlow.Series = new SeriesCollection { 
+                new LineSeries {
+                    Values = sendValues, 
+                    PointGeometry = null ,
+                    Title = "发送速率",
+                    Fill = System.Windows.Media.Brushes.Transparent,
+                    Stroke =new  System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(0xff,0xFE,0xAE,0x51))
+                },
+                new LineSeries {
+                    Values = recvValues, 
+                    PointGeometry = null,
+                    Title = "接收速率",
+                    Fill = System.Windows.Media.Brushes.Transparent,
+                    Stroke =new  System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(0xff,0x46,0xA8,0xF9))
+                },
+                new LineSeries {
+                    Values = connValues, 
+                    PointGeometry = null,
+                    Title = "连接数",
+                    ScalesYAt= 1,
+                    Fill = System.Windows.Media.Brushes.Transparent,
+                    Stroke =new  System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(0xff,0x25,0x92,0x41))
+                }
+            };
+            chartFlow.LegendLocation = LegendLocation.Top;
+            chartFlow.AxisX.Add(new Axis
+            {
+                Foreground = System.Windows.Media.Brushes.Black,
+                LabelFormatter = value => new DateTime((long)value).ToString("HH:mm:ss"),
+                Separator = new Separator
+                {
+                    Step = TimeSpan.FromSeconds(5).Ticks,
+                    Stroke = System.Windows.Media.Brushes.LightGray
+                }
+            });
+            chartFlow.AxisY.Add(new Axis
+            {
+                Foreground = System.Windows.Media.Brushes.Black,
+                LabelFormatter = value => FormatFileSize(value),
+                MinValue = 0,
+                Separator = new Separator
+                {
+                    Stroke = System.Windows.Media.Brushes.Transparent
+                }
+            });
+            chartFlow.AxisY.Add(new Axis
+            {
+                Foreground = System.Windows.Media.Brushes.Black,
+                MinValue = 0,
+                Position = AxisPosition.RightTop,
+                Separator = new Separator
+                {
+                    Stroke = System.Windows.Media.Brushes.Transparent
+                }
+            });
+            SetAxisLimits(DateTime.Now);
             Task.Factory.StartNew(() =>
             {
-                int count = 0;
                 while (true)
                 {
                     if (serverProc != null)
                         if (serverProc.HasExited)
                             Application.Exit();
                     Thread.Sleep(10000);
-                    count++;
-                    if (count > 5)
-                    {
-                        this.ClearMemory();
-                        count = 0;
-                    }
                 }
             });
         }
 
-        [DllImport("kernel32.dll", EntryPoint = "SetProcessWorkingSetSize")]
-        public static extern int SetProcessWorkingSetSize(IntPtr process, int minSize, int maxSize);
-
-        public void ClearMemory()
+        string FormatFileSize(double fileSize)
         {
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-            SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1);
-        }
-
-        private void wbPerformance_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            this.wbPerformance.Document.InvokeScript("initRate", new object[] { this.wbPerformance.Height });
-        }
-
-        private void wbPerformance_SizeChanged(object sender, System.EventArgs e)
-        {
-            if (this.wbPerformance.Document != null)
-                this.wbPerformance.Document.InvokeScript("initRate", new object[] { this.wbPerformance.Height });
+            if (fileSize < 0)
+                return "ErrorSize";
+            else if (fileSize >= 1024 * 1024 * 1024)
+                return string.Format("{0:########0.00} GB/s", fileSize / (1024 * 1024 * 1024));
+            else if (fileSize >= 1024 * 1024)
+                return string.Format("{0:####0.00} MB/s", fileSize / (1024 * 1024));
+            else if (fileSize >= 1024)
+                return string.Format("{0:####0.00} KB/s", fileSize / 1024);
+            else
+                return string.Format("{0} B/s", fileSize);
         }
 
         protected override void DefWndProc(ref Message m)
@@ -73,17 +128,47 @@ namespace FlowViewer
                         break;
                     case 2:
                         {
-                            if (this.wbPerformance.Document != null)
-                            {
-                                var rate = strText.Split(',');
-                                this.wbPerformance.Document.InvokeScript("setRate", new object[] { Convert.ToInt32(rate[0]), Convert.ToInt32(rate[1]) });
-                            }
+                            var rate = strText.Split(',');
+                            this.AddPoint(Convert.ToInt32(rate[0]), Convert.ToInt64(rate[1]), Convert.ToInt64(rate[2]));
                         }
                         break;
                 }
             }
             else
                 base.DefWndProc(ref m);
+        }
+
+        private void SetAxisLimits(DateTime now)
+        {
+            chartFlow.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(0.5).Ticks;
+            chartFlow.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(30).Ticks;
+        }
+
+        private void AddPoint(int connCount, long recvBytes, long sendBytes)
+        {
+            var now = System.DateTime.Now;
+            sendValues.Add(new MeasureModel
+            {
+                DateTime = now,
+                Value = sendBytes
+            });
+            recvValues.Add(new MeasureModel
+            {
+                DateTime = now,
+                Value = recvBytes
+            });
+            connValues.Add(new MeasureModel
+            {
+                DateTime = now,
+                Value = connCount
+            });
+            SetAxisLimits(now);
+            if (sendValues.Count > 30)
+            {
+                sendValues.RemoveAt(0);
+                recvValues.RemoveAt(0);
+                connValues.RemoveAt(0);
+            }
         }
     }
 }
