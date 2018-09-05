@@ -23,12 +23,14 @@ namespace AutoUpdate
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 UpdateCheck check = new UpdateCheck();
+                var currentTime = Convert.ToDateTime(ConfigurationManager.AppSettings["UpdateTime"]);
                 var lastTime = check.GetUpdateTime();
-                var needUpdate = Convert.ToDateTime(ConfigurationManager.AppSettings["UpdateTime"]) < lastTime;
+                var needUpdate = currentTime < lastTime;
                 if (needUpdate)
                 {
                     var frm = new FrmMain();
-                    frm.dtLastUpdateTime = lastTime;
+                    //无参启动不更新时间
+                    frm.dtLastUpdateTime = args.Length == 0 ? currentTime : lastTime;
                     Application.Run(frm);
                 }
                 if (args.Length == 0)
