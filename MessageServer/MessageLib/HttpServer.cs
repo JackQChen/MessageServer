@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
+using System.Threading;
 
 namespace MessageLib
 {
@@ -180,17 +179,24 @@ namespace MessageLib
 
         protected virtual HttpParseResult SDK_OnBody(IntPtr pSender, IntPtr connId, IntPtr pData, int iLength)
         {
-            if (OnPointerDataBody != null)
+            try
             {
-                return OnPointerDataBody(connId, pData, iLength);
+                Interlocked.Add(ref this._totalRecvCount, iLength);
+                if (OnPointerDataBody != null)
+                {
+                    return OnPointerDataBody(connId, pData, iLength);
+                }
+                else if (OnBody != null)
+                {
+                    byte[] bytes = new byte[iLength];
+                    Marshal.Copy(pData, bytes, 0, iLength);
+                    return OnBody(connId, bytes);
+                }
             }
-            else if (OnBody != null)
+            catch (Exception ex)
             {
-                byte[] bytes = new byte[iLength];
-                Marshal.Copy(pData, bytes, 0, iLength);
-                return OnBody(connId, bytes);
+                this.SDK_OnError(this, connId, ex);
             }
-
             return HttpParseResult.Ok;
         }
 
@@ -259,7 +265,7 @@ namespace MessageLib
 
         /**************************************************************************/
         /***************************** Server 操作方法 *****************************/
-        
+
         /// <summary>
         /// 名称：回复请求
         /// 描述：向客户端回复 HTTP 请求
@@ -275,7 +281,7 @@ namespace MessageLib
             int headersLength = headers == null ? 0 : headers.Length;
             return HttpSdk.HP_HttpServer_SendResponse(pServer, connId, (ushort)httpStatusCode, desc, headers, headersLength, body, bodyLength);
         }
-        
+
 
         /// <summary>
         /// 名称：发送本地文件

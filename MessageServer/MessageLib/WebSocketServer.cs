@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
+using System.Text;
+using System.Threading;
 
 namespace MessageLib
 {
@@ -44,15 +43,23 @@ namespace MessageLib
 
         protected virtual HandleResult SDK_OnWSMessageBody(IntPtr pSender, IntPtr dwConnID, IntPtr pData, int length)
         {
-            if (OnPointerWSMessageBody != null)
+            try
             {
-                return OnPointerWSMessageBody(dwConnID, pData, length);
+                Interlocked.Add(ref this._totalRecvCount, length);
+                if (OnPointerWSMessageBody != null)
+                {
+                    return OnPointerWSMessageBody(dwConnID, pData, length);
+                }
+                else if (OnWSMessageBody != null)
+                {
+                    byte[] bytes = new byte[length];
+                    Marshal.Copy(pData, bytes, 0, length);
+                    return OnWSMessageBody(dwConnID, bytes);
+                }
             }
-            else if (OnWSMessageBody != null)
+            catch (Exception ex)
             {
-                byte[] bytes = new byte[length];
-                Marshal.Copy(pData, bytes, 0, length);
-                return OnWSMessageBody(dwConnID, bytes);
+                this.SDK_OnError(this, dwConnID, ex);
             }
             return HandleResult.Ok;
         }

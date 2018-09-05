@@ -39,7 +39,7 @@ namespace MessageLib
     {
         public string Name { get; set; }
 
-        long _totalRecvCount = 0, _totalSendCount = 0;
+        protected long _totalRecvCount = 0, _totalSendCount = 0;
         public long TotalRecvCount
         {
             get
