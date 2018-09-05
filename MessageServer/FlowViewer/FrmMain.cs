@@ -22,6 +22,8 @@ namespace FlowViewer
         ChartValues<MeasureModel> recvValues;
         ChartValues<MeasureModel> connValues;
 
+        int currentCount = 5, stepCount = 5, displayCount = 30;
+
         Process serverProc;
 
         private void InitChart()
@@ -63,7 +65,7 @@ namespace FlowViewer
                 LabelFormatter = value => new DateTime((long)value).ToString("HH:mm:ss"),
                 Separator = new Separator
                 {
-                    Step = TimeSpan.FromSeconds(5).Ticks,
+                    Step = TimeSpan.FromSeconds(stepCount).Ticks,
                     Stroke = System.Windows.Media.Brushes.Silver,
                     StrokeThickness = 1.5f
                 }
@@ -143,7 +145,12 @@ namespace FlowViewer
         private void SetAxisLimits(DateTime now)
         {
             chartFlow.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(0.5).Ticks;
-            chartFlow.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(30).Ticks;
+            if (currentCount == 5)
+            {
+                currentCount = 0;
+                chartFlow.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(displayCount).Ticks;
+            }
+            currentCount++;
         }
 
         private void AddPoint(int connCount, long recvBytes, long sendBytes)
@@ -165,11 +172,15 @@ namespace FlowViewer
                 Value = connCount
             });
             SetAxisLimits(now);
-            if (sendValues.Count > 30)
+            if (currentCount == 1)
             {
-                sendValues.RemoveAt(0);
-                recvValues.RemoveAt(0);
-                connValues.RemoveAt(0);
+                var count = connValues.Count - displayCount;
+                for (int i = 0; i < count; i++)
+                {
+                    sendValues.RemoveAt(0);
+                    recvValues.RemoveAt(0);
+                    connValues.RemoveAt(0);
+                }
             }
         }
     }
