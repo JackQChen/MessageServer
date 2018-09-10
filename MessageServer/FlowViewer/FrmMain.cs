@@ -15,6 +15,10 @@ namespace FlowViewer
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
             InitChart();
         }
 
@@ -24,7 +28,7 @@ namespace FlowViewer
 
         int currentCount = 5, stepCount = 5, displayCount = 30;
 
-        Process serverProc;
+        internal Process serverProc;
 
         private void InitChart()
         {
@@ -96,9 +100,8 @@ namespace FlowViewer
             {
                 while (true)
                 {
-                    if (serverProc != null)
-                        if (serverProc.HasExited)
-                            Application.Exit();
+                    if (serverProc.HasExited)
+                        Application.Exit();
                     Thread.Sleep(10000);
                 }
             });
@@ -126,11 +129,6 @@ namespace FlowViewer
                 switch ((int)m.WParam)
                 {
                     case 1:
-                        {
-                            this.serverProc = Process.GetProcessById(Convert.ToInt32(strText));
-                        }
-                        break;
-                    case 2:
                         {
                             var rate = strText.Split(',');
                             this.AddPoint(Convert.ToInt32(rate[0]), Convert.ToInt64(rate[1]), Convert.ToInt64(rate[2]));

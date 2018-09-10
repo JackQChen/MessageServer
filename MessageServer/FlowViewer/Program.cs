@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace FlowViewer
@@ -11,11 +10,15 @@ namespace FlowViewer
         /// 应用程序的主入口点。
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            if (args.Length == 0)
+                return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+            var frm = new FrmMain();
+            frm.serverProc = Process.GetProcessById(Convert.ToInt32(args[0]));
+            Application.Run(frm);
         }
     }
 }
