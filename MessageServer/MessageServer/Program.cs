@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using System.Threading;
+using System.Diagnostics;
 using System.IO;
-using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace MessageServer
 {
@@ -16,8 +14,8 @@ namespace MessageServer
         [STAThread]
         static void Main()
         {
-            bool createdNew;
-            Mutex instance = new Mutex(true, Convert.ToBase64String(Encoding.UTF8.GetBytes(AppDomain.CurrentDomain.BaseDirectory)), out createdNew);
+            bool createdNew = false;
+            Mutex instance = new Mutex(true, Process.GetCurrentProcess().MainModule.FileName.Replace("\\", "/"), out createdNew);
             if (createdNew)
             {
                 Application.EnableVisualStyles();

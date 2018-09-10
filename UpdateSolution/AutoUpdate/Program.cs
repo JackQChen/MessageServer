@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Configuration;
 using System.Diagnostics;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -16,8 +15,8 @@ namespace AutoUpdate
         static void Main(string[] args)
         {
             MessageBoxEx.time = args.Length == 0 ? 0 : 5000;
-            bool createdNew;
-            Mutex instance = new Mutex(true, Convert.ToBase64String(Encoding.UTF8.GetBytes(AppDomain.CurrentDomain.BaseDirectory)), out createdNew);
+            bool createdNew = false;
+            Mutex instance = new Mutex(true, Process.GetCurrentProcess().MainModule.FileName.Replace("\\", "/"), out createdNew);
             if (createdNew)
             {
                 Application.EnableVisualStyles();
