@@ -48,7 +48,6 @@
             this.Controls.Add(this.chartFlow);
             this.Name = "FrmMain";
             this.Text = "流量查看器";
-            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }

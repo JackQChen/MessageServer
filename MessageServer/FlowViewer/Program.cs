@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FlowViewer
@@ -14,11 +16,27 @@ namespace FlowViewer
         {
             if (args.Length == 0)
                 return;
+            Task.Factory.StartNew(arg =>
+            {
+                Process serverProc = null;
+                try
+                {
+                    serverProc = Process.GetProcessById(Convert.ToInt32(arg));
+                }
+                catch
+                {
+                    Environment.Exit(0);
+                }
+                while (true)
+                {
+                    if (serverProc.HasExited)
+                        Environment.Exit(0);
+                    Thread.Sleep(10000);
+                }
+            }, args[0]);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var frm = new FrmMain();
-            frm.serverProc = Process.GetProcessById(Convert.ToInt32(args[0]));
-            Application.Run(frm);
+            Application.Run(new FrmMain());
         }
     }
 }

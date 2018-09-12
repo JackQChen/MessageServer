@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LiveCharts;
 using LiveCharts.Configurations;
@@ -15,10 +12,6 @@ namespace FlowViewer
         public FrmMain()
         {
             InitializeComponent();
-        }
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
             InitChart();
         }
 
@@ -27,8 +20,6 @@ namespace FlowViewer
         ChartValues<MeasureModel> connValues;
 
         int currentCount = 5, stepCount = 5, displayCount = 30;
-
-        internal Process serverProc;
 
         private void InitChart()
         {
@@ -96,15 +87,6 @@ namespace FlowViewer
                 }
             });
             SetAxisLimits(DateTime.Now);
-            Task.Factory.StartNew(() =>
-            {
-                while (true)
-                {
-                    if (serverProc.HasExited)
-                        Application.Exit();
-                    Thread.Sleep(10000);
-                }
-            });
         }
 
         string FormatFileSize(double fileSize)
