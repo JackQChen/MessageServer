@@ -47,6 +47,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerServerState = new System.Windows.Forms.Timer(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabServer = new MessageServer.TabControlEx();
             this.tabMain = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -56,13 +57,12 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lvClient = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnServicePanel = new System.Windows.Forms.Button();
             this.btnDisConn = new System.Windows.Forms.Button();
@@ -230,6 +230,12 @@
             this.timerServerState.Interval = 1000;
             this.timerServerState.Tick += new System.EventHandler(this.timerServerState_Tick);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "selected.png");
+            // 
             // tabServer
             // 
             this.tabServer.Controls.Add(this.tabMain);
@@ -289,14 +295,14 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader4});
             this.lvService.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvService.FullRowSelect = true;
             this.lvService.Location = new System.Drawing.Point(3, 17);
             this.lvService.MultiSelect = false;
             this.lvService.Name = "lvService";
             this.lvService.Size = new System.Drawing.Size(294, 451);
+            this.lvService.SmallImageList = this.imageList1;
             this.lvService.TabIndex = 0;
             this.lvService.UseCompatibleStateImageBehavior = false;
             this.lvService.View = System.Windows.Forms.View.Details;
@@ -305,27 +311,23 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "";
-            this.columnHeader1.Width = 20;
+            this.columnHeader1.Text = "  连接类型";
+            this.columnHeader1.Width = 80;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "连接类型";
+            this.columnHeader2.Text = "端口";
+            this.columnHeader2.Width = 45;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "端口";
-            this.columnHeader3.Width = 45;
+            this.columnHeader3.Text = "服务名称";
+            this.columnHeader3.Width = 105;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "服务名称";
-            this.columnHeader4.Width = 105;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "运行状态";
-            this.columnHeader5.Width = 64;
+            this.columnHeader4.Text = "运行状态";
+            this.columnHeader4.Width = 64;
             // 
             // splitContainer2
             // 
@@ -360,9 +362,9 @@
             // 
             this.lvClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvClient.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
             this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8});
+            this.columnHeader7});
             this.lvClient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvClient.FullRowSelect = true;
             this.lvClient.Location = new System.Drawing.Point(3, 17);
@@ -372,20 +374,20 @@
             this.lvClient.UseCompatibleStateImageBehavior = false;
             this.lvClient.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "ID";
+            this.columnHeader5.Width = 44;
+            // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "ID";
-            this.columnHeader6.Width = 44;
+            this.columnHeader6.Text = "IP";
+            this.columnHeader6.Width = 140;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "IP";
-            this.columnHeader7.Width = 140;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "状态";
-            this.columnHeader8.Width = 48;
+            this.columnHeader7.Text = "状态";
+            this.columnHeader7.Width = 48;
             // 
             // panel1
             // 
@@ -510,14 +512,14 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel labState;
         private System.Windows.Forms.ListView lvClient;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ListView lvService;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.PropertyGrid pgService;
         private System.Windows.Forms.GroupBox groupBox2;
         private TabControlEx tabServer;
@@ -527,8 +529,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtLog;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button btnDisConn;
         private System.Windows.Forms.Button btnServicePanel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -540,6 +541,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.Timer timerServerState;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 
