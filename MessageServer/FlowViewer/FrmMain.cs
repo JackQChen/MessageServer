@@ -23,6 +23,7 @@ namespace FlowViewer
 
         private void InitChart()
         {
+            ((System.Windows.Controls.UserControl)this.chartFlow.Child).UseLayoutRounding = true;
             this.sendValues = new ChartValues<MeasureModel>();
             this.recvValues = new ChartValues<MeasureModel>();
             this.connValues = new ChartValues<MeasureModel>();
