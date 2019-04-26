@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageServer", "MessageServer\MessageServer.csproj", "{C65F6384-A1B3-4EF8-8617-283D76983262}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageLib", "MessageLib\MessageLib.csproj", "{89AD7B0F-3C43-4B2A-9DA7-48C19A33D306}"
@@ -22,6 +24,15 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessClient", "Service\Access\AccessClient\AccessClient.csproj", "{27175F9B-5EA8-4C27-97A0-FF16026A4663}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowViewer", "FlowViewer\FlowViewer.csproj", "{D32FF3B1-CC8D-4ED3-8499-0FE3A7CC9B2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bin", "Bin", "{C998518C-6279-4ECF-946E-6A3502F7A6FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Viewer", "Viewer", "{567DE4FB-C46C-4587-BC14-F2B2D10D8C14}"
+	ProjectSection(SolutionItems) = preProject
+		Bin\Viewer\LiveCharts.dll = Bin\Viewer\LiveCharts.dll
+		Bin\Viewer\LiveCharts.WinForms.dll = Bin\Viewer\LiveCharts.WinForms.dll
+		Bin\Viewer\LiveCharts.Wpf.dll = Bin\Viewer\LiveCharts.Wpf.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -122,10 +133,14 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3D758B63-C2F5-423B-9C19-9E530ACAEEAF} = {A62B1A73-AAC2-4363-8E1A-E08EA0688733}
 		{24AF1120-C2C9-4C74-A487-5CB40E126956} = {A62B1A73-AAC2-4363-8E1A-E08EA0688733}
-		{52FCB4C9-34AB-44B3-A2C1-0B1B86C1F224} = {A62B1A73-AAC2-4363-8E1A-E08EA0688733}
 		{1172DEEC-E3EA-40A4-8B9D-A0C83ACB3195} = {24AF1120-C2C9-4C74-A487-5CB40E126956}
 		{9D535033-09E1-4B1C-BE56-F612D282C02A} = {24AF1120-C2C9-4C74-A487-5CB40E126956}
+		{52FCB4C9-34AB-44B3-A2C1-0B1B86C1F224} = {A62B1A73-AAC2-4363-8E1A-E08EA0688733}
 		{23079935-CF35-4A56-ACDA-6E8B915A143C} = {52FCB4C9-34AB-44B3-A2C1-0B1B86C1F224}
 		{27175F9B-5EA8-4C27-97A0-FF16026A4663} = {52FCB4C9-34AB-44B3-A2C1-0B1B86C1F224}
+		{567DE4FB-C46C-4587-BC14-F2B2D10D8C14} = {C998518C-6279-4ECF-946E-6A3502F7A6FF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9B4E5CB-462C-43AB-857D-992786809D18}
 	EndGlobalSection
 EndGlobal
