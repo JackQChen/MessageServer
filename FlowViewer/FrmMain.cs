@@ -121,7 +121,7 @@ namespace FlowViewer
                     case 1:
                         {
                             var rate = strText.Split(',');
-                            this.AddPoint(Convert.ToInt32(rate[0]), Convert.ToInt64(rate[1]), Convert.ToInt64(rate[2]));
+                            this.AddPoint(new DateTime(Convert.ToInt64(rate[0])), Convert.ToInt32(rate[1]), Convert.ToInt64(rate[2]), Convert.ToInt64(rate[3]));
                         }
                         break;
                 }
@@ -136,9 +136,8 @@ namespace FlowViewer
             chartFlow.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(stepTimeSpan).Ticks;
         }
 
-        private void AddPoint(int connCount, long recvBytes, long sendBytes)
+        private void AddPoint(DateTime now, int connCount, long recvBytes, long sendBytes)
         {
-            var now = DateTime.Now;
             sendValues.Add(new MeasureModel
             {
                 DateTime = now,

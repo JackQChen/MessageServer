@@ -306,7 +306,7 @@ namespace MessageServer
             si.lastRecv = si.totalRecv;
             si.lastSend = si.totalSend;
             this.pgService.SelectedObject = si;
-            this.viewerHost.SendMessage(1, si.connCount + "," + recvRate + "," + sendRate);
+            this.viewerHost.SendMessageAsync(DateTime.Now.Ticks + "," + si.connCount + "," + recvRate + "," + sendRate);
         }
 
         internal class ServiceInfo

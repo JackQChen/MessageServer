@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MessageServer
@@ -8,9 +11,22 @@ namespace MessageServer
     public class ViewerHost : Panel
     {
         public event Action OnEmbed;
+        ConcurrentQueue<string> queue = new ConcurrentQueue<string>();
+        AutoResetEvent autoResetEvent = new AutoResetEvent(false);
 
         public ViewerHost()
         {
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    while (queue.TryDequeue(out string str))
+                    {
+                        SendMessage(1, str);
+                    }
+                    autoResetEvent.WaitOne();
+                }
+            });
         }
 
         public void Start()
@@ -81,6 +97,12 @@ namespace MessageServer
         {
             if (this.m_AppProcess != null)
                 SendMessage(this.m_AppProcess.MainWindowHandle, WM_SETTEXT, param, strContent);
+        }
+
+        public void SendMessageAsync(string strContent)
+        {
+            this.queue.Enqueue(strContent);
+            autoResetEvent.Set();
         }
 
         public void PostMessage(string strContent)
