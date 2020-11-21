@@ -19,7 +19,7 @@ namespace FlowViewer
         ChartValues<MeasureModel> recvValues;
         ChartValues<MeasureModel> connValues;
 
-        int currentCount = 5, stepCount = 5, displayCount = 30;
+        int stepTimeSpan = 1, displayTimeSpan = 60;
 
         private void InitChart()
         {
@@ -30,23 +30,23 @@ namespace FlowViewer
             Charting.For<MeasureModel>(Mappers.Xy<MeasureModel>()
                 .X(model => model.DateTime.Ticks)
                 .Y(model => model.Value));
-            chartFlow.Series = new SeriesCollection { 
+            chartFlow.Series = new SeriesCollection {
                 new LineSeries {
-                    Values = sendValues, 
+                    Values = sendValues,
                     PointGeometry = null ,
                     Title = "发送速率",
                     Fill = System.Windows.Media.Brushes.Transparent,
                     Stroke =new  System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(0xff,0xFE,0xAE,0x51))
                 },
                 new LineSeries {
-                    Values = recvValues, 
+                    Values = recvValues,
                     PointGeometry = null,
                     Title = "接收速率",
                     Fill = System.Windows.Media.Brushes.Transparent,
                     Stroke =new  System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(0xff,0x46,0xA8,0xF9))
                 },
                 new LineSeries {
-                    Values = connValues, 
+                    Values = connValues,
                     PointGeometry = null,
                     Title = "连接数",
                     ScalesYAt= 1,
@@ -58,12 +58,11 @@ namespace FlowViewer
             chartFlow.AxisX.Add(new Axis
             {
                 Foreground = System.Windows.Media.Brushes.Black,
-                LabelFormatter = value => new DateTime((long)value).ToString("HH:mm:ss"),
+                LabelFormatter = value => FormatLabel(new DateTime((long)value)),
                 Separator = new Separator
                 {
-                    Step = TimeSpan.FromSeconds(stepCount).Ticks,
-                    Stroke = System.Windows.Media.Brushes.Silver,
-                    StrokeThickness = 1.5f
+                    Step = TimeSpan.FromSeconds(stepTimeSpan).Ticks,
+                    StrokeThickness = 0
                 }
             });
             chartFlow.AxisY.Add(new Axis
@@ -88,6 +87,14 @@ namespace FlowViewer
                 }
             });
             SetAxisLimits(DateTime.Now);
+        }
+
+        string FormatLabel(DateTime dt)
+        {
+            if (dt.Second % 5 == 0)
+                return dt.ToString("HH:mm:ss");
+            else
+                return null;
         }
 
         string FormatFileSize(double fileSize)
@@ -125,18 +132,13 @@ namespace FlowViewer
 
         private void SetAxisLimits(DateTime now)
         {
-            chartFlow.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(0.5).Ticks;
-            if (currentCount == 5)
-            {
-                currentCount = 0;
-                chartFlow.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(displayCount).Ticks;
-            }
-            currentCount++;
+            chartFlow.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(displayTimeSpan).Ticks;
+            chartFlow.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(stepTimeSpan).Ticks;
         }
 
         private void AddPoint(int connCount, long recvBytes, long sendBytes)
         {
-            var now = System.DateTime.Now;
+            var now = DateTime.Now;
             sendValues.Add(new MeasureModel
             {
                 DateTime = now,
@@ -153,15 +155,11 @@ namespace FlowViewer
                 Value = connCount
             });
             SetAxisLimits(now);
-            if (currentCount == 1)
+            if (sendValues.Count > displayTimeSpan)
             {
-                var count = connValues.Count - displayCount;
-                for (int i = 0; i < count; i++)
-                {
-                    sendValues.RemoveAt(0);
-                    recvValues.RemoveAt(0);
-                    connValues.RemoveAt(0);
-                }
+                sendValues.RemoveAt(0);
+                recvValues.RemoveAt(0);
+                connValues.RemoveAt(0);
             }
         }
     }
