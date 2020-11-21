@@ -261,7 +261,7 @@ namespace MessageServer
             }
         }
 
-        private void btnDisConn_Click(object sender, EventArgs e)
+        private void btnDisconnect_Click(object sender, EventArgs e)
         {
             if (this.lastSelectedIndex == -1)
                 return;
@@ -379,11 +379,11 @@ namespace MessageServer
             if (fileSize < 0)
                 return "ErrorSize";
             else if (fileSize >= 1024 * 1024 * 1024)
-                return string.Format("{0:########0.00} GB", fileSize / (1024 * 1024 * 1024));
+                return string.Format("{0:########0.00} GB", (double)fileSize / (1024 * 1024 * 1024));
             else if (fileSize >= 1024 * 1024)
-                return string.Format("{0:####0.00} MB", fileSize / (1024 * 1024));
+                return string.Format("{0:####0.00} MB", (double)fileSize / (1024 * 1024));
             else if (fileSize >= 1024)
-                return string.Format("{0:####0.00} KB", fileSize / 1024);
+                return string.Format("{0:####0.00} KB", (double)fileSize / 1024);
             else
                 return string.Format("{0} Bytes", fileSize);
         }

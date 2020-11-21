@@ -65,7 +65,7 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnServicePanel = new System.Windows.Forms.Button();
-            this.btnDisConn = new System.Windows.Forms.Button();
+            this.btnDisconnect = new System.Windows.Forms.Button();
             this.pgService = new System.Windows.Forms.PropertyGrid();
             this.tabLog = new System.Windows.Forms.TabPage();
             this.txtLog = new System.Windows.Forms.TextBox();
@@ -298,6 +298,7 @@
             this.columnHeader4});
             this.lvService.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvService.FullRowSelect = true;
+            this.lvService.HideSelection = false;
             this.lvService.Location = new System.Drawing.Point(3, 17);
             this.lvService.MultiSelect = false;
             this.lvService.Name = "lvService";
@@ -367,6 +368,7 @@
             this.columnHeader7});
             this.lvClient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvClient.FullRowSelect = true;
+            this.lvClient.HideSelection = false;
             this.lvClient.Location = new System.Drawing.Point(3, 17);
             this.lvClient.Name = "lvClient";
             this.lvClient.Size = new System.Drawing.Size(249, 403);
@@ -392,7 +394,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnServicePanel);
-            this.panel1.Controls.Add(this.btnDisConn);
+            this.panel1.Controls.Add(this.btnDisconnect);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(3, 420);
             this.panel1.Name = "panel1";
@@ -410,15 +412,15 @@
             this.btnServicePanel.UseVisualStyleBackColor = true;
             this.btnServicePanel.Click += new System.EventHandler(this.btnServicePanel_Click);
             // 
-            // btnDisConn
+            // btnDisconnect
             // 
-            this.btnDisConn.Location = new System.Drawing.Point(137, 13);
-            this.btnDisConn.Name = "btnDisConn";
-            this.btnDisConn.Size = new System.Drawing.Size(75, 23);
-            this.btnDisConn.TabIndex = 4;
-            this.btnDisConn.Text = "断开连接";
-            this.btnDisConn.UseVisualStyleBackColor = true;
-            this.btnDisConn.Click += new System.EventHandler(this.btnDisConn_Click);
+            this.btnDisconnect.Location = new System.Drawing.Point(137, 13);
+            this.btnDisconnect.Name = "btnDisconnect";
+            this.btnDisconnect.Size = new System.Drawing.Size(75, 23);
+            this.btnDisconnect.TabIndex = 4;
+            this.btnDisconnect.Text = "断开连接";
+            this.btnDisconnect.UseVisualStyleBackColor = true;
+            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
             // pgService
             // 
@@ -530,7 +532,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.Button btnDisConn;
+        private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.Button btnServicePanel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsExit;

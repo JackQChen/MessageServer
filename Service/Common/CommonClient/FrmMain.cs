@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using MessageLib;
-using CommonService;
 using System.Threading;
+using System.Windows.Forms;
+using CommonService;
+using MessageLib;
 
 namespace CommonClient
 {
@@ -66,11 +61,34 @@ namespace CommonClient
             this.client.Stop();
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var message = new CommonService.Message();
+            message.Data = new byte[int.MaxValue / 3];
+            var bytes = this.process.FormatterMessageBytes(message);
+            message.Content = "Length:" + FormatFileSize(bytes.Length);
+            bytes = this.process.FormatterMessageBytes(message);
+            this.client.Send(bytes, bytes.Length);
+        }
+
+        internal static string FormatFileSize(long fileSize)
+        {
+            if (fileSize < 0)
+                return "ErrorSize";
+            else if (fileSize >= 1024 * 1024 * 1024)
+                return string.Format("{0:########0.00} GB", (double)fileSize / (1024 * 1024 * 1024));
+            else if (fileSize >= 1024 * 1024)
+                return string.Format("{0:####0.00} MB", (double)fileSize / (1024 * 1024));
+            else if (fileSize >= 1024)
+                return string.Format("{0:####0.00} KB", (double)fileSize / 1024);
+            else
+                return string.Format("{0} Bytes", fileSize);
+        }
+
         List<TcpClient> clientList = new List<TcpClient>();
 
         private void button4_Click(object sender, EventArgs e)
         {
-            clientList.Clear();
             for (int i = 0; i < 10; i++)
             {
                 new Thread(() =>
