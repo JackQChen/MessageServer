@@ -18,9 +18,9 @@ namespace MessageServer
         {
             Task.Factory.StartNew(() =>
             {
+                string strMessage = string.Empty;
                 while (true)
                 {
-                    string strMessage = string.Empty;
                     while (queue.TryDequeue(out strMessage))
                     {
                         SendMessage(1, strMessage);
