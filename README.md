@@ -1,7 +1,7 @@
 ﻿# MessageServer
 #### MessageServer - 基于IOCP的消息服务器（可自定义扩展消息服务）<br><br>
-![](https://github.com/csa/MessageServer/blob/master/Img/MS.png)<br>
-IO测试<br><br>
+![](https://github.com/csa/MessageServer/blob/master/Img/MS.png)<br><br>
+IO测试<br>
 ![](https://github.com/csa/MessageServer/blob/master/Img/Flow.png)<br><br>
 ### 项目信息
 
@@ -34,7 +34,7 @@ AccessClient是对应的客户端授权程序，用于和服务端进行授权�
 <br>
 自定义服务面板请参照另一个项目QueueSystem中MessageService相关内容<br>
 效果如下<br>
-![](https://github.com/csa/MessageServer/blob/master/Img/MS.png)<br>
+![](https://github.com/csa/MessageServer/blob/master/Img/MS2.png)<br>
 FlowViewer是流量监控程序<br>
 效果如下(图中为IO测试效果)<br>
 ![](https://github.com/csa/MessageServer/blob/master/Img/Flow.png)<br>
