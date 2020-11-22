@@ -7,7 +7,6 @@ IO测试<br>
 
 具体示例可参照Service中Common和TransferService的实现方式<br><br>
 CommonService是通用消息服务，支持自定义的消息实体对象，处理了粘包，其中消息协议如下<br>
-<<<<<<< HEAD
 ```
  Header   Body
 +--------+----------+
@@ -16,10 +15,6 @@ CommonService是通用消息服务，支持自定义的消息实体对象，处�
 ```
 <br>
 其中Header为消息头，长度固定为4位，表示后面消息体长度。Body为消息体，消息体通过二进制方式进行消息实体对象的序列化及反序列化<br><br>
-=======
-XXXXYYYYYY<br>
-其中XXXX为消息头，长度固定为4位，表示后面消息体长度。YYYYYY为消息体，消息体通过二进制方式进行消息实体对象的序列化及反序列化<br><br>
->>>>>>> parent of 69f1c76... Update README.md
 CommonClient是对应的客户端程序
 <br><br>
 TransferService是中转消息服务，对连接到服务的TCP请求中转到指定位置
