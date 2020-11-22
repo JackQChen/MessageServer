@@ -94,7 +94,7 @@ namespace FlowViewer
             if (dt.Second % 5 == 0)
                 return dt.ToString("HH:mm:ss");
             else
-                return null;
+                return string.Empty;
         }
 
         string FormatFileSize(double fileSize)

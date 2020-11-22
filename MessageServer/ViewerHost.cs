@@ -20,9 +20,10 @@ namespace MessageServer
             {
                 while (true)
                 {
-                    while (queue.TryDequeue(out string str))
+                    string strMessage = string.Empty;
+                    while (queue.TryDequeue(out strMessage))
                     {
-                        SendMessage(1, str);
+                        SendMessage(1, strMessage);
                     }
                     autoResetEvent.WaitOne();
                 }
