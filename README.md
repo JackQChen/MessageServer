@@ -6,7 +6,7 @@ IO测试</br>
 ### 项目信息
 
 具体示例可参照Service中Common和TransferService的实现方式</br></br>
-CommonService是通用消息服务，支持自定义的消息实体对象，处理了粘包，其中消息协议如下</br>
+CommonService是通用消息服务，支持自定义的消息实体对象，处理了粘包，其中消息协议如下
 ```
  Header   Body
 +--------+----------+
