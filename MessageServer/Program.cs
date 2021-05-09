@@ -19,13 +19,6 @@ namespace MessageServer
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                AppDomain.CurrentDomain.UnhandledException += (s, e) =>
-                {
-                    var err = e.ExceptionObject.ToString();
-                    MessageBox.Show(err, "未处理异常", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    File.AppendAllText(AppDomain.CurrentDomain.BaseDirectory + "Exception.txt",
-                        string.Format("{0}\r\n{1}\r\n", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), err));
-                };
                 Application.Run(new FrmMain());
                 instance.ReleaseMutex();
             }

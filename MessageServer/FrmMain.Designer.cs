@@ -1,4 +1,6 @@
-﻿namespace MessageServer
+﻿using MessageServer.Controls;
+
+namespace MessageServer
 {
     partial class FrmMain
     {
@@ -30,7 +32,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsStart = new System.Windows.Forms.ToolStripButton();
             this.tsStop = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -39,16 +41,16 @@
             this.tsSetting = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsExit = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.labState = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.显示主界面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitMenuItem = new System.Windows.Forms.ToolStripSeparator();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerServerState = new System.Windows.Forms.Timer(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.tabServer = new MessageServer.TabControlEx();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.tabServer = new MessageServer.Controls.TabControlEx();
             this.tabMain = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -70,8 +72,8 @@
             this.tabLog = new System.Windows.Forms.TabPage();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.tabPerformance = new System.Windows.Forms.TabPage();
-            this.toolStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.toolStrip.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.tabServer.SuspendLayout();
             this.tabMain.SuspendLayout();
@@ -89,10 +91,10 @@
             this.tabLog.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // toolStrip
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsStart,
             this.tsStop,
             this.toolStripSeparator1,
@@ -101,11 +103,11 @@
             this.tsSetting,
             this.toolStripSeparator2,
             this.tsExit});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(792, 48);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(784, 48);
+            this.toolStrip.TabIndex = 0;
+            this.toolStrip.Text = "toolStrip";
             // 
             // tsStart
             // 
@@ -171,15 +173,15 @@
             this.tsExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsExit.Click += new System.EventHandler(this.tsExit_Click);
             // 
-            // statusStrip1
+            // statusStrip
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labState});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 551);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(792, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip.Location = new System.Drawing.Point(0, 540);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip.TabIndex = 1;
+            this.statusStrip.Text = "statusStrip";
             // 
             // labState
             // 
@@ -199,30 +201,30 @@
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.显示主界面ToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.退出ToolStripMenuItem});
-            this.contextMenuStrip.Name = "contextMenuStrip1";
+            this.showMenuItem,
+            this.splitMenuItem,
+            this.exitMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(137, 54);
             // 
-            // 显示主界面ToolStripMenuItem
+            // showMenuItem
             // 
-            this.显示主界面ToolStripMenuItem.Name = "显示主界面ToolStripMenuItem";
-            this.显示主界面ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.显示主界面ToolStripMenuItem.Text = "显示主界面";
-            this.显示主界面ToolStripMenuItem.Click += new System.EventHandler(this.显示主界面ToolStripMenuItem_Click);
+            this.showMenuItem.Name = "showMenuItem";
+            this.showMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.showMenuItem.Text = "显示主界面";
+            this.showMenuItem.Click += new System.EventHandler(this.showMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // splitMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(133, 6);
+            this.splitMenuItem.Name = "splitMenuItem";
+            this.splitMenuItem.Size = new System.Drawing.Size(133, 6);
             // 
-            // 退出ToolStripMenuItem
+            // exitMenuItem
             // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.exitMenuItem.Text = "退出";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // timerServerState
             // 
@@ -230,11 +232,11 @@
             this.timerServerState.Interval = 1000;
             this.timerServerState.Tick += new System.EventHandler(this.timerServerState_Tick);
             // 
-            // imageList1
+            // imageList
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "selected.png");
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "selected.png");
             // 
             // tabServer
             // 
@@ -245,7 +247,7 @@
             this.tabServer.Location = new System.Drawing.Point(0, 48);
             this.tabServer.Name = "tabServer";
             this.tabServer.SelectedIndex = 0;
-            this.tabServer.Size = new System.Drawing.Size(792, 503);
+            this.tabServer.Size = new System.Drawing.Size(784, 492);
             this.tabServer.TabIndex = 6;
             this.tabServer.SelectedIndexChanged += new System.EventHandler(this.tabServer_SelectedIndexChanged);
             // 
@@ -255,7 +257,7 @@
             this.tabMain.Location = new System.Drawing.Point(4, 22);
             this.tabMain.Name = "tabMain";
             this.tabMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMain.Size = new System.Drawing.Size(784, 477);
+            this.tabMain.Size = new System.Drawing.Size(776, 466);
             this.tabMain.TabIndex = 0;
             this.tabMain.Text = "服务";
             this.tabMain.UseVisualStyleBackColor = true;
@@ -273,8 +275,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(778, 471);
-            this.splitContainer1.SplitterDistance = 300;
+            this.splitContainer1.Size = new System.Drawing.Size(770, 460);
+            this.splitContainer1.SplitterDistance = 280;
             this.splitContainer1.TabIndex = 6;
             // 
             // groupBox1
@@ -283,7 +285,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 471);
+            this.groupBox1.Size = new System.Drawing.Size(280, 460);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "服务列表";
@@ -302,8 +304,8 @@
             this.lvService.Location = new System.Drawing.Point(3, 17);
             this.lvService.MultiSelect = false;
             this.lvService.Name = "lvService";
-            this.lvService.Size = new System.Drawing.Size(294, 451);
-            this.lvService.SmallImageList = this.imageList1;
+            this.lvService.Size = new System.Drawing.Size(274, 440);
+            this.lvService.SmallImageList = this.imageList;
             this.lvService.TabIndex = 0;
             this.lvService.UseCompatibleStateImageBehavior = false;
             this.lvService.View = System.Windows.Forms.View.Details;
@@ -312,22 +314,21 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "  连接类型";
-            this.columnHeader1.Width = 80;
+            this.columnHeader1.Text = "  类型";
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "端口";
-            this.columnHeader2.Width = 45;
+            this.columnHeader2.Width = 50;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "服务名称";
-            this.columnHeader3.Width = 105;
+            this.columnHeader3.Text = "名称";
+            this.columnHeader3.Width = 100;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "运行状态";
+            this.columnHeader4.Text = "状态";
             this.columnHeader4.Width = 64;
             // 
             // splitContainer2
@@ -343,8 +344,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.pgService);
-            this.splitContainer2.Size = new System.Drawing.Size(474, 471);
-            this.splitContainer2.SplitterDistance = 255;
+            this.splitContainer2.Size = new System.Drawing.Size(486, 460);
+            this.splitContainer2.SplitterDistance = 264;
             this.splitContainer2.TabIndex = 7;
             // 
             // groupBox2
@@ -354,7 +355,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(255, 471);
+            this.groupBox2.Size = new System.Drawing.Size(264, 460);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "客户端列表";
@@ -371,7 +372,7 @@
             this.lvClient.HideSelection = false;
             this.lvClient.Location = new System.Drawing.Point(3, 17);
             this.lvClient.Name = "lvClient";
-            this.lvClient.Size = new System.Drawing.Size(249, 403);
+            this.lvClient.Size = new System.Drawing.Size(258, 392);
             this.lvClient.TabIndex = 3;
             this.lvClient.UseCompatibleStateImageBehavior = false;
             this.lvClient.View = System.Windows.Forms.View.Details;
@@ -379,7 +380,7 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "ID";
-            this.columnHeader5.Width = 44;
+            this.columnHeader5.Width = 50;
             // 
             // columnHeader6
             // 
@@ -389,16 +390,16 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "状态";
-            this.columnHeader7.Width = 48;
+            this.columnHeader7.Width = 50;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnServicePanel);
             this.panel1.Controls.Add(this.btnDisconnect);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 420);
+            this.panel1.Location = new System.Drawing.Point(3, 409);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(249, 48);
+            this.panel1.Size = new System.Drawing.Size(258, 48);
             this.panel1.TabIndex = 4;
             // 
             // btnServicePanel
@@ -428,7 +429,7 @@
             this.pgService.LineColor = System.Drawing.SystemColors.Control;
             this.pgService.Location = new System.Drawing.Point(0, 0);
             this.pgService.Name = "pgService";
-            this.pgService.Size = new System.Drawing.Size(215, 471);
+            this.pgService.Size = new System.Drawing.Size(218, 460);
             this.pgService.TabIndex = 5;
             // 
             // tabLog
@@ -437,7 +438,7 @@
             this.tabLog.Location = new System.Drawing.Point(4, 22);
             this.tabLog.Name = "tabLog";
             this.tabLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLog.Size = new System.Drawing.Size(784, 477);
+            this.tabLog.Size = new System.Drawing.Size(776, 466);
             this.tabLog.TabIndex = 1;
             this.tabLog.Text = "日志";
             this.tabLog.UseVisualStyleBackColor = true;
@@ -449,15 +450,14 @@
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(778, 471);
+            this.txtLog.Size = new System.Drawing.Size(770, 460);
             this.txtLog.TabIndex = 0;
-            this.txtLog.DoubleClick += new System.EventHandler(this.txtLog_DoubleClick);
             // 
             // tabPerformance
             // 
             this.tabPerformance.Location = new System.Drawing.Point(4, 22);
             this.tabPerformance.Name = "tabPerformance";
-            this.tabPerformance.Size = new System.Drawing.Size(784, 477);
+            this.tabPerformance.Size = new System.Drawing.Size(776, 466);
             this.tabPerformance.TabIndex = 2;
             this.tabPerformance.Text = "性能";
             this.tabPerformance.UseVisualStyleBackColor = true;
@@ -466,10 +466,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 573);
+            this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.tabServer);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.statusStrip);
+            this.Controls.Add(this.toolStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "FrmMain";
@@ -477,10 +477,10 @@
             this.Text = "消息服务器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Shown += new System.EventHandler(this.FrmMain_Shown);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);
             this.tabServer.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
@@ -504,14 +504,14 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton tsStart;
         private System.Windows.Forms.ToolStripButton tsStop;
         private System.Windows.Forms.ToolStripButton tsSetting;
         private System.Windows.Forms.ToolStripButton tsAddProtocol;
         private System.Windows.Forms.ToolStripButton tsRemoveProtocol;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel labState;
         private System.Windows.Forms.ListView lvClient;
         private System.Windows.Forms.ColumnHeader columnHeader5;
@@ -524,7 +524,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.PropertyGrid pgService;
         private System.Windows.Forms.GroupBox groupBox2;
-        private TabControlEx tabServer;
+        private MessageServer.Controls.TabControlEx tabServer;
         private System.Windows.Forms.TabPage tabMain;
         private System.Windows.Forms.TabPage tabLog;
         private System.Windows.Forms.TabPage tabPerformance;
@@ -538,12 +538,12 @@
         private System.Windows.Forms.ToolStripButton tsExit;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 显示主界面ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showMenuItem;
+        private System.Windows.Forms.ToolStripSeparator splitMenuItem;
         private System.Windows.Forms.Timer timerServerState;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imageList;
     }
 }
 

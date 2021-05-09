@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Extension\FormatFileSize.cs" />
+    <Compile Include="Extension\ServiceInfo.cs" />
+    <Compile Include="Extension\ListViewItemComparer.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,13 +62,16 @@
     <Compile Include="FrmSetting.Designer.cs">
       <DependentUpon>FrmSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceConfig.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Logging\ServerLogHandler.cs" />
+    <Compile Include="Logging\ServerLog.cs" />
+    <Compile Include="Logging\ServerLogFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TabControlEx.cs">
+    <Compile Include="Controls\TabControlEx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ViewerHost.cs">
+    <Compile Include="Controls\ViewerHost.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="FrmMain.resx">
@@ -114,6 +120,7 @@
       <Name>MessageLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
