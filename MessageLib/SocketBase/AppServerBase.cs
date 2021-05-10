@@ -1305,7 +1305,7 @@ namespace MessageLib.SocketBase
             appSession.SocketSession.Closed += OnSocketSessionClosed;
 
             if (Config.LogBasicSessionActivity)
-                Logger.Info(session, "A new session connected!");
+                Logger.Info(session, "已连接");
 
             OnNewSessionConnected(appSession);
             return true;
@@ -1379,7 +1379,7 @@ namespace MessageLib.SocketBase
         {
             //Even if LogBasicSessionActivity is false, we also log the unexpected closing because the close reason probably be useful
             if ((Config.LogBasicSessionActivity || (reason != CloseReason.ServerClosing && reason != CloseReason.ClientClosing && reason != CloseReason.ServerShutdown && reason != CloseReason.SocketError)))
-                Logger.Info(session, string.Format("This session was closed for {0}!", reason));
+                Logger.Info(session, string.Format("已断开连接({0})", reason));
 
             var appSession = session.AppSession as TAppSession;
             appSession.Connected = false;

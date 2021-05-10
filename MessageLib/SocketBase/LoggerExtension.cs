@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MessageLib.Common;
 using MessageLib.SocketBase.Logging;
 
 namespace MessageLib.SocketBase
@@ -12,7 +8,7 @@ namespace MessageLib.SocketBase
     /// </summary>
     public static class LoggerExtension
     {
-        private readonly static string m_SessionInfoTemplate = "Session: {0}/{1}";
+        private readonly static string m_SessionInfoTemplate = "客户端[{0}][{1}]";
 
         /// <summary>
         /// Logs the error
@@ -23,7 +19,7 @@ namespace MessageLib.SocketBase
         /// <param name="e">The e.</param>
         public static void Error(this ILog logger, ISessionBase session, string title, Exception e)
         {
-            logger.ErrorFormat(string.Format(m_SessionInfoTemplate, session.SessionID, session.RemoteEndPoint) + Environment.NewLine + title, e);
+            logger.ErrorFormat(string.Format(m_SessionInfoTemplate, session.SessionID, session.RemoteEndPoint) + title, e);
         }
 
         /// <summary>
@@ -34,7 +30,7 @@ namespace MessageLib.SocketBase
         /// <param name="message">The message.</param>
         public static void Error(this ILog logger, ISessionBase session, string message)
         {
-            logger.Error(string.Format(m_SessionInfoTemplate, session.SessionID, session.RemoteEndPoint) + Environment.NewLine + message);
+            logger.Error(string.Format(m_SessionInfoTemplate, session.SessionID, session.RemoteEndPoint) + message);
         }
 
         /// <summary>
@@ -45,7 +41,7 @@ namespace MessageLib.SocketBase
         /// <param name="message">The message.</param>
         public static void Info(this ILog logger, ISessionBase session, string message)
         {
-            string info = string.Format(m_SessionInfoTemplate, session.SessionID, session.RemoteEndPoint) + Environment.NewLine + message;
+            string info = string.Format(m_SessionInfoTemplate, session.SessionID, session.RemoteEndPoint) + message;
             logger.Info(info);
         }
 
@@ -57,7 +53,7 @@ namespace MessageLib.SocketBase
         /// <param name="message">The message.</param>
         public static void Debug(this ILog logger, ISessionBase session, string message)
         {
-            logger.Debug(string.Format(m_SessionInfoTemplate, session.SessionID, session.RemoteEndPoint) + Environment.NewLine + message);
+            logger.Debug(string.Format(m_SessionInfoTemplate, session.SessionID, session.RemoteEndPoint) + message);
         }
 
         private const string m_PerfLogName = "Perf";

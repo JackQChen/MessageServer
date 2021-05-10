@@ -42,9 +42,9 @@ namespace MessageServer
                     ServerType = config.Type,
                     Ip = "Any",
                     Port = config.Port,
-                    MaxRequestLength = int.MaxValue,
                     MaxConnectionNumber = 10000,
-                    DisableSessionSnapshot = true
+                    DisableSessionSnapshot = true,
+                    TextEncoding = "UTF-8"
                 });
             var typeProvider = new TypeProvider();
             typeProvider.ElementInformation.Properties["name"].Value = "ServerLogFactory";

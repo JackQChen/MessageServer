@@ -541,7 +541,7 @@ namespace MessageLib.SocketBase
 
             if (currentRequestLength >= maxRequestLength)
             {
-                Logger.Error(this, string.Format("Max request length: {0}, current processed length: {1}", maxRequestLength, currentRequestLength));
+                Logger.Error(this, string.Format("当前处理长度({1})超过最大请求长度({0})", maxRequestLength, currentRequestLength));
                 Close(CloseReason.ProtocolError);
                 return null;
             }
