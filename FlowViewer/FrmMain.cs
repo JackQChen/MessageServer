@@ -68,7 +68,7 @@ namespace FlowViewer
             chartFlow.AxisY.Add(new Axis
             {
                 Foreground = System.Windows.Media.Brushes.Black,
-                LabelFormatter = value => FormatFileSize(value),
+                LabelFormatter = value => FormatFileSize((long)value) + "/s",
                 MinValue = 0,
                 Separator = new Separator
                 {
@@ -97,18 +97,18 @@ namespace FlowViewer
                 return string.Empty;
         }
 
-        string FormatFileSize(double fileSize)
+        string FormatFileSize(long fileSize)
         {
             if (fileSize < 0)
                 return "ErrorSize";
             else if (fileSize >= 1024 * 1024 * 1024)
-                return string.Format("{0:########0.00} GB/s", fileSize / (1024 * 1024 * 1024));
+                return string.Format("{0:########0.00}GB", fileSize / (1024d * 1024 * 1024));
             else if (fileSize >= 1024 * 1024)
-                return string.Format("{0:####0.00} MB/s", fileSize / (1024 * 1024));
+                return string.Format("{0:####0.00}MB", fileSize / (1024d * 1024));
             else if (fileSize >= 1024)
-                return string.Format("{0:####0.00} KB/s", fileSize / 1024);
+                return string.Format("{0:####0.00}KB", fileSize / 1024d);
             else
-                return string.Format("{0} B/s", fileSize);
+                return string.Format("{0}B", fileSize);
         }
 
         protected override void DefWndProc(ref Message m)

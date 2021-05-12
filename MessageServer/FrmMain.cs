@@ -289,7 +289,9 @@ namespace MessageServer
                 return;
             UpdateClients();
             this.pgService.Refresh();
-            //this.viewerHost.SendMessageAsync(DateTime.Now.Ticks + "," + si.connCount + "," + recvRate + "," + sendRate);
+            var info = this.pgService.SelectedObject as ServiceInfo;
+            this.viewerHost.SendMessageAsync(info.CollectedTime.Ticks + "," + info.CurrentConnectionCount
+                + "," + info.ReceivingSpeed + "," + info.SendingSpeed);
         }
 
         private void tabServer_SelectedIndexChanged(object sender, EventArgs e)

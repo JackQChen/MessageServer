@@ -23,15 +23,21 @@ namespace MessageServer.Extension
         {
             var serverStatus = status.BootstrapStatus;
             var serviceStatus = status.InstancesStatus.First(p => p.Name == serviceName);
+            this.CollectedTime = serviceStatus.CollectedTime;
             this.CurrentConnectionCount = serviceStatus.GetValue<int>(StatusInfoKeys.TotalConnections, 0);
             this.MaxConnectionCount = serviceStatus.GetValue<int>(StatusInfoKeys.MaxConnectionNumber, 0);
             this.TotalSentSize = serviceStatus.GetValue<long>(StatusInfoKeys.TotalSent, 0).ToFileSize();
-            this.SendingSpeed = Convert.ToInt64(serviceStatus.GetValue<double>(StatusInfoKeys.SendingSpeed, 0)).ToFileSize() + "/s";
+            this.SendingSpeed = Convert.ToInt64(serviceStatus.GetValue<double>(StatusInfoKeys.SendingSpeed, 0));
+            this.SendingSpeedText = this.SendingSpeed.ToFileSize() + "/s";
             this.TotalReceivedSize = serviceStatus.GetValue<long>(StatusInfoKeys.TotalReceived, 0).ToFileSize();
-            this.ReceivingSpeed = Convert.ToInt64(serviceStatus.GetValue<double>(StatusInfoKeys.ReceivingSpeed, 0)).ToFileSize() + "/s";
+            this.ReceivingSpeed = Convert.ToInt64(serviceStatus.GetValue<double>(StatusInfoKeys.ReceivingSpeed, 0));
+            this.ReceivingSpeedText = this.ReceivingSpeed.ToFileSize() + "/s";
             this.CpuUsage = serverStatus.GetValue<float>(StatusInfoKeys.CpuUsage, 0).ToString("0.00") + "%";
             this.MemoryUsage = serverStatus.GetValue<long>(StatusInfoKeys.MemoryUsage, 0).ToFileSize();
         }
+
+        [Browsable(false)]
+        public DateTime CollectedTime { get; set; }
 
         [Category("\t服务状态"), Description("服务当前连接数"), DisplayName("当前连接数")]
         public int CurrentConnectionCount { get; set; }
@@ -42,14 +48,20 @@ namespace MessageServer.Extension
         [Category("\t服务状态"), Description("累计发送"), DisplayName("累计发送")]
         public string TotalSentSize { get; set; }
 
+        [Browsable(false)]
+        public long SendingSpeed { get; set; }
+
         [Category("\t服务状态"), Description("发送速度"), DisplayName("发送速度")]
-        public string SendingSpeed { get; set; }
+        public string SendingSpeedText { get; set; }
 
         [Category("\t服务状态"), Description("累计接收"), DisplayName("累计接收")]
         public string TotalReceivedSize { get; set; }
 
+        [Browsable(false)]
+        public long ReceivingSpeed { get; set; }
+
         [Category("\t服务状态"), Description("接收速度"), DisplayName("接收速度")]
-        public string ReceivingSpeed { get; set; }
+        public string ReceivingSpeedText { get; set; }
 
         [Category("服务信息"), Description("CPU使用率"), DisplayName("CPU使用率")]
         public string CpuUsage { get; set; }
