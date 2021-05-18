@@ -42,8 +42,13 @@ namespace TelnetService
                 {
                     path = Path.Combine(logDir, requestInfo.Body, requestInfo.Body + "_" + DateTime.Now.ToString("yyyyMMdd") + ".log");
                 }
+                if (!File.Exists(path))
+                {
+                    session.Send("log file does not exist\r\n");
+                    return;
+                }
                 var str = File.ReadAllText(path, Encoding.UTF8);
-                session.Send(str);
+                session.Send(str.Replace("\n", "\r\n"));
                 return;
             }
             session.Send("received message:" + requestInfo.Key + " " + requestInfo.Body);

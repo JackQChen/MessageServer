@@ -8,8 +8,8 @@
     <ProjectGuid>{0F1E8671-558A-42D1-888D-E8208B0E1FEB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TransferService</RootNamespace>
-    <AssemblyName>TransferService</AssemblyName>
+    <RootNamespace>TelnetService</RootNamespace>
+    <AssemblyName>TelnetService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

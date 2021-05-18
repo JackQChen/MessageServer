@@ -32,7 +32,7 @@ namespace MessageServer
 
         #region Services
 
-        private void InitService()
+        private void InitializeService()
         {
             var configs = (ServiceConfig)ConfigurationManager.GetSection("ServiceConfig");
             var servers = configs.Configs.Cast<Config>()
@@ -104,7 +104,7 @@ namespace MessageServer
             this.txtLog.BeginInvoke(actLog, name, level, log);
         }
 
-        void InitViewerHost()
+        void InitializeViewerHost()
         {
             var position = this.tabServer.Location;
             position.Offset(this.tabPerformance.Bounds.Location);
@@ -178,12 +178,12 @@ namespace MessageServer
                 this.txtLog.AppendText(string.Format("{0} - [{1}]\r\n{2}:{3}\r\n",
                     DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), name, level, log));
             };
-            this.InitViewerHost();
+            this.InitializeViewerHost();
             this.tabServer.SelectedTab = this.tabLog;
             this.tabServer.SelectedTab = this.tabMain;
             this.clientList = new List<string>();
             this.lvClient.ListViewItemSorter = new ListViewItemComparer();
-            this.InitService();
+            this.InitializeService();
             this.tsStart.PerformClick();
             this.Close();
         }
