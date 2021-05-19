@@ -59,7 +59,7 @@ namespace MessageServer
             bootstrap.Initialize();
             foreach (var config in servers)
             {
-                ListViewItem serviceItem = this.lvService.Items.Add(config.Name, "TCP", -1);
+                ListViewItem serviceItem = this.lvService.Items.Add(config.Name, config.Mode.ToString().ToUpper(), -1);
                 serviceItem.SubItems.Add(config.Port.ToString());
                 serviceItem.SubItems.Add(config.Name);
                 serviceItem.SubItems.Add("准备就绪").Name = "State";

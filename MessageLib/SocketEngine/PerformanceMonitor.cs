@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading;
-using MessageLib.Common;
 using MessageLib.SocketBase;
 using MessageLib.SocketBase.Config;
 using MessageLib.SocketBase.Logging;
@@ -127,7 +125,6 @@ namespace MessageLib.SocketEngine
                     catch (Exception e)
                     {
                         m_PerfLog.ErrorFormat("Failed to CollectServerStatus of " + s.Name, e);
-
                         perfBuilder.AppendLine(string.Format("{0} ----------------------------------", s.Name));
                         perfBuilder.AppendLine(string.Format("{0}: {1}", "State", s.State));
                         continue;
