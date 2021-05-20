@@ -36,7 +36,7 @@ namespace TelnetService
                 string path;
                 if (string.IsNullOrEmpty(requestInfo.Body))
                 {
-                    path = Path.Combine(logDir, LogLevel.Debug, LogLevel.Debug + "_" + DateTime.Now.ToString("yyyyMMdd") + ".log");
+                    path = Path.Combine(logDir, LogLevel.Info, LogLevel.Info + "_" + DateTime.Now.ToString("yyyyMMdd") + ".log");
                 }
                 else
                 {
@@ -44,7 +44,7 @@ namespace TelnetService
                 }
                 if (!File.Exists(path))
                 {
-                    session.Send("log file does not exist\r\n");
+                    session.Send("log file does not exist!\r\n");
                     return;
                 }
                 var str = File.ReadAllText(path, Encoding.UTF8);

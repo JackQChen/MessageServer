@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
 using MessageLib.Common;
 using MessageLib.SocketBase;
@@ -40,11 +41,13 @@ namespace MessageServer
                 {
                     Name = config.Name,
                     ServerType = config.Type,
-                    Ip = "Any",
+                    Ip = IPAddress.Any.ToString(),
                     Port = config.Port,
                     MaxConnectionNumber = 10000,
                     DisableSessionSnapshot = true,
-                    TextEncoding = "UTF-8"
+                    TextEncoding = "UTF-8",
+                    MaxRequestLength = int.MaxValue,
+                    SendTimeOut = 0
                 });
             var typeProvider = new TypeProvider();
             typeProvider.ElementInformation.Properties["name"].Value = "ServerLogFactory";

@@ -47,7 +47,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Extension\FormatFileSize.cs" />
+    <Compile Include="Extension\PropertySorter.cs" />
+    <Compile Include="Extension\FormatExtension.cs" />
     <Compile Include="Extension\ServiceInfo.cs" />
     <Compile Include="Extension\ListViewItemComparer.cs" />
     <Compile Include="FrmMain.cs">
