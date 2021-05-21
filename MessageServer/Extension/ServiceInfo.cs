@@ -43,37 +43,37 @@ namespace MessageServer.Extension
         [Browsable(false)]
         public DateTime CollectedTime { get; set; }
 
-        [Category("\t连接"), Description("当前连接数"), DisplayName("当前连接数")]
+        [Category("连接"), Description("当前连接数"), DisplayName("当前连接数")]
         public int CurrentConnectionCount { get; set; }
 
-        [Category("\t连接"), Description("最大连接数"), DisplayName("最大连接数")]
+        [Category("连接"), Description("最大连接数"), DisplayName("最大连接数")]
         public int MaxConnectionCount { get; set; }
 
-        [Category("\t网络"), Description("累计发送"), DisplayName("累计发送"), PropertyOrder(4)]
+        [Category("网络"), Description("累计发送"), DisplayName("累计发送"), PropertyOrder(4)]
         public string TotalSentSize { get; set; }
 
         [Browsable(false)]
         public long SendingSpeed { get; set; }
 
-        [Category("\t网络"), Description("发送速度"), DisplayName("发送速度"), PropertyOrder(1)]
+        [Category("网络"), Description("发送速度"), DisplayName("发送速度"), PropertyOrder(1)]
         public string SendingSpeedText { get; set; }
 
-        [Category("\t网络"), Description("累计接收"), DisplayName("累计接收"), PropertyOrder(5)]
+        [Category("网络"), Description("累计接收"), DisplayName("累计接收"), PropertyOrder(5)]
         public string TotalReceivedSize { get; set; }
 
         [Browsable(false)]
         public long ReceivingSpeed { get; set; }
 
-        [Category("\t网络"), Description("接收速度"), DisplayName("接收速度"), PropertyOrder(2)]
+        [Category("网络"), Description("接收速度"), DisplayName("接收速度"), PropertyOrder(2)]
         public string ReceivingSpeedText { get; set; }
 
-        [Category("\t网络"), Description("累计处理"), DisplayName("累计处理"), PropertyOrder(6)]
+        [Category("网络"), Description("累计处理"), DisplayName("累计处理"), PropertyOrder(6)]
         public long TotalHandledRequests { get; set; }
 
         [Browsable(false)]
         public long RequestHandlingSpeed { get; set; }
 
-        [Category("\t网络"), Description("处理速度"), DisplayName("处理速度"), PropertyOrder(3)]
+        [Category("网络"), Description("处理速度"), DisplayName("处理速度"), PropertyOrder(3)]
         public string RequestHandlingSpeedText { get; set; }
 
         [Category("资源"), Description("CPU使用率"), DisplayName("CPU使用率")]
