@@ -405,7 +405,7 @@ namespace MessageServer
             // btnServicePanel
             // 
             this.btnServicePanel.Enabled = false;
-            this.btnServicePanel.Location = new System.Drawing.Point(36, 13);
+            this.btnServicePanel.Location = new System.Drawing.Point(41, 13);
             this.btnServicePanel.Name = "btnServicePanel";
             this.btnServicePanel.Size = new System.Drawing.Size(75, 23);
             this.btnServicePanel.TabIndex = 5;
@@ -415,7 +415,7 @@ namespace MessageServer
             // 
             // btnDisconnect
             // 
-            this.btnDisconnect.Location = new System.Drawing.Point(137, 13);
+            this.btnDisconnect.Location = new System.Drawing.Point(142, 13);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(75, 23);
             this.btnDisconnect.TabIndex = 4;

@@ -10,17 +10,7 @@ namespace MessageLib.SocketBase.Logging
         /// <summary>
         /// Single instance
         /// </summary>
-        private static ServiceLogWriter instance;
-
-        internal static ServiceLogWriter Instance
-        {
-            get
-            {
-                if (instance == null)
-                    instance = new ServiceLogWriter();
-                return instance;
-            }
-        }
+        internal static ServiceLogWriter Instance = new ServiceLogWriter();
 
         /// <summary>
         /// Constructor
