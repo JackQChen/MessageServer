@@ -33,18 +33,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormatterExtension.cs" />
-    <Compile Include="CommonRequest.cs" />
-    <Compile Include="CommonSession.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="CommonReceiveFilter.cs" />
+    <Compile Include="ExtraData.cs" />
+    <Compile Include="Process.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

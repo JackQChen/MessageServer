@@ -1,6 +1,4 @@
-﻿using MessageServer.Controls;
-
-namespace MessageServer
+﻿namespace MessageServer
 {
     partial class FrmMain
     {
@@ -32,7 +30,7 @@ namespace MessageServer
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsStart = new System.Windows.Forms.ToolStripButton();
             this.tsStop = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -41,16 +39,16 @@ namespace MessageServer
             this.tsSetting = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsExit = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labState = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.显示主界面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerServerState = new System.Windows.Forms.Timer(this.components);
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.tabServer = new MessageServer.Controls.TabControlEx();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.tabServer = new MessageServer.TabControlEx();
             this.tabMain = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -72,8 +70,8 @@ namespace MessageServer
             this.tabLog = new System.Windows.Forms.TabPage();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.tabPerformance = new System.Windows.Forms.TabPage();
-            this.toolStrip.SuspendLayout();
-            this.statusStrip.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.tabServer.SuspendLayout();
             this.tabMain.SuspendLayout();
@@ -91,10 +89,10 @@ namespace MessageServer
             this.tabLog.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip
+            // toolStrip1
             // 
-            this.toolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsStart,
             this.tsStop,
             this.toolStripSeparator1,
@@ -103,11 +101,11 @@ namespace MessageServer
             this.tsSetting,
             this.toolStripSeparator2,
             this.tsExit});
-            this.toolStrip.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(784, 48);
-            this.toolStrip.TabIndex = 0;
-            this.toolStrip.Text = "toolStrip";
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(792, 48);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // tsStart
             // 
@@ -173,15 +171,15 @@ namespace MessageServer
             this.tsExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsExit.Click += new System.EventHandler(this.tsExit_Click);
             // 
-            // statusStrip
+            // statusStrip1
             // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labState});
-            this.statusStrip.Location = new System.Drawing.Point(0, 540);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(784, 22);
-            this.statusStrip.TabIndex = 1;
-            this.statusStrip.Text = "statusStrip";
+            this.statusStrip1.Location = new System.Drawing.Point(0, 551);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(792, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // labState
             // 
@@ -201,30 +199,30 @@ namespace MessageServer
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showMenuItem,
-            this.splitMenuItem,
-            this.exitMenuItem});
-            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.显示主界面ToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.退出ToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip1";
             this.contextMenuStrip.Size = new System.Drawing.Size(137, 54);
             // 
-            // showMenuItem
+            // 显示主界面ToolStripMenuItem
             // 
-            this.showMenuItem.Name = "showMenuItem";
-            this.showMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.showMenuItem.Text = "显示主界面";
-            this.showMenuItem.Click += new System.EventHandler(this.showMenuItem_Click);
+            this.显示主界面ToolStripMenuItem.Name = "显示主界面ToolStripMenuItem";
+            this.显示主界面ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.显示主界面ToolStripMenuItem.Text = "显示主界面";
+            this.显示主界面ToolStripMenuItem.Click += new System.EventHandler(this.显示主界面ToolStripMenuItem_Click);
             // 
-            // splitMenuItem
+            // toolStripMenuItem1
             // 
-            this.splitMenuItem.Name = "splitMenuItem";
-            this.splitMenuItem.Size = new System.Drawing.Size(133, 6);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(133, 6);
             // 
-            // exitMenuItem
+            // 退出ToolStripMenuItem
             // 
-            this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.exitMenuItem.Text = "退出";
-            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
             // timerServerState
             // 
@@ -232,11 +230,11 @@ namespace MessageServer
             this.timerServerState.Interval = 1000;
             this.timerServerState.Tick += new System.EventHandler(this.timerServerState_Tick);
             // 
-            // imageList
+            // imageList1
             // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "selected.png");
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "selected.png");
             // 
             // tabServer
             // 
@@ -247,7 +245,7 @@ namespace MessageServer
             this.tabServer.Location = new System.Drawing.Point(0, 48);
             this.tabServer.Name = "tabServer";
             this.tabServer.SelectedIndex = 0;
-            this.tabServer.Size = new System.Drawing.Size(784, 492);
+            this.tabServer.Size = new System.Drawing.Size(792, 503);
             this.tabServer.TabIndex = 6;
             this.tabServer.SelectedIndexChanged += new System.EventHandler(this.tabServer_SelectedIndexChanged);
             // 
@@ -257,7 +255,7 @@ namespace MessageServer
             this.tabMain.Location = new System.Drawing.Point(4, 22);
             this.tabMain.Name = "tabMain";
             this.tabMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMain.Size = new System.Drawing.Size(776, 466);
+            this.tabMain.Size = new System.Drawing.Size(784, 477);
             this.tabMain.TabIndex = 0;
             this.tabMain.Text = "服务";
             this.tabMain.UseVisualStyleBackColor = true;
@@ -275,8 +273,8 @@ namespace MessageServer
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(770, 460);
-            this.splitContainer1.SplitterDistance = 280;
+            this.splitContainer1.Size = new System.Drawing.Size(778, 471);
+            this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.TabIndex = 6;
             // 
             // groupBox1
@@ -285,7 +283,7 @@ namespace MessageServer
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(280, 460);
+            this.groupBox1.Size = new System.Drawing.Size(300, 471);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "服务列表";
@@ -304,8 +302,8 @@ namespace MessageServer
             this.lvService.Location = new System.Drawing.Point(3, 17);
             this.lvService.MultiSelect = false;
             this.lvService.Name = "lvService";
-            this.lvService.Size = new System.Drawing.Size(274, 440);
-            this.lvService.SmallImageList = this.imageList;
+            this.lvService.Size = new System.Drawing.Size(294, 451);
+            this.lvService.SmallImageList = this.imageList1;
             this.lvService.TabIndex = 0;
             this.lvService.UseCompatibleStateImageBehavior = false;
             this.lvService.View = System.Windows.Forms.View.Details;
@@ -314,21 +312,22 @@ namespace MessageServer
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "  类型";
+            this.columnHeader1.Text = "  连接类型";
+            this.columnHeader1.Width = 80;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "端口";
-            this.columnHeader2.Width = 50;
+            this.columnHeader2.Width = 45;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "名称";
-            this.columnHeader3.Width = 100;
+            this.columnHeader3.Text = "服务名称";
+            this.columnHeader3.Width = 105;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "状态";
+            this.columnHeader4.Text = "运行状态";
             this.columnHeader4.Width = 64;
             // 
             // splitContainer2
@@ -344,8 +343,8 @@ namespace MessageServer
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.pgService);
-            this.splitContainer2.Size = new System.Drawing.Size(486, 460);
-            this.splitContainer2.SplitterDistance = 264;
+            this.splitContainer2.Size = new System.Drawing.Size(474, 471);
+            this.splitContainer2.SplitterDistance = 255;
             this.splitContainer2.TabIndex = 7;
             // 
             // groupBox2
@@ -355,7 +354,7 @@ namespace MessageServer
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(264, 460);
+            this.groupBox2.Size = new System.Drawing.Size(255, 471);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "客户端列表";
@@ -372,7 +371,7 @@ namespace MessageServer
             this.lvClient.HideSelection = false;
             this.lvClient.Location = new System.Drawing.Point(3, 17);
             this.lvClient.Name = "lvClient";
-            this.lvClient.Size = new System.Drawing.Size(258, 392);
+            this.lvClient.Size = new System.Drawing.Size(249, 403);
             this.lvClient.TabIndex = 3;
             this.lvClient.UseCompatibleStateImageBehavior = false;
             this.lvClient.View = System.Windows.Forms.View.Details;
@@ -380,7 +379,7 @@ namespace MessageServer
             // columnHeader5
             // 
             this.columnHeader5.Text = "ID";
-            this.columnHeader5.Width = 50;
+            this.columnHeader5.Width = 44;
             // 
             // columnHeader6
             // 
@@ -390,22 +389,22 @@ namespace MessageServer
             // columnHeader7
             // 
             this.columnHeader7.Text = "状态";
-            this.columnHeader7.Width = 50;
+            this.columnHeader7.Width = 48;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnServicePanel);
             this.panel1.Controls.Add(this.btnDisconnect);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 409);
+            this.panel1.Location = new System.Drawing.Point(3, 420);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(258, 48);
+            this.panel1.Size = new System.Drawing.Size(249, 48);
             this.panel1.TabIndex = 4;
             // 
             // btnServicePanel
             // 
             this.btnServicePanel.Enabled = false;
-            this.btnServicePanel.Location = new System.Drawing.Point(41, 13);
+            this.btnServicePanel.Location = new System.Drawing.Point(36, 13);
             this.btnServicePanel.Name = "btnServicePanel";
             this.btnServicePanel.Size = new System.Drawing.Size(75, 23);
             this.btnServicePanel.TabIndex = 5;
@@ -415,7 +414,7 @@ namespace MessageServer
             // 
             // btnDisconnect
             // 
-            this.btnDisconnect.Location = new System.Drawing.Point(142, 13);
+            this.btnDisconnect.Location = new System.Drawing.Point(137, 13);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(75, 23);
             this.btnDisconnect.TabIndex = 4;
@@ -429,7 +428,7 @@ namespace MessageServer
             this.pgService.LineColor = System.Drawing.SystemColors.Control;
             this.pgService.Location = new System.Drawing.Point(0, 0);
             this.pgService.Name = "pgService";
-            this.pgService.Size = new System.Drawing.Size(218, 460);
+            this.pgService.Size = new System.Drawing.Size(215, 471);
             this.pgService.TabIndex = 5;
             // 
             // tabLog
@@ -438,7 +437,7 @@ namespace MessageServer
             this.tabLog.Location = new System.Drawing.Point(4, 22);
             this.tabLog.Name = "tabLog";
             this.tabLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLog.Size = new System.Drawing.Size(776, 466);
+            this.tabLog.Size = new System.Drawing.Size(784, 477);
             this.tabLog.TabIndex = 1;
             this.tabLog.Text = "日志";
             this.tabLog.UseVisualStyleBackColor = true;
@@ -450,14 +449,15 @@ namespace MessageServer
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(770, 460);
+            this.txtLog.Size = new System.Drawing.Size(778, 471);
             this.txtLog.TabIndex = 0;
+            this.txtLog.DoubleClick += new System.EventHandler(this.txtLog_DoubleClick);
             // 
             // tabPerformance
             // 
             this.tabPerformance.Location = new System.Drawing.Point(4, 22);
             this.tabPerformance.Name = "tabPerformance";
-            this.tabPerformance.Size = new System.Drawing.Size(776, 466);
+            this.tabPerformance.Size = new System.Drawing.Size(784, 477);
             this.tabPerformance.TabIndex = 2;
             this.tabPerformance.Text = "性能";
             this.tabPerformance.UseVisualStyleBackColor = true;
@@ -466,10 +466,10 @@ namespace MessageServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(792, 573);
             this.Controls.Add(this.tabServer);
-            this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.toolStrip);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "FrmMain";
@@ -477,10 +477,10 @@ namespace MessageServer
             this.Text = "消息服务器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Shown += new System.EventHandler(this.FrmMain_Shown);
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);
             this.tabServer.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
@@ -504,14 +504,14 @@ namespace MessageServer
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsStart;
         private System.Windows.Forms.ToolStripButton tsStop;
         private System.Windows.Forms.ToolStripButton tsSetting;
         private System.Windows.Forms.ToolStripButton tsAddProtocol;
         private System.Windows.Forms.ToolStripButton tsRemoveProtocol;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel labState;
         private System.Windows.Forms.ListView lvClient;
         private System.Windows.Forms.ColumnHeader columnHeader5;
@@ -524,7 +524,7 @@ namespace MessageServer
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.PropertyGrid pgService;
         private System.Windows.Forms.GroupBox groupBox2;
-        private MessageServer.Controls.TabControlEx tabServer;
+        private TabControlEx tabServer;
         private System.Windows.Forms.TabPage tabMain;
         private System.Windows.Forms.TabPage tabLog;
         private System.Windows.Forms.TabPage tabPerformance;
@@ -538,12 +538,12 @@ namespace MessageServer
         private System.Windows.Forms.ToolStripButton tsExit;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showMenuItem;
-        private System.Windows.Forms.ToolStripSeparator splitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 显示主界面ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.Timer timerServerState;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 
